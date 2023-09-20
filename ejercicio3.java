@@ -19,7 +19,7 @@ public class ejercicio3 {
         }
 
         System.out.println(suma);
-        System.out.println("El programa funciona");
+      
     }
 
 }
