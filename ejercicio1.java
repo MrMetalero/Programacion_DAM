@@ -18,9 +18,9 @@ System.out.println("introduce un segundo número");
     numero2= sc.nextInt();
 
     if (numero1 > numero2) {
-        System.out.println (numero1);
+        System.out.println ("El múmero mayor es: "+ numero1);
 
-    } else {System.out.println(numero2);}
+    } else {System.out.println("El múmero mayor es: "+ numero2);}
 
 
 
