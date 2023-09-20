@@ -1,4 +1,4 @@
-import java.util.Scanner; //IMPORTATE EN CADA SCRIPT ME DA IGUAL
+import java.util.*;
 
 
 public class ejercicio3 {
@@ -7,18 +7,19 @@ public class ejercicio3 {
 
         Scanner sc = new Scanner(System.in);
 
-        int suma = 10;
-        int numeroint1;
+        int sumar = 0;
+        int num1;
 
           
 
         for (int i = 1;i <= 10;i++) {
-            System.out.println("Introduce un número: ");
-            numeroint1 = sc.nextInt();
-            suma = numeroint1 + suma;
+            System.out.println("Introduce un número a sumar: ");
+            num1 = sc.nextInt();
+            sumar = num1 + sumar;
         }
 
-        System.out.println(suma);
+
+        System.out.println("El resultado de la suma de los números introducidos es: "+ sumar);
       
     }
 

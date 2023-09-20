@@ -9,7 +9,7 @@ int numero1;
 int numero2;
 
 
-Scanner sc= new Scanner(System.in);
+Scanner sc = new Scanner(System.in);
 
 System.out.println("introduce un número");
     numero1= sc.nextInt();
