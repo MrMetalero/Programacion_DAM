@@ -49,6 +49,7 @@ public class ejercicio13 {
         num1 = sc.nextDouble();
 
 
+        
         if(num1 != 0 && num1 > 1){ 
             F_Primos(num1);
     
