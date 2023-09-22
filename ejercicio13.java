@@ -11,23 +11,19 @@ public class ejercicio13 {
     static double F_Primos(double numX){
         double numY = 1;
         int contador = 2;
-        double resultado;
         System.out.println("Dentro de la función");
         System.out.println("numX o i será ahora" + numX);
+        double resto;
+        boolean esprimo = true;
 
-        for(double i = numX; i == numY; i--){
-            System.out.println("Primer for1 funcion");
+    if(numX < 2){
+        System.out.println("El número o es primo");
+    }else if(numX > 4){
+            
+            do resto = numX % 1; while( esprimo && contador < numX);
+            if(esprimo){System.out.println("El número es primo");}
 
-            for(int y = contador ; y == i; y++){
-                System.out.println("Segundo for2 función");
-                if(y %  i == 0){
-                    System.out.println("Entrando al if dentro de segundo for2");
-                System.out.println("El número " + i + " es primo" );   
-                } else System.out.println("El número " + i + " No es primo" ); 
-
-            }
         }
-
 
         return 0;
     }
