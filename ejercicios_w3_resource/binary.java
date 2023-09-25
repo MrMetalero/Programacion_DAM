@@ -88,34 +88,11 @@ public class binary {
             System.out.println(sumando_actual_2);
 
 
-            //    111110
-            // +  110101
-            //  ----------
-            //       011  if sumando_actual_1 == 1 && sumando_actual_2 == 1 --->llevando = 1 , resultado_actual = 0
-            //              else if sumando_actual_1 == 1 && sumando_actual_2 == 0 --> resultado_actual = 1
-            //              else if sumando_actual_1 == 0 && sumando_actual_2 == 1 --> resultado = 1
-            //              else if sumando_actual_1 == 0 && sumando_actual_2 == 0 --> resultado = 0
-            //
-            //                (si llevando == 1 && sumando_actual_1 == 1)
-            //      1-------> resultado_actual = llevando + sumando_actual_1 = (0);  
-            //   11 1 110     si resultado_actual == 0
-            // + 11 1 101    if resultado_actual == 1 && sumando_actual_2 == 1 --->llevando = 1 , resultado_actual = 0
-            //              else if resultado_actual == 1 && sumando_actual_2 == 0 --> resultado_actual = 1
-            //              else if resultado_actual == 0 && sumando_actual_2 == 1 --> resultado = 1
-            //              else if resultado_actual == 0 && sumando_actual_2 == 0 --> resultado = 0
-            //  ----------
-            //
-            //        011
-            //
-            //
-            //
-            //
-            //
-            //
-            //
 
             if (sumando_actual_1 == 0 && sumando_actual_2 == 0 && llevando == 0){
                 resultado_actual = 0;
+
+                           
 
                 char a = '0';
                 suma_total = a + suma_total;
@@ -137,21 +114,49 @@ public class binary {
 
                             char a = '0';
                             suma_total = a + suma_total;
+
+
+
+                            
                 
-                        }else if (sumando_actual_1 == 1 && sumando_actual_2 == 0 && llevando == 0) {
-                
-                            }else if (sumando_actual_1 == 0 && sumando_actual_2 == 0 && llevando == 1) {
-                
+                        }else if (sumando_actual_1 == 0 && sumando_actual_2 == 0 && llevando == 1) {
+                                resultado_actual = 1;
+
+                                char a = '1';
+                                suma_total = a + suma_total;
+                                llevando = 0;
+
+
+                            }else if (sumando_actual_1 == 0 && sumando_actual_2 == 1 && llevando == 1) {
+                                resultado_actual = 0;
+                                char a = '0';
+                                suma_total = a + suma_total;
+                                llevando = 1;
+
+                                
+                                }else if (sumando_actual_1 == 1 && sumando_actual_2 == 0 && llevando == 1) {
+                                    resultado_actual = 0;
+                                    char a = '0';
+                                    suma_total = a + suma_total;
+                                    llevando = 1;
+
+                                
+                                }else if (sumando_actual_1 == 1 && sumando_actual_2 == 1 && llevando == 1) {
+                                    resultado_actual = 1;
+                                    char a = '1';
+                                    suma_total = a + suma_total;
+                                    llevando = 1;
+                                
                                 }
 
 
         }
         while (numero_recibido_dividido_1 > 0 && numero_recibido_dividido_2 > 0 );
 
+        System.out.println(suma_total);
 
 
-
-        return "Realizado";
+        return suma_total;
     }
 
 
@@ -181,7 +186,17 @@ input2_comprobado = F_Comprobacion(input2);
         System.out.println("Alguno de los inputs no es válido, por favor introduce solo binario");
 
 
+    }else{
+        
+        F_SumaBinario(input1_comprobado, input2_comprobado);
+
+
+
+
+
     }
+
+
 
 }
 
