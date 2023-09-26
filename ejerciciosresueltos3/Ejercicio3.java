@@ -1,4 +1,4 @@
-package ejerciciosresueltos;
+package ejerciciosresueltos3;
 import java.util.Scanner;
 
 public class Ejercicio3 {
@@ -19,8 +19,8 @@ public class Ejercicio3 {
         a = sc.nextInt();
         b = sc.nextInt();
 
-        System.out.println("Variable 'a' introducida inicial: "+ a);
-        System.out.println("Variable 'b' introducida inicial: "+ b);
+        System.out.println("Variable 'a' introducida inicial:"+ a);
+        System.out.println("Variable 'b' introducida inicial:"+ a);
         variableTraspaso = a;
         a = b;
         b = variableTraspaso;

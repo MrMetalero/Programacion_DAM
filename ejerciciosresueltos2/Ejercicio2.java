@@ -1,4 +1,4 @@
-package ejerciciosresueltos;
+package ejerciciosresueltos2;
 
 public class Ejercicio2 {
 
@@ -36,7 +36,7 @@ byte d = 0b01111111;
 byte e = 127;
 // Es False porque no puedo convertir un valor int como 200
 // a un valor byte, que la forma que he encontrado de expresarlo es
-// usando el prefijo 0b y valores en binario y escribirlo en decimal hasta 127.
+// usando el prefijo 0b y valores en binario y escribirlo en decimal hasta 127
 // Además he puesto varias pruebas para comprobar que efectivamente
 // no se puede poner más de 127 (d) en este tipo de variable,
 // puesto que si nos pasamos a 128 da error y nos dice que es un int
