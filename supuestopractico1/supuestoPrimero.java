@@ -47,7 +47,7 @@ public static final String CONSTANTE_AMPLIACION_2 = "Hola soy una cadena";
 
         00010000
         00001000
-        ==========
+        =========
         00000000
 
 
