@@ -16,7 +16,7 @@ Integer variableWrapper1 = CONS_SUPUESTO_1;
 
 Integer variableWrapper2 = variableWrapper1;
 
-System.out.println(variableWrapper1 + " " + variableWrapper2 + " " + CONS_SUPUESTO_2);
+System.out.println("Supuestos Prácticos del 1 al 5: \n"+variableWrapper1 + " " + variableWrapper2 + " " + CONS_SUPUESTO_2);
 
 
 // Actividad de ampliación 1
@@ -45,20 +45,15 @@ System.out.println("Actividad ampliación 4: "+ a);
 
 
 //Actividad ampliación 5
-/* 
- *  $hora no se puede utilizar porque está reservado
- *  1LoveYou  no se puede usar porque empieza por un número
- *  
- * 
- * 
- * 
- * 
-*/
-
 
 int calcula_fecha;
-
-
+int $hora;
+//int 1Loveyou; Los nombres de variables no pueden comenzar por números
+int Calcula_fecha;
+//int calcula Fecha;  Syntaxis no válida porque están separadas las palabras
+int calculaFecha;
+int IVA;
+//int iva%;  El símbolo % está reservado y no se puede usar en nombres de variables
 
 
 
