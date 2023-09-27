@@ -8,7 +8,7 @@ public class EjercicioSecuencial4 {
         Scanner sc = new Scanner(System.in);
         gradosCelsius = sc.nextInt();
         System.out.println("El resultado en farenheit es: " 
-                             +(32 + ( 9 * gradosCelsius /5)) 
+                             +(32 + ( (9 * gradosCelsius) /5)) 
         );
 
 
