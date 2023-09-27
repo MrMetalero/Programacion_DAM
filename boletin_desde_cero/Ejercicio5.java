@@ -5,9 +5,9 @@ public class Ejercicio5 {
 
 
     public static  int funcionEsPar(){
-        int Aa = 7;
+        int A = 7;
         
-        System.out.println((Aa % 2) == 0 ? "El número es par":"El número es impar");
+        System.out.println((A % 2) == 0 ? "El número es par":"El número es impar");
 
 
 
