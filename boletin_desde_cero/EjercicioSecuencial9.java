@@ -16,10 +16,6 @@ public class EjercicioSecuencial9 {
         System.out.println("El área del triángulo es: " + ((base * altura)/2));
 
 
-
-
-
-
     }
 
 
