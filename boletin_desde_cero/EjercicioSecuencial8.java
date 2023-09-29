@@ -1,7 +1,7 @@
 package boletin_desde_cero;
 import java.util.Scanner;
 
-public class Ejercicio8 {
+public class EjercicioSecuencial8 {
     
     public static void main(String[] args) {
         
