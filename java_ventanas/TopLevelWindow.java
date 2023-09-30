@@ -20,7 +20,7 @@ public class TopLevelWindow{
         textLabel.setPreferredSize(new Dimension(300,100));
 
         Panel panel1 = new Panel(); 
-        panel1.setMinimumSize(new Dimension(500,500));
+        panel1.setMinimumSize(new Dimension(700,700));
 
 
         frame.getContentPane().add(textLabel,BorderLayout.CENTER);
@@ -33,7 +33,7 @@ public class TopLevelWindow{
         frame.setLocation(20, 29);
         
         
-
+        
 
 
 

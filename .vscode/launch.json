@@ -1,0 +1,287 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio1",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio1",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio2",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio3",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio3",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio4",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio4",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio5",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio5",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio6",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio6",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio7",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.Ejercicio7",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial1",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial1",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial10",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial10",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial2",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial2",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial3",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial3",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial4",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial4",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial5",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial5",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial6",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial6",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial7",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial7",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial8",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial8",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioSecuencial9",
+            "request": "launch",
+            "mainClass": "boletin_desde_cero.EjercicioSecuencial9",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio1",
+            "request": "launch",
+            "mainClass": "ejercicio1",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio10",
+            "request": "launch",
+            "mainClass": "ejercicio10",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio11",
+            "request": "launch",
+            "mainClass": "ejercicio11",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio12",
+            "request": "launch",
+            "mainClass": "ejercicio12",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio13",
+            "request": "launch",
+            "mainClass": "ejercicio13",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio2",
+            "request": "launch",
+            "mainClass": "ejercicio2",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio3",
+            "request": "launch",
+            "mainClass": "ejercicio3",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio4",
+            "request": "launch",
+            "mainClass": "ejercicio4",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio5",
+            "request": "launch",
+            "mainClass": "ejercicio5",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio6",
+            "request": "launch",
+            "mainClass": "ejercicio6",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio7",
+            "request": "launch",
+            "mainClass": "ejercicio7",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio8",
+            "request": "launch",
+            "mainClass": "ejercicio8",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "ejercicio9",
+            "request": "launch",
+            "mainClass": "ejercicio9",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "average",
+            "request": "launch",
+            "mainClass": "ejercicios_w3_resource.average",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "binary",
+            "request": "launch",
+            "mainClass": "ejercicios_w3_resource.binary",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2(1)",
+            "request": "launch",
+            "mainClass": "ejerciciosresueltos.Ejercicio2",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio3(1)",
+            "request": "launch",
+            "mainClass": "ejerciciosresueltos.Ejercicio3",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio5(1)",
+            "request": "launch",
+            "mainClass": "ejerciciosresueltos.Ejercicio5",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Joven",
+            "request": "launch",
+            "mainClass": "ejerciciosresueltos.Joven",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "ejerciciosresueltos.Test",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "TopLevelWindow",
+            "request": "launch",
+            "mainClass": "java_ventanas.TopLevelWindow",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "SupuestoPrimero",
+            "request": "launch",
+            "mainClass": "supuestopractico1.SupuestoPrimero",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        }
+    ]
+}
