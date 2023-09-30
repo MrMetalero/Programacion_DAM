@@ -15,7 +15,7 @@ public class EjercicioSecuencial10 {
         //calcular la longitud del número multiplicando 1 por 10 
         //hasta que sea mayor que el número dado
         while(numLongitudControl < numeroRecibido){
-            numLongitudControl = numLongitudControl *10;
+            numLongitudControl = numLongitudControl * 10;
             ++numLongitud;
     
         }
@@ -31,8 +31,8 @@ public class EjercicioSecuencial10 {
 
         //Para testing del array y su longitud
         int longitudArrayMostrar = arrayValores.length;
-        System.out.println("Longitud del array " + longitudArrayMostrar);
-        
+        //Testing-------  System.out.println("Longitud del array " + longitudArrayMostrar);
+        System.out.println("EL NÚMERO ESTÁ COMPUESTO DE LAS SIGUIENTES CIFRAS");
 
         // LOOP Para pasar entre los diferentes dígitos. Mientras el número a 
         // dividir entre 10 no sea 0 ,lo sigue dividiendo (como es un int, se truncan los decimales)
@@ -43,13 +43,13 @@ public class EjercicioSecuencial10 {
             //metiéndiolos al seguir el loop en posiciones del array diferentes
             int cifraguardada = numeroRecibido%10;
            
-            System.out.println("Cifra guardada actual "+ cifraguardada);
+            //Testing------ System.out.println("Cifra guardada actual "+ cifraguardada);
 
     
                 arrayValores[longitudArrayMostrar-1] = cifraguardada;
             
 
-                System.out.println("Valor de arrayValores[i]: "+ arrayValores[longitudArrayMostrar-1]);
+                //Testing------ System.out.println("Valor de arrayValores[i]: "+ arrayValores[longitudArrayMostrar-1]);
 
                 // Vamos reduciendo la variable que hemos usado para introducir 
                 // valores en el índice del array justo arriba en 1 para que vaya
@@ -74,7 +74,7 @@ public class EjercicioSecuencial10 {
 
         // Recibir los valores del array
        for(int i = 0 ; i <= numLongitud-1 ; i++){
-        System.out.print(arrayValores[i]);
+        System.out.print("   "+arrayValores[i]);
 
        
        }
@@ -83,6 +83,8 @@ public class EjercicioSecuencial10 {
         return 0;
        
     }
+
+
 
 
 
