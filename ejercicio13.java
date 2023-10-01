@@ -19,7 +19,9 @@ public class ejercicio13 {
         System.out.println("---El número  no es primo---");
     }else if(numX >= 4){ //comprueba cualquier número a partir de 4 
             
-            do {resto = numX % contador; System.out.println("comprobando... "+ numX + " dividido entre " + contador); contador++;System.out.println("El divisor es ahora...: " + contador);}
+            do {resto = numX % contador; System.out.println("comprobando... "+ numX + " dividido entre " + contador); 
+            contador++;System.out.println("El divisor es ahora...: " + contador);}
+            
             while( esprimo && contador < numX && resto != 0 ); //asigna a resto el modulo de X entre
            
             /*  Si sale del loop  porque su resto es 0 en cualquiera de los pasos, no es primo 
