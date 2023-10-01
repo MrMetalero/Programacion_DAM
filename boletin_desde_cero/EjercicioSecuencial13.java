@@ -25,16 +25,7 @@ public class EjercicioSecuencial13 {
         return sumaCifras;
     }
 
-    public static String StringvalueOf(int numeroConvertir){
-
-        String numeroconvertido;
-
-
-
-
-        
-
-    }
+ 
 
 
 
@@ -46,8 +37,8 @@ public class EjercicioSecuencial13 {
         System.out.println("Por favor introduce el (día) de nacimiento");
         inputDia = sc.nextInt();
 
-        String diaString = StringvalueOf(inputDia);
-        while (inputDia > 31 || inputDia <= 0 || diaString.matches(["A-Za-z"])){ 
+      
+        while (inputDia > 31 || inputDia <= 0 ){ 
             
             System.out.println("Día no válido por favor introduce otro ");
             inputDia = sc.nextInt();
