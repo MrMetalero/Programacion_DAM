@@ -1,6 +1,6 @@
-package supuestopractico1;
+package supuestopractico_pag94;
 
-public class SupuestoPrimero {
+public class Supuestos {
  
 public static final int CONSTANTE_AMPLIACION_1 = 1;
 public static final String CONSTANTE_AMPLIACION_2 = "Hola soy una cadena";
