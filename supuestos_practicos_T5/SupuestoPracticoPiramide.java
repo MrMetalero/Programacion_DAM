@@ -13,7 +13,6 @@ public class SupuestoPracticoPiramide {
         int cantidadEspaciosFilaSiguiente = 0;
         int numeroNs = 3; //la relación es que a cada fila tiene dos Ns más, la segunda fila empieza con 3 Ns
         String piramide = "";
-        StringBuilder piramidestr = new StringBuilder();
 
 
 
@@ -100,7 +99,7 @@ public class SupuestoPracticoPiramide {
         Scanner sc = new Scanner(System.in);
         int N = 1;
         System.out.println("Introduce la cantidad de filas");
-        N = sc.nextInt();
+        N = Integer.parseInt(args[0]);
         System.out.println(funcionPiramide(N));
         
 
