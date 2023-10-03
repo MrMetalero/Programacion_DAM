@@ -49,7 +49,7 @@ public static String algoritmoBisiesto (int year1){
 
     int year1;
     System.out.println("Introduce el año para determinar si es bisiesto"); 
-     year1 = sc.nextInt();
+     year1 = Integer.parseInt(args[0]);
 
      System.out.println(algoritmoBisiesto(year1));
      

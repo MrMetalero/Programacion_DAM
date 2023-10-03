@@ -12,14 +12,14 @@ public class SupuestoPracticoDatosPersonales {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce tu primer apellido");
-        apellido1 = sc.nextLine();
+        apellido1 = (args[0]);
         System.out.println("Introduce tu segundo apellido");
-        apellido2 = sc.nextLine();
+        apellido2 = (args[1]);
         System.out.println("Introduce tu nombre");
-        nombre = sc.nextLine();
+        nombre = (args[2]);
 
 
-        System.out.println(nombre + apellido1 + apellido2);
+        System.out.println(nombre +" "+ apellido1  +" " + apellido2);
 
     }
 

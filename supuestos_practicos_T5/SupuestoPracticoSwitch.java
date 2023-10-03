@@ -7,7 +7,7 @@ public class SupuestoPracticoSwitch {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el número correspondiente a un mes: ");
-        int meses = sc.nextInt();
+        int meses = Integer.parseInt(args[0]);
        
        
        

@@ -14,9 +14,9 @@ public class SupuestoPracticoCalculadora {
         
         while (encendido == 1){
             System.out.println("Número 1: ");
-            int num1 = sc.nextInt();
+            int num1 = Integer.parseInt(args[0]);
             System.out.println("Número 2: ");
-            int num2 = sc.nextInt();
+            int num2 = Integer.parseInt(args[1]);
 
             System.out.println("Introduce:... "
                                 + "\n1 para sumar"

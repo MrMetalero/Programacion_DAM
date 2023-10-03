@@ -99,6 +99,7 @@ public class SupuestoPracticoPiramide {
         Scanner sc = new Scanner(System.in);
         int N = 1;
         System.out.println("Introduce la cantidad de filas");
+        //La variable que define las filas pasada por argumentos
         N = Integer.parseInt(args[0]);
         System.out.println(funcionPiramide(N));
         

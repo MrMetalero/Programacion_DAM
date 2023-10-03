@@ -8,7 +8,10 @@ public class ActividadPropuesta5_1 {
  * 
  * 
  * Se puede hacer con un "  echo "Hola mundo"  "
- * En NetBeans sería...
+ * Se puede usar java -jar "archivo que contiene programa para printear 
+ * hola mundo."
+ * En NetBeans se puede hacer en una sola linea estableciendo los argumentos en la
+ * pestaña correspondiente.
  */
 
     public static void main(String[] args) {
@@ -17,6 +20,12 @@ public class ActividadPropuesta5_1 {
         // Por lo tanto yo diría que si se puede hacer en ambos
         // Tanto la consola como NetBeans
         System.out.println("Hola mundo");
+
+
+
+
+       
+
 
     }
 
