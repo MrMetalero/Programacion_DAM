@@ -16,7 +16,7 @@ public class SupuestoPracticoPiramide {
 
 
 
-                //1//   "     N"      1        // PuntaEspacios = de ÚltimaColumna.Longitud /2
+        //1//   "     N"      1        // PuntaEspacios = de ÚltimaColumna.Longitud /2
         //2//   "    NNN"     3  1d    // SiguienteFilaEspacios =  puntaEspacios - 1
         //3//   "   NNNNN"    5  2d    // (Cantidad N) stringN = "N" +stringN + "N"
         //4//   "  NNNNNNN"   7  3d              Xd --> resto división
