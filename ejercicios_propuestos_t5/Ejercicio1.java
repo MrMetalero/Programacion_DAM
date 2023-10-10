@@ -1,19 +1,11 @@
 package ejercicios_propuestos_t5;
 
 public class Ejercicio1 {
-    static int a = 3, b = 2, c = 7;
+    
 
-    public static int funcionCompararMayor(int comparardo1, int comparado2){
-
-
-
-
-
-        return 0;
-    }
-
+ 
     public static void main(String[] args) {
-        
+        int a = 3, b = 2, c = 7;
         
         //COMPROBAR EL MAYOR
         if ( a > b && a > c) {
