@@ -23,7 +23,7 @@ public class Ejercicio5 {
                 0001 0000 0000    = 0x100 en hexa
                                   = 256 en decimal
 
-   " >>>= 1 " desplazamos el 1 que esté más a la izquierda dos 
+   " >>>= 1 " desplazamos el 1 que esté más a la izquierda X
     puestos de izquierda a derecha ignorando
     los 1 de la derecha y dejándolos en 0  
       
