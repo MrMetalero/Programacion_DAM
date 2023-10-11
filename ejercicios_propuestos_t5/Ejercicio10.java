@@ -12,6 +12,7 @@ public class Ejercicio10 {
                 System.out.println("El número "+ i + " no es múltiplo de 5");
             }
 
+            
         }
 
 
