@@ -49,10 +49,10 @@ public class Ejercicio6 {
 
      
 
-            for (int i = numInput2; i < numInput1; i++) {
-                if(F_Primos(i) == 1) {System.out.println("El número "+ i +" es primo");}
+        for (int i = numInput2; i < numInput1; i++) {
+            if(F_Primos(i) == 1) {System.out.println("El número "+ i +" es primo");}
 
-            }
+        }
 
        
 
