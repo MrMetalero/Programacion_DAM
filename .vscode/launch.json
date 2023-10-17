@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejercicio3",
+            "request": "launch",
+            "mainClass": "ejercicios_adicionales_t5.Ejercicio3",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio4",
+            "request": "launch",
+            "mainClass": "ejercicios_adicionales_t5.Ejercicio4",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioAdicional4",
+            "request": "launch",
+            "mainClass": "ejercicios_adicionales_t5.EjercicioAdicional4",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Proyecto_ejercicios_adicionales_t5.demo.src.main.java.com.example.Main",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2",
+            "request": "launch",
+            "mainClass": "ejercicios_adicionales_t5.Ejercicio2",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio2",
             "request": "launch",
             "mainClass": "ejercicios_propuestos_t5.Ejercicio2",

@@ -1,3 +1,4 @@
+package ejercicios_iniciales;
 import java.util.*;
 
 public class ejercicio1 {

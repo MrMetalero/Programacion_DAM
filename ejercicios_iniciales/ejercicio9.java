@@ -1,3 +1,4 @@
+package ejercicios_iniciales;
 import java.text.Collator;
 import java.util.*;
 

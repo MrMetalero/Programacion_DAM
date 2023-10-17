@@ -1,14 +1,11 @@
+package ejercicios_iniciales;
 import java.util.*;
 
 
 
 
-public class ejercicio12 {
-
-//lo mismo que ejercicio 11 porque no
-//distinguimos entre procedimiento y función dado que
-//función es un procedimiento que retorna un valor.    
-
+public class ejercicio11 {
+    
 static double Factorial_N(double numX ,double numY){
 numY = 1;
 double resultado = 1;

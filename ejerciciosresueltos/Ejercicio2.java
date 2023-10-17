@@ -29,11 +29,11 @@ public static void main(String[]args){
 */ 
 
 // Ejercicio 4 explicación
-byte a = 0b010101;
-byte b = 200;
-byte c = 0b10000000;
-byte d = 0b01111111;
-byte e = 127;
+// byte a = 0b010101;
+// byte b = 200;
+// byte c = 0b10000000;
+// byte d = 0b01111111;
+// byte e = 127;
 // Es False porque no puedo convertir un valor int como 200
 // a un valor byte, que la forma que he encontrado de expresarlo es
 // usando el prefijo 0b y valores en binario y escribirlo en decimal hasta 127
