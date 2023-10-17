@@ -42,34 +42,19 @@ public class Ejercicio5 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce el primer número");
-        int numInput1 = sc.nextInt();
+        int numInput1 = 100;
 
         System.out.println("Introduce el segundo número");
-        int numInput2 = sc.nextInt();
+        int numInput2 = 1;
 
-        if(numInput1 > numInput2){
+     
 
             for (int i = numInput2; i < numInput1; i++) {
                 if(F_Primos(i) == 1) {System.out.println("El número "+ i +" es primo");}
 
             }
 
-
-        }
-        else{
-
-            for (int i = numInput1; i < numInput2; i++) {
-               if(F_Primos(i) == 1) {System.out.println("El número "+ i +" es primo");}   
-           
-            }
-
-
-        }
-
-
        
-
-
 
     }
 }
