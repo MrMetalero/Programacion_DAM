@@ -21,6 +21,7 @@ public class Ejercicio5 {
 
 
         }
+        
         else{
             for (int i = 0; i < 10; i++) {
             int numRandomizado = (int)((Math.random() *numinput2)+numinput1);
