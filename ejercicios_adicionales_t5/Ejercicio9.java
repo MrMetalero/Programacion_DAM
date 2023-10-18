@@ -20,7 +20,7 @@ public class Ejercicio9 {
             
             for (int i = 0; i < controlDeLineas; i++) {
             	System.out.print(x);
-                if(x >1){System.out.print(" ");}
+                if(x >1){System.out.print(" ");} //Para añadir un espacio a los números y no verlos apelotonados, solo después de imprimir el primero
                                      //Printea el número una vez en la primera fila
                                     //Luego al salir del loop le añadimos 1 bien para la siguiente fila
                                     //O bien para el siguiente print
