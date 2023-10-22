@@ -1,6 +1,6 @@
 package ejercicios_adicionales_t5;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
+
 
 public class Ejercicio13 {
 
@@ -12,7 +12,7 @@ public class Ejercicio13 {
         Integer numMinutos = 0;
         Integer numSegundos = 0;
         int cronoEncendido;
-        String formatoHora = "";
+       
 
 
 
