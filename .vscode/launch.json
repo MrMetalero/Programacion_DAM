@@ -9,6 +9,13 @@
             "name": "Ejercicio13",
             "request": "launch",
             "mainClass": "ejercicios_adicionales_t5.Ejercicio13",
+            "projectName": "Programacion_DAM_f0b5aa51"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio13",
+            "request": "launch",
+            "mainClass": "ejercicios_adicionales_t5.Ejercicio13",
             "projectName": "Programacion_DAM_e01179bb"
         },
         {
