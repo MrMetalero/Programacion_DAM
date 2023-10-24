@@ -21,10 +21,11 @@ public class Ejercicio1 {
 
         //Caso base: "1*1 = 1"
 
-        /*
-        *  1*2 = funcionRecursivaFactor(numRecibido) * funcionRecursivaFactor(numRecibido) *
-        *  2*3 = (funcionRecursivaFactor(numRecibido)*2) * funcionRecursivaFactor(numRecibido)*2
-        * 
+        /* 
+        *  Recordar que al realizar estas operaciones, se va simplificando el problema con cada llamada
+        *  Pero no se va resolviendo poco a poco, es más bien como si fuese enlazando preguntas
+        *  Hasta llegar a la pregunta más sencilla que es mi caso base y luego se van resolviendo
+        *  Todas las demás  partir de ese momento en cascada "hacia arriba" (El caso dado)
         */
 
         if(numRecibido == 1){
@@ -34,9 +35,7 @@ public class Ejercicio1 {
         {
             return funcionRecursivaFactor(numRecibido-1)*numRecibido;
         }
-                                    //4      *      5
-                                    // 
-        
+                                  
 
     }
 
