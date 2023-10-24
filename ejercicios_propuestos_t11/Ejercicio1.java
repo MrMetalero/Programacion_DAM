@@ -19,11 +19,24 @@ public class Ejercicio1 {
 
     public static int funcionRecursivaFactor(int numRecibido){
 
+        //Caso base: "1*1 = 1"
 
+        /*
+        *  1*2 = funcionRecursivaFactor(numRecibido) * funcionRecursivaFactor(numRecibido) *
+        *  2*3 = (funcionRecursivaFactor(numRecibido)*2) * funcionRecursivaFactor(numRecibido)*2
+        * 
+        */
 
-
-
-    return 0;
+        if(numRecibido == 1){
+           return numRecibido;
+        }
+        else
+        {
+            return funcionRecursivaFactor(numRecibido-1)*numRecibido;
+        }
+                                    //4      *      5
+                                    // 
+        
 
     }
 
@@ -35,11 +48,11 @@ public class Ejercicio1 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce un valor para calcular factorial");
-        int numInputIterativo = sc.nextInt();
+        int numInputFactorial = sc.nextInt();
         
         
-        System.out.println(funcionIterativaFactor(numInputIterativo)); 
+        System.out.println(funcionIterativaFactor(numInputFactorial)); 
 
-
+        System.out.println(funcionRecursivaFactor(numInputFactorial));
     }
 }
