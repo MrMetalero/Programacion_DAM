@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejercicio5",
+            "request": "launch",
+            "mainClass": "ejercicios_propuestos_t11.Ejercicio5",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio4",
             "request": "launch",
             "mainClass": "ejercicios_propuestos_t11.Ejercicio4",
