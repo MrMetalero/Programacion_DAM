@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejercicio3",
+            "request": "launch",
+            "mainClass": "ejercicios_pag213y214.Ejercicio3",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2",
+            "request": "launch",
+            "mainClass": "ejercicios_pag213y214.Ejercicio2",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio1",
+            "request": "launch",
+            "mainClass": "ejercicios_pag213y214.Ejercicio1",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio11_2",
+            "request": "launch",
+            "mainClass": "ejercicios_pag209.Ejercicio11_2",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio6",
             "request": "launch",
             "mainClass": "ejercicios_propuestos_t11.Ejercicio6",
