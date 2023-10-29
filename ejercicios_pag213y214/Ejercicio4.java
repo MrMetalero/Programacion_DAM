@@ -1,8 +1,7 @@
-package ejercicios_propuestos_t11;
-
+package ejercicios_pag213y214;
 import java.util.Scanner;
 
-public class Ejercicio2 {
+public class Ejercicio4 {
 
     public static int funcionFibonacciIterativo(int inputNumber) {
         int numSucessionAnterior2 = 0;
@@ -77,3 +76,4 @@ public class Ejercicio2 {
 
     }
 }
+
