@@ -32,7 +32,7 @@ public class Ejercicio6 {
     public static void main(String[] args) {
         
         
-        int arraynum[] = {0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 };
+        int[] arraynum = new int[15];
 
         for (int i = 0; i < 15; i++) {
             arraynum[i] = (int) (Math.random()*9);
