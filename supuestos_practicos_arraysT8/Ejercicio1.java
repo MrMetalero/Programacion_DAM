@@ -1,5 +1,4 @@
 package supuestos_practicos_arraysT8;
-import java.math.*;
 import java.util.Scanner;
 
 public class Ejercicio1 {
