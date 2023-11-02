@@ -5,17 +5,16 @@ public class Ejercicio2 {
     
     public static String funcionComprobarString(String[] stringInput, String numeroDNI){
         String resultado = "";
-        System.out.println(numeroDNI.length());
         String numeroArrayEntero = "";
         int restoDivision = 0;
 
         
 
         
-        if(numeroDNI.length() != 10){
+        if(numeroDNI.length() != 9){
             resultado += " |DNI no válido por longitud";
         }
-        else if(String.valueOf(numeroDNI.charAt(numeroDNI.length()))  != "[TRWAGMYFPDXBNJZSQVHLCKE]" ){
+        else if(String.valueOf(numeroDNI.charAt(numeroDNI.length()-1)).matches("[^TRWAGMYFPDXBNJZSQVHLCKEa-z]") ){ //comprueba que la letra sea posible
 
             resultado += " |DNI No Valido por letra no existe";
         }
@@ -68,7 +67,7 @@ public class Ejercicio2 {
         String dniValidar;
 
 
-        System.out.println("Introduce un DNI para validar: ");
+        System.out.println("Introduce un DNI para validar con la LETRA MAYÚSCULA: ");
         dniValidar = sc.nextLine();
         
         System.out.println(funcionComprobarString(arrayLetras, dniValidar));
