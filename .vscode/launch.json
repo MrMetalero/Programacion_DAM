@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjercicioMigueExamen",
+            "request": "launch",
+            "mainClass": "ejercicios_iniciales.EjercicioMigueExamen",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio1",
             "request": "launch",
             "mainClass": "supuestos_practicos_arraysT8.Ejercicio1",
