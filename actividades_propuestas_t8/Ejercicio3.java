@@ -28,7 +28,7 @@ public class Ejercicio3 {
         //solo para listar el Array con los indices
         for (int i = 0; i < alumnosArray.length; i++) {
 
-            System.out.println("["+ i+"] " + alumnosArray[i] );
+            System.out.println("["+ i +"] " + alumnosArray[i] );
             
            
         }
