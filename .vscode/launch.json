@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejercicio3",
+            "request": "launch",
+            "mainClass": "actividades_propuestas_t8.Ejercicio3",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2",
+            "request": "launch",
+            "mainClass": "supuestos_practicos_arraysT8.Ejercicio2",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio2",
             "request": "launch",
             "mainClass": "actividades_propuestas_t8.Ejercicio2",
