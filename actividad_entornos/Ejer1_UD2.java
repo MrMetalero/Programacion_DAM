@@ -12,7 +12,20 @@ public class Ejer1_UD2 {
 //Código original:
 
 
+      
+
     /* 
+        Los puntos de ruptura se ponen tras los for para comprobar los valores de las variables en
+        mitad del procedimiento y poder llevar una idea de lo que ocurre en cada parte
+        de el/los loops.
+
+
+
+
+
+
+
+
         public static void main(String[] args) {
             
             int i, j, z, filas=6;

@@ -10,6 +10,10 @@ public static void main(String[] args) {
 
 
     /*
+        Los puntos de ruptura se ponen tras los for para comprobar los valores de las variables en
+        mitad del procedimiento y poder llevar una idea de lo que ocurre en cada parte
+        de el/los loops.
+
         ORIGINAL------------------------------------
 
         int i, j, k;
