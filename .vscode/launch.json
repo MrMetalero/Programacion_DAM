@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejer2_UD2",
+            "request": "launch",
+            "mainClass": "actividad_entornos2.Ejer2_UD2",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
             "name": "Ejer1_UD2",
             "request": "launch",
             "mainClass": "actividad_entornos.Ejer1_UD2",

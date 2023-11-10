@@ -39,7 +39,7 @@ public class Ejer1_UD2 {
 
     public static void main(String[] args) {
      
-        int i, j = 0, z, filas=6;  // z no se usa así que lo borraría
+        int i, j = 0, filas=6;  // z no se usa así que lo borraría
        
         for (i = 0; i <= filas; i++){   //Punto de ruptura recomendable
 
