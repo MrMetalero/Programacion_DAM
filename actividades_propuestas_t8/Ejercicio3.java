@@ -164,7 +164,7 @@ public class Ejercicio3 {
 
             } else if (controlMenu == 3) {
 
-                System.out.println("El array original ordenado");
+                System.out.println("El array original ordenado:");
                 Arrays.sort(alumnosArray);
             
                 
