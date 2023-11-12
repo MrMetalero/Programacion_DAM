@@ -49,7 +49,15 @@ public class Ejercicio3 {
 
             controlMenu = sc.nextInt(); // Seleccionas la opción del menú
 
-            if (controlMenu == 1) {
+
+
+
+
+
+
+
+
+            if (controlMenu == 1) { //Para eliminar un alumno del array
 
                 System.out.println("introduce el nombre a borrar");
                 Basura = sc.nextLine();
@@ -70,30 +78,65 @@ public class Ejercicio3 {
                 String[] arrayCopia = new String[alumnosArray.length - 1]; // Array para copiar los nuevos datos en
                                                                            // varios casos
 
-                // Primero se copia en caso de que el número a cambiar sea diferente de 0
-                if (nombreEncontradoEn > 0 && nombreEncontradoEn < alumnosArray.length) {
+                // Primer caso se copia en caso de que el número a cambiar sea diferente de 0
+                if (nombreEncontradoEn > 0 && nombreEncontradoEn < alumnosArray.length) { 
 
-                    for (int i = 0; i < alumnosArray.length; i++) {
 
-                        System.arraycopy(alumnosArray, i, arrayCopia, controlMenu, nombreEncontradoEn);
+                    //copia el array desde 0 hasta donde se ha encontrado el nombre
+                    System.arraycopy(alumnosArray, 0, arrayCopia, 0,nombreEncontradoEn);
 
-                    }
+
+                    // copia el array desde la posición siguientea donde se encontró el nombre hasta el final
+                    // para completar el array con los valores restantes
+                    System.arraycopy(alumnosArray, nombreEncontradoEn+1, arrayCopia, nombreEncontradoEn,(arrayCopia.length - nombreEncontradoEn));
+
+                    // copia el nuevo array al anterior, dado que es más pequeño no nos da problemas
+                    alumnosArray = Arrays.copyOfRange(arrayCopia, 0, arrayCopia.length); 
 
                 }
+
+
 
                 // En el segundo caso se copia en caso de que el numero a cambiar sea el 0
                 if (nombreEncontradoEn == 0) {
                     arrayCopia = Arrays.copyOfRange(alumnosArray, 1, alumnosArray.length);
                 }
 
-                // solo para listar el Array con los indices
-                for (int i = 0; i < alumnosArray.length; i++) {
 
-                    System.out.println("[" + i + "] " + alumnosArray[i]);
+                // solo para listar el Array con los indices
+                System.out.println("\nEl array es ahora: ");
+                for (int i = 0; i < arrayCopia.length; i++) {
+
+                   
+                    System.out.println("[" + i + "] " + arrayCopia[i]);
 
                 }
 
-            } else if (controlMenu == 2) {
+
+
+
+
+
+
+            } else if (controlMenu == 2) {  // Para añadir un alumno nuevo
+
+                String[] arrayCopia = new String[alumnosArray.length + 1]; // Array para copiar los nuevos datos +1 en longitud
+            
+                // Copiamos el array de los alumnos en el nuevo que tiene +1 en longitud
+                arrayCopia = Arrays.copyOfRange(alumnosArray, 1, alumnosArray.length);
+
+                System.out.println("Introduce el nombre del alumno nuevo: ");
+                Basura = sc.nextLine(); //para la basura
+                arrayCopia[alumnosArray.length-1] = sc.next();
+
+
+
+
+
+
+
+
+
 
             } else if (controlMenu == 3) {
 
