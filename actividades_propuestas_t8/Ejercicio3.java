@@ -4,11 +4,35 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio3 {
+
+
+
+
+    public static int funcionImprimirArray(String[] arrayInput){
+
+        // solo para listar el Array con los indices
+                System.out.println("\nEl array es ahora: ");
+                for (int i = 0; i < arrayInput.length; i++) {
+
+                   
+                    System.out.println("[" + i + "] " + arrayInput[i]);
+
+                }
+
+
+
+        return 0;
+    }
+
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce el número de alumnos que vas a introducir");
         int limiteArray = sc.nextInt();
+
+        boolean arrayAlterado = false;
 
         // creamos el array
         String[] alumnosArray = new String[limiteArray];
@@ -25,12 +49,9 @@ public class Ejercicio3 {
         }
 
         // solo para listar el Array con los indices
-        for (int i = 0; i < alumnosArray.length; i++) {
 
-            System.out.println("[" + i + "] " + alumnosArray[i]);
+        funcionImprimirArray(alumnosArray);
 
-        }
-        System.out.println("El array contiene los valores:" + Arrays.toString(alumnosArray));
 
         // Menú--------------------------------------
 
@@ -48,6 +69,9 @@ public class Ejercicio3 {
             System.out.println("Introduce 0 para finalizar el programa");
 
             controlMenu = sc.nextInt(); // Seleccionas la opción del menú
+
+
+
 
 
 
@@ -103,14 +127,10 @@ public class Ejercicio3 {
                 }
 
 
-                // solo para listar el Array con los indices
-                System.out.println("\nEl array es ahora: ");
-                for (int i = 0; i < arrayCopia.length; i++) {
+                funcionImprimirArray(arrayCopia);
 
-                   
-                    System.out.println("[" + i + "] " + arrayCopia[i]);
-
-                }
+            
+                arrayAlterado = true;
 
 
 
@@ -123,24 +143,31 @@ public class Ejercicio3 {
                 String[] arrayCopia = new String[alumnosArray.length + 1]; // Array para copiar los nuevos datos +1 en longitud
             
                 // Copiamos el array de los alumnos en el nuevo que tiene +1 en longitud
-                arrayCopia = Arrays.copyOfRange(alumnosArray, 1, alumnosArray.length);
+                arrayCopia = Arrays.copyOfRange(alumnosArray, 0, alumnosArray.length-1);
 
                 System.out.println("Introduce el nombre del alumno nuevo: ");
                 Basura = sc.nextLine(); //para la basura
-                arrayCopia[alumnosArray.length-1] = sc.next();
+                arrayCopia[arrayCopia.length-1] = sc.next();
+
+
+                //Para imprimir el array
+                System.out.println(arrayCopia.length);
+                funcionImprimirArray(arrayCopia);
+
+                System.out.println(alumnosArray.length);
+                funcionImprimirArray(alumnosArray);
 
 
 
-
-
-
-
-
+                arrayAlterado = true;
 
 
             } else if (controlMenu == 3) {
 
+                System.out.println("El array original ordenado");
                 Arrays.sort(alumnosArray);
+            
+                
 
             }
 
