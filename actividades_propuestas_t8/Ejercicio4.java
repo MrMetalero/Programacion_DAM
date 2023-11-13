@@ -23,36 +23,57 @@ public class Ejercicio4 {
         String palabrasCache = "";
         int contador = 0;
         int contadorDiferentes = 0;
+        boolean repetido = false;
         
-      
-       
-            
 
-            for (int i = 0; i < arrayCopiado.length; i++) {
 
-                // Comprueba si el i actual es igual a si mismo para hacer el conteo y evitar los null
-                // si es null (que sería una repetición) no se suma 1 al contador
-                if(arrayCopiado[i].equalsIgnoreCase(arrayCopiado[i]) && arrayCopiado[i] != ""){
+        for (int i = 0; i < arrayCopiado.length; i++) { // recorre el array uno a uno
 
-                    contadorDiferentes += 1;
-                    palabrasCache += arrayCopiado[i];
-
-                    // Este for recorre el array poniendo a null todos los valores de la palabra encontrada
-                    // Para que al volver a pasarlo por el for de arriba, no se detenga en las palabras
-                    // iguales a la que acabamos de comprobar
-                    for (int x = 0; x < arrayCopiado.length; x++) { 
-
-                        //Comprueba si coincide con la palabra encontrada para no borrar las otras
-                        if(palabrasCache != "" && palabrasCache.equalsIgnoreCase(arrayCopiado[i]) ){ 
-                            arrayCopiado[x] = ""; 
-                        }
+            //recorre los diferentes indices del array igual que arriba
+            for (int j = 0; j < arrayCopiado.length && !repetido ; j++) {
+                if(j!=i)
+                {
+                    if(arrayCopiado[i].equalsIgnoreCase(arrayCopiado[j]))
+                    {
+                        repetido=true;
                     }
-
-                    palabrasCache = "";
                 }
                 
-               
+            }
+            if(!repetido)
+                contador++;
+            
+            repetido=false;
+            
+        }
 
+
+
+
+
+
+
+
+
+
+
+
+
+            for (int conteoPalabraActual = 0; conteoPalabraActual < arrayCopiado.length; conteoPalabraActual++) {
+                palabrasCache = arrayCopiado[conteoPalabraActual];
+
+
+                for (int conteoIndices = 0; conteoIndices < arrayCopiado.length; conteoIndices++) {
+                    if(!palabrasCache.equalsIgnoreCase(arrayCopiado[conteoIndices]) && conteoIndices > 0){
+
+                        contadorDiferentes += 1;
+
+                    }
+
+                }
+
+                contador += 1;
+                
             }
 
 
@@ -62,7 +83,7 @@ public class Ejercicio4 {
 
        
 
-
+        System.out.println("Contador palabra: " + contadorDiferentes);
     
         System.out.println("Contador diferentes: " + contadorDiferentes);
 
