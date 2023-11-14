@@ -8,7 +8,7 @@ public class Ejercicio4 {
     
     public static void main(String[] args) {
         
-        String textoLeer = "este Este es el texto a comprobar";
+        String textoLeer = "este Este es el texto el a comprobar ";
 
         // .Split permite dividir un String basándose en una expresión regular
         // Si specificamos " " (espacio) podremos separar el string en palabras.
@@ -29,10 +29,12 @@ public class Ejercicio4 {
 
         for (int i = 0; i < arrayCopiado.length; i++) { // recorre el array uno a uno
 
-            //recorre los diferentes indices del array igual que arriba
-            for (int j = 0; j < arrayCopiado.length && !repetido ; j++) {
-                if(j!=i)
-                {
+            //recorre los diferentes indices del array igual que arriba para
+            //comparar el indice de i con todos los demás
+            for (int j = 0; j < arrayCopiado.length && !repetido ;j++) {
+                
+                if(j != i)
+                { 
                     if(arrayCopiado[i].equalsIgnoreCase(arrayCopiado[j]))
                     {
                         repetido=true;
@@ -51,44 +53,14 @@ public class Ejercicio4 {
 
 
 
-
-
-
-
-
-
-
-
-            for (int conteoPalabraActual = 0; conteoPalabraActual < arrayCopiado.length; conteoPalabraActual++) {
-                palabrasCache = arrayCopiado[conteoPalabraActual];
-
-
-                for (int conteoIndices = 0; conteoIndices < arrayCopiado.length; conteoIndices++) {
-                    if(!palabrasCache.equalsIgnoreCase(arrayCopiado[conteoIndices]) && conteoIndices > 0){
-
-                        contadorDiferentes += 1;
-
-                    }
-
-                }
-
-                contador += 1;
-                
-            }
-
-
-
-
-
-
-       
-
-        System.out.println("Contador palabra: " + contadorDiferentes);
     
-        System.out.println("Contador diferentes: " + contadorDiferentes);
+        System.out.println("Contador diferentes: " + contador); 
 
 
         
     }
 
 }
+
+
+
