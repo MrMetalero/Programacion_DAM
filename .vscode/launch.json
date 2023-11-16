@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CrearPDF",
+            "request": "launch",
+            "mainClass": "crearpdf.CrearPDF",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio5",
             "request": "launch",
             "mainClass": "ejercicios_practicos_t8.Ejercicio5",
