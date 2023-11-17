@@ -20,7 +20,7 @@ public class Ejercicio5 {
 
         // Random-------------------------------------------
 
-        for (int i = 0; i < arrayInput.length - 1; i++) {
+        for (int i = 0; i < arrayInput.length; i++) {
             arrayInput[i] = (int) (Math.random() * 9999999);
 
         }
