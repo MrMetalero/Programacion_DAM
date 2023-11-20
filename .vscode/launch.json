@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BiggerSmaller",
+            "request": "launch",
+            "mainClass": "actividad_entornos3.BiggerSmaller",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
             "name": "CrearPDF",
             "request": "launch",
             "mainClass": "crearpdf.CrearPDF",
