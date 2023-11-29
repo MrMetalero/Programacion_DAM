@@ -5,11 +5,11 @@ public class Ejercicio4 {
     
 
     public static int funcionPiramideRecursiva(int filas, int columnas){
-        if(columnas == 1){
+        if(columnas == 1){  //Hace el borde de la izquierda
             return 1;
         }
 
-        if(columnas == filas*2-1){
+        if(columnas == filas*2-1){ //Hace el borde de la derecha
             return 1;
         }
 

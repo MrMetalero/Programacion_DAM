@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ejercicio6",
+            "request": "launch",
+            "mainClass": "ejercicios_propuestos_t11.Ejercicio6",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio4",
+            "request": "launch",
+            "mainClass": "ejercicios_propuestos_t11.Ejercicio4",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio3CasaPorSincro",
+            "request": "launch",
+            "mainClass": "ejercicios_propuestos_t11.Ejercicio3CasaPorSincro",
+            "projectName": "Programacion_DAM_e01179bb"
+        },
+        {
+            "type": "java",
             "name": "Ejercicio8",
             "request": "launch",
             "mainClass": "ejercicios_practicos_t8.Ejercicio8",
