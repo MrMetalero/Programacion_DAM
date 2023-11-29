@@ -9,6 +9,13 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "proyecto1.demo.src.main.java.com.example.Main",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "proyecto1.demo.src.main.java.com.example.Main",
             "projectName": "Programacion_DAM_e01179bb"
         },
         {

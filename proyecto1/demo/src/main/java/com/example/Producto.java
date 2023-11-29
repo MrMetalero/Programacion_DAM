@@ -1,18 +1,38 @@
 package proyecto1.demo.src.main.java.com.example;
 
-public class Producto {
+class Producto {
     
-   float precio;
+    float precio;
+    float precioFinal;
+    static float rebaja;
+    
 
-
-
-    public float infoRebajaActual(){
-        
-
-
-        return
+    Producto(float precio){
+        rebaja = 0;
+        this.precio = precio;
     }
 
+    public static void infoRebajaActual(){
+        
+        System.out.println("Rebaja actual: "+ rebaja + "%");
+    }
+
+
+    
+
+
+    public float getPrecioFinal(){
+
+    if (rebaja !=0) {
+        precioFinal = (precio - (precio*rebaja/100)); 
+
+    }else{
+        precioFinal = precio;
+
+    }
+    return precioFinal;
+
+    }
 
 
 }
