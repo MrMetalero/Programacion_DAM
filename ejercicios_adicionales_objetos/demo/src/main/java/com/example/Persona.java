@@ -27,7 +27,8 @@ public class Persona {
 
     public Persona(String nombre,int edad,char sexo){
         
-        comprobarSexo(sexo);
+        
+        this.sexo = comprobarSexo(sexo);
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
@@ -52,9 +53,9 @@ public class Persona {
     
     }
 
-    public float calcularIMC(){
+    public int calcularIMC(){
         float imcCalculado;
-        float resultado = 0;
+        int resultado = 0;
 
         imcCalculado = peso/(altura*altura);
 
@@ -99,9 +100,9 @@ public class Persona {
         return mayorEdad;
     }
 
-    //Package private comprobarSexo
+    
 
-    private void comprobarSexo(char sexo){
+    static private char comprobarSexo(char sexo){
 
         if (sexo == 'H' || sexo == 'M'){
             
@@ -110,7 +111,7 @@ public class Persona {
             sexo = sexoFinal;
         }
 
-    
+        return sexo;
     }
 
 
