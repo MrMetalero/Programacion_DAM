@@ -26,44 +26,34 @@ public class Main {
         System.out.println("Introduce el nombre");
         String nombre = sc.nextLine();
 
-        System.out.println("Introduce el edad");
+        System.out.println("Introduce la edad");
         int edad = sc.nextInt();
 
-        System.out.println("Introduce el edad");
+        System.out.println("Introduce el sexo");
         char sexo = sc.next().charAt(0);
 
         System.out.println("Introduce el peso");
         int peso = sc.nextInt();
 
-        System.out.println("Introduce el altura");
+        System.out.println("Introduce la altura");
         float altura = sc.nextFloat();
 
 
 
         Persona Dan = new Persona(nombre,edad,sexo,peso,altura);
+        System.out.println(Dan.devuelveString()); 
 
 
         Persona Daniela = new Persona();
-        Daniela.setNombre(sc.nextLine());
-        Daniela.setEdad(sc.nextInt());
-        Daniela.setSexo(sc.nextLine().charAt(0));
+        Daniela.setNombre("Daniela");
+        Daniela.setEdad(19);
+        Daniela.setSexo('M');
+        System.out.println(Daniela.devuelveString());
 
 
         Persona German = new Persona();
-
+        System.out.println(German.devuelveString());
         
-        
-        
-
-        if(Dan.calcularIMC() == 0){
-            
-
-
-        }
-
-        System.out.println(Dan.calcularIMC());
-        System.out.println(Daniela.calcularIMC());
-        System.out.println(German.calcularIMC());
 
 
 

@@ -2,17 +2,17 @@ package com.example;
 
 public class Persona {
     
-    String nombre = "";
-    int edad = 0;
-    char sexo = '0';
+    private String nombre = "";
+    private int edad = 0;
+    private char sexo = '0';
     static final char sexoFinal = 'H';
-    int peso = 0;
-    float altura = 0;
+    private int peso = 0;
+    private float altura = 0;
 
     private String resultadoIMC;
     private boolean mayorEdad;
 
-    int contadorPersonas;
+    static int contadorPersonas;
 
 
     public Persona(){
@@ -42,6 +42,7 @@ public class Persona {
         this.edad = edad;
         this.peso = peso;
         this.altura = altura;
+        this.sexo = sexo;
 
         contadorPersonas += 1;
     
