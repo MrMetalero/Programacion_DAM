@@ -8,6 +8,7 @@ public class Persona {
     static final char sexoFinal = 'H';
     private int peso = 0;
     private float altura = 0;
+    private String docDNI = generarDNI();
 
     private String resultadoIMC;
     private boolean mayorEdad;
@@ -101,7 +102,8 @@ public class Persona {
                                 +"Altura: "+ altura + " m\n"
                                 +resultadoIMC +"\n"
                                 +resultadoMayorEdad +"\n"
-                                +"Número de personas creadas " + contadorPersonas +"\n";
+                                +"Número de personas creadas " + contadorPersonas +"\n"
+                                +"DNI: " + docDNI + "\n";
     
 
 
@@ -135,6 +137,44 @@ public class Persona {
         return sexo;
     }
 
+
+   
+    
+
+
+    private String generarDNI(){
+        //entre 0 y 1
+
+        //si es 1
+        for (int i = 0; i < 7; i++) {
+
+            docDNI += (int) ((Math.random()*9-1)+1);
+                
+        
+        }
+
+
+        
+
+        
+
+
+
+
+        return "";
+    }
+
+
+
+
+
+
+
+
+
+
+
+    //Getters y Setters
 
 
 
@@ -221,10 +261,6 @@ public class Persona {
 
 
 
-
-    public void setContadorPersonas(int contadorPersonas) {
-        this.contadorPersonas = contadorPersonas;
-    }
 
 
 

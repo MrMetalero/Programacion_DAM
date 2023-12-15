@@ -1,27 +1,20 @@
 package com.example;
-
+import java.math.*;
 import java.util.Scanner;
 
     
 public class Main {
-
-    public String funcionIMC(int imcComprobar){
-        String resultado = "";
-
-        if (imcComprobar == 0){
-            
-        }
-
-
-
-        return resultado;
-        }
 
 
 
     public static void main(String[] args) {
       
         Scanner sc = new Scanner(System.in);
+
+        
+
+
+
 
         System.out.println("Introduce el nombre");
         String nombre = sc.nextLine();
