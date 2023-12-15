@@ -8,7 +8,7 @@ public class Persona {
     static final char sexoFinal = 'H';
     int peso = 0;
     float altura = 0;
-    
+
     private String resultadoIMC;
     private boolean mayorEdad;
 
@@ -71,6 +71,7 @@ public class Persona {
 
     public String devuelveString(){
         resultadoIMC = "";
+        String resultadoMayorEdad = "";
         
         if(this.calcularIMC() == -1){
             resultadoIMC = "Por debajo del peso ideal";
@@ -81,14 +82,26 @@ public class Persona {
             resultadoIMC = "Por encima del peso ideal";
         }
 
+        if(this.esMayorDeEdad() == true ){
+            resultadoMayorEdad = "Es mayor de edad";
+        }else{
+            resultadoMayorEdad = "No es mayor de edad";
+
+        }
+
+
+
+
 
         String devueltoString = "Paciente: "+ nombre + "\n"
                                 +"Edad: "+ edad + " años \n"
                                 +"Sexo: "+ sexo + "\n"
                                 +"Peso: " + peso + " Kg\n"
                                 +"Altura: "+ altura + " m\n"
-                                + resultadoIMC
-        ;
+                                +resultadoIMC +"\n"
+                                +resultadoMayorEdad +"\n"
+                                +"Número de personas creadas " + contadorPersonas +"\n";
+    
 
 
         return devueltoString;
