@@ -8,16 +8,16 @@ public class Persona {
     static final char sexoFinal = 'H';
     int peso = 0;
     float altura = 0;
+    
+    private String resultadoIMC;
+    private boolean mayorEdad;
 
     int contadorPersonas;
 
 
     public Persona(){
-        this.nombre = nombre;
         this.sexo = sexoFinal;
-        this.edad = edad;
-        this.peso = peso;
-        this.altura = altura;
+       
 
         contadorPersonas += 1;
     }
@@ -31,14 +31,8 @@ public class Persona {
         this.sexo = comprobarSexo(sexo);
         this.nombre = nombre;
         this.edad = edad;
-        this.peso = peso;
-        this.altura = altura;
 
         contadorPersonas += 1;
-
-    
-
-        
 
     
     }
@@ -76,11 +70,24 @@ public class Persona {
     }  
 
     public String devuelveString(){
+        resultadoIMC = "";
+        
+        if(this.calcularIMC() == -1){
+            resultadoIMC = "Por debajo del peso ideal";
+        }else if(this.calcularIMC() == 0){
+            resultadoIMC = "En el peso ideal";
+
+        }else if(this.calcularIMC() == 1){
+            resultadoIMC = "Por encima del peso ideal";
+        }
+
+
         String devueltoString = "Paciente: "+ nombre + "\n"
-                                +"Edad: "+ edad + "años \n"
+                                +"Edad: "+ edad + " años \n"
                                 +"Sexo: "+ sexo + "\n"
                                 +"Peso: " + peso + " Kg\n"
                                 +"Altura: "+ altura + " m\n"
+                                + resultadoIMC
         ;
 
 
@@ -89,7 +96,7 @@ public class Persona {
     
 
     public boolean esMayorDeEdad(){
-        boolean mayorEdad = false;
+        mayorEdad = false;
 
         if (edad > 18){
             mayorEdad = true;
