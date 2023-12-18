@@ -144,24 +144,130 @@ public class Persona {
 
     private String generarDNI(){
         //entre 0 y 1
-
+        docDNI = "";
         //si es 1
         for (int i = 0; i < 7; i++) {
 
+            
             docDNI += (int) ((Math.random()*9-1)+1);
                 
         
+        
         }
 
+        int moduloDNI = Integer.parseInt(docDNI) %23;
+
+
+        //Según el módulo da una letra u otra al DNI
+
+        switch (moduloDNI) {
+
+
+
+            case 0:
+                docDNI += "T";
+                break;
+
+            case 1:
+                docDNI += "R";
+                break;
+
+            case 2:
+                docDNI += "W";
+                break;
+
+            case 3:
+                docDNI += "A";
+                break;
+
+            case 4:
+                docDNI += "G";
+                break;
+
+            case 5:
+                docDNI += "M";
+                break;
+
+            case 6:
+                docDNI += "Y";
+                break;
+
+            case 7:
+                docDNI += "F";
+                break;
+
+            case 8:
+                docDNI += "P";
+                break;
+
+            case 9:
+                docDNI += "D";
+                break;
+                
+
+            case 10:
+                docDNI += "X";
+                break;
+
+        
+            case 11:
+                docDNI += "B";
+                break;
+
+            case 12:
+                docDNI += "N";
+                break;
+
+            case 13:
+                docDNI += "J";
+                break;
+
+            case 14:
+                docDNI += "Z";
+                break;
+
+            case 15:
+                docDNI += "S";
+                break;
+
+            case 16:
+                docDNI += "Q";
+                break;
+
+            case 17:
+                docDNI += "V";
+                break;
+
+            case 18:
+                docDNI += "H";
+                break;
+
+            case 19:
+                docDNI += "L";
+                break;
+
+            case 20:
+                docDNI += "C";
+                break;
+
+            case 21:
+                docDNI += "K";
+                break;
+
+
+
+        
+            default:
+                docDNI = "ERROR";
+                break;
+        
+        
+            }
+
 
         
 
-        
-
-
-
-
-        return "";
+        return docDNI;
     }
 
 
