@@ -44,9 +44,12 @@ public class Raices {
         
 
 
+
         return 0;
+    
     } 
 
+    
 
 
 
@@ -76,15 +79,22 @@ public class Raices {
         boolean resultadoTieneRaices = true;
         //discriminante mayor que 0
         if(getDiscriminate() > 0){
-
             resultadoTieneRaices = true;
 
+        }else 
+        if(getDiscriminate() == 0){
+            resultadoTieneRaices = false;
 
+        }else{
+            resultadoTieneRaices = false;
         }
 
 
         return resultadoTieneRaices;
     }
+
+
+
 
 
 
