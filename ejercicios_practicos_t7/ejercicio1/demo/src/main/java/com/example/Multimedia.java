@@ -49,10 +49,10 @@ public class Multimedia {
 
 
     public String toString(){
-        return ("Titulo" + titulo + "\n"
-                +"Autor" + autor+ "\n"
-                +"Formato" + formato + "\n"
-                +"Duración" + duracion + "\n");
+        return ("Titulo: " + titulo + "\n"
+                +"Autor: " + autor+ "\n"
+                +"Formato: " + formato + "\n"
+                +"Duración: " + duracion + "\n");
 
 
     }
