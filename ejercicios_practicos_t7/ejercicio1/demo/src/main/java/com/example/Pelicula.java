@@ -51,7 +51,7 @@ public class Pelicula extends Multimedia {
             s+= actorP;
         }
 
-        return (super.toString() + s);
+        return (super.toString() + s + "\n");
 
 
 
