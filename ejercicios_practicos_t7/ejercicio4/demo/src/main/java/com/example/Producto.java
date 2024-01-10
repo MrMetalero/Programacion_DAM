@@ -96,4 +96,18 @@ public void setPaisOrigen(String paisOrigen) {
 
 
 
+
+    public String toString(){
+        return"Detalles del producto:\n\n"
+                +"Fecha de caducidad: " + fechaCaducidad +"\n"
+                +"Número de lote: " + numeroLote + "\n"
+                +"Fecha de envasado: " + fechaEnvasado + "\n"
+                +"Pais de origen: " + paisOrigen + "\n";
+
+
+    }
+
+
+
+
 }

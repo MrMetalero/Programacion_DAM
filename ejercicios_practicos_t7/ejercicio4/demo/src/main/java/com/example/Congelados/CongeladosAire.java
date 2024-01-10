@@ -27,6 +27,16 @@ public class CongeladosAire extends Congelado {
     }
 
 
+    public String toString(){
+        return super.toString() + "porcentaje de Nitrógeno: " + porcentajeNitrogeno + "%\n"
+                                + "porcentaje de Oxigeno: " + porcentajeOxigeno + "%\n"
+                                + "porcentaje de Co2: " + porcentajeCo2 + "%\n"
+                                + "porcentaje de Vapor de agua: " + porcentajeVaporAgua + "%\n";
+
+
+    }
+
+
  
 
 }

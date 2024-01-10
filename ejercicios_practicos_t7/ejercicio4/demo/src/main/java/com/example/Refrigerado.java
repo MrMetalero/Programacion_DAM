@@ -16,4 +16,13 @@ public class Refrigerado extends Producto {
 
     }
 
+    public String toString(){
+        return super.toString() + "Código de supervisión:" + codigoSuper + "\n"
+                                + "Temperatura de mantenimiento (ºC)" + tempMantenimiento + "ºC\n";
+
+
+    }
+
+
+
 }

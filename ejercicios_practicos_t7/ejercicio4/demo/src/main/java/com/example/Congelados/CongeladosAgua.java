@@ -14,4 +14,12 @@ public class CongeladosAgua extends Congelado {
 
     }
 
+    public String toString(){
+        return super.toString() + "salinidad en Gramos/Litro: " + salinidadGramosPorLitro + "\n";
+
+
+    }
+
+
+
 }

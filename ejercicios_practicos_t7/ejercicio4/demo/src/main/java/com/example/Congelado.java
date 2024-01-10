@@ -1,6 +1,6 @@
 package com.example;
 
-public class Congelado extends Producto {
+public abstract class Congelado extends Producto {
 
 
     Integer temperaturaMantenimiento;
@@ -13,5 +13,13 @@ public class Congelado extends Producto {
 
 
     }
+
+    public String toString(){
+        return super.toString() + "Temperatura de mantenimiento: " + temperaturaMantenimiento + "\n";
+
+
+    }
+
+
 
 }
