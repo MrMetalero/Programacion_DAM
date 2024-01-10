@@ -3,14 +3,13 @@ package com.example;
 public class Refrigerado extends Producto {
     
     String codigoSuper;
-    String fechaEnvasado;
+
     Integer tempMantenimiento;
 
 
-    public Refrigerado(String fechaCaducidad,Integer numeroLote, String codSuper, String fEnvasado, Integer tempMant){
-        super(fechaCaducidad, numeroLote);
+    public Refrigerado(String fechaCaducidad,Integer numeroLote, String fechaEnv, String paisOrigen, String codSuper, Integer tempMant){
+        super(fechaCaducidad, numeroLote, fechaEnv, paisOrigen);
 
-        fechaEnvasado = fEnvasado;
         codigoSuper = codSuper;
         tempMantenimiento = tempMant;
 

@@ -1,17 +1,21 @@
 package com.example;
 
-public class Producto {
+public abstract class Producto {
 
     String fechaCaducidad;
     Integer numeroLote;
 
-
+    String fechaEnvasado;
+    String paisOrigen;
 
     //Constructor
 
-    public Producto(String fCadu,Integer numLote){
+    public Producto(String fCadu,Integer numLote,String fechaEnv,String paisOrig){
         fechaCaducidad = fCadu;
         numeroLote = numLote;
+        fechaEnvasado = fechaEnv;
+        paisOrigen = paisOrig;
+        
     }
 
 
@@ -28,7 +32,51 @@ public class Producto {
 
 
 
-    public void setFechaCaducidad(String fechaCaducidad) {
+   public String getFechaEnvasado() {
+    return fechaEnvasado;
+}
+
+
+
+
+
+
+
+
+public void setFechaEnvasado(String fechaEnvasado) {
+    this.fechaEnvasado = fechaEnvasado;
+}
+
+
+
+
+
+
+
+
+public String getPaisOrigen() {
+    return paisOrigen;
+}
+
+
+
+
+
+
+
+
+public void setPaisOrigen(String paisOrigen) {
+    this.paisOrigen = paisOrigen;
+}
+
+
+
+
+
+
+
+
+ public void setFechaCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 

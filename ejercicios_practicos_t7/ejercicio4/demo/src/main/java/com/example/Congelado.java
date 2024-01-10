@@ -2,15 +2,15 @@ package com.example;
 
 public class Congelado extends Producto {
 
-    String fechaEnvasado;
-    String paisOrigen;
-    String tempMantenimiento;
 
-    public Congelado(String fechaCaducidad, Integer numeroLote, String fEnvasado, String paisOrig) {
-        super(fechaCaducidad, numeroLote);
+    Integer temperaturaMantenimiento;
 
-        fechaEnvasado = fEnvasado;
-        paisOrigen = paisOrig;
+    public Congelado(String fechaCaducidad, Integer numeroLote, String fEnvasado, String paisOrig,Integer tempMantenimiento) {
+        super(fechaCaducidad, numeroLote, fEnvasado, paisOrig);
+        temperaturaMantenimiento = tempMantenimiento;
+
+     
+
 
     }
 
