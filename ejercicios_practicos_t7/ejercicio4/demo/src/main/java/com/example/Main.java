@@ -15,8 +15,7 @@ public class Main {
 
         System.out.println(conge1.toString());
 
-        CongeladosAire congeA1 = new CongeladosAire("12/02/2034", 252514, "10/02/2033", "Afghanistan", 2, 10, 70, 10,
-                10);
+        CongeladosAire congeA1 = new CongeladosAire("12/02/2034", 252514, "10/02/2033", "Afghanistan", 2, 10, 70, 10, 10);
         System.out.println(congeA1.toString());
 
         CongeladosNitrogeno congeNitro1 = new CongeladosNitrogeno("12/06/2033", 2425252, "19/09/9233", "Venezuela", 1,
