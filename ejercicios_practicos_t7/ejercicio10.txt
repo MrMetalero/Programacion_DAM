@@ -1,0 +1,28 @@
+
+
+Ejercicio 10: Verdadero o Falso
+Averigua si son verdaderas o falsas las siguientes afirmaciones:
+
+
+a. Una clase abstracta es una clase que no se puede instanciar.
+Verdadero, no se pueden instanciar
+
+b. Una clase abstracta es una clase que se usa únicamente para definir superclases.
+
+
+
+c. Los métodos de las clases abstractas no tienen implementación.
+    Falso, un método abstracto puede tener implementación
+
+d. En la declaración de una interfaz solamente pueden aparecer declaraciones de
+método y atributos pero nunca implementación de métodos.
+Pueden aparecer algunos pequeños y reducidos trocitos de código.
+
+e. Las interfaces no encapsulan datos.
+No guardan datos, no, solo marcan la estructura a seguir
+
+f. Las interfaces pueden definir constantes simbólicas
+
+
+
+
