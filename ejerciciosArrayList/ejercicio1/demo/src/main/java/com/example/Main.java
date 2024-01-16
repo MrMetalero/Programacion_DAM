@@ -1,6 +1,8 @@
 package com.example;
 
+import java.math.*;;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -29,9 +31,30 @@ public class Main {
     }
 
     public static Integer calcularSuma(ArrayList<Integer> arrayInput) {
-        arrayInput.iterator();
+        Integer resultadoSuma = 0;
+        Iterator<Integer> iter = arrayInput.iterator();
 
-        return arrayInput;
+        while (iter.hasNext()) {
+            resultadoSuma += iter.next();
+
+        }
+
+        return resultadoSuma;
+    }
+
+    public static String mostrarResultados(ArrayList<Integer> arrayInput) {
+
+        Iterator<Integer> iter = arrayInput.iterator();
+        Integer resultadoMedia;
+
+        while (iter.hasNext()) {
+            resultadoMedia = calcularSuma(arrayInput) / arrayInput.size();
+
+            // Faltan cositas por hacer aquí...
+        }
+
+        return "Listado de números " + "\nSuma: " + calcularSuma(arrayInput) + "\nMedia: "
+                + "\nNúmeros superiores a la media: ";
     }
 
 }
