@@ -1,18 +1,22 @@
-package com.example;
+package main.java.com.example;
 
-import java.math.*;;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
+    static Integer contadorMayoresMedia = 0;
 
     public static void main(String[] args) {
 
         ArrayList<Integer> numeros = new ArrayList<Integer>();
         numeros = leerValores(numeros);
 
+        calcularSuma(numeros);
+        System.out.println(mostrarResultados(numeros));
+
+        
     }
 
     public static ArrayList<Integer> leerValores(ArrayList<Integer> arrayInput) {
@@ -46,15 +50,24 @@ public class Main {
 
         Iterator<Integer> iter = arrayInput.iterator();
         Integer resultadoMedia;
+        resultadoMedia = calcularSuma(arrayInput) / arrayInput.size();
 
         while (iter.hasNext()) {
-            resultadoMedia = calcularSuma(arrayInput) / arrayInput.size();
 
+            if (iter.next() > resultadoMedia) {
+                contadorMayoresMedia++;
+
+            }
             // Faltan cositas por hacer aquí...
         }
 
-        return "Listado de números " + "\nSuma: " + calcularSuma(arrayInput) + "\nMedia: "
-                + "\nNúmeros superiores a la media: ";
+        return "Listado de números "
+                + "\nSuma: "
+                + calcularSuma(arrayInput)
+                + "\nMedia: "
+                + resultadoMedia
+                + "\nNúmeros superiores a la media: "
+                + contadorMayoresMedia;
     }
 
 }
