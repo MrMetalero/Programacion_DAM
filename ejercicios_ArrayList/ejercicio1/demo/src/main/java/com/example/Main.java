@@ -1,4 +1,4 @@
-package main.java.com.example;
+package com.example;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,7 +15,6 @@ public class Main {
 
         calcularSuma(numeros);
         System.out.println(mostrarResultados(numeros));
-
         
     }
 
@@ -23,9 +22,10 @@ public class Main {
         Integer numeroCache = 0;
 
         do {
+            System.out.println("\nIntroduce valores. \nPara finalizar introduce el valor -99\n");
             numeroCache = sc.nextInt();
 
-            if (numeroCache != 99) {
+            if (numeroCache != -99) {
                 arrayInput.add(numeroCache);
             }
 
@@ -61,7 +61,8 @@ public class Main {
             // Faltan cositas por hacer aquí...
         }
 
-        return "Listado de números "
+        return "Listado de números: "
+                + arrayInput.toString()
                 + "\nSuma: "
                 + calcularSuma(arrayInput)
                 + "\nMedia: "
