@@ -3,6 +3,7 @@ package com.example;
 import java.util.Scanner;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
     static ArrayList<Double> arrElementos = new ArrayList<Double>();
@@ -27,16 +28,41 @@ public class Main {
                     + "[9] Salir\n");
 
             switch (opcionElegida) {
+
                 case 1:
 
-                    System.out.println("Introduce un valor double");
-                    numeroCache = sc.nextDouble();
+                    try {
+                        System.out.println("Introduce un valor double");
+                        numeroCache = sc.nextDouble();
+                        arrElementos.add(arrElementos.size(), numeroCache);
 
-                    arrElementos.add(arrElementos.lastIndexOf(arrElementos), numeroCache);
+                    } catch (Exception e) {
+                        System.out.println("Error, el valor introducido no es valido");
+                    }
 
                     break;
 
                 case 2:
+
+                    try {
+                        System.out.println("Introduce un valor a buscar en el arrayList");
+                        numeroCache = sc.nextDouble();
+
+                        if (arrElementos.contains(numeroCache)) {
+                            Iterator<Double> iter = arrElementos.iterator();
+                            while (iter.hasNext()) {
+
+                            }
+
+                            System.out.println("Se ha encontrado el valor introducido en... "
+                                    + arrElementos.lastIndexOf(numeroCache));
+                        } else {
+
+                        }
+
+                    } catch (Exception e) {
+                        System.out.println("Algo ha salido mal, error");
+                    }
 
                     break;
 
