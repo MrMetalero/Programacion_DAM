@@ -3,10 +3,11 @@ package com.example;
 import java.util.Scanner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
-
 public class Main {
     static ArrayList<Double> arrElementos = new ArrayList<Double>();
+    static ArrayList<Integer> arrIndicesModificables = new ArrayList<Integer>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -48,17 +49,8 @@ public class Main {
                         System.out.println("Introduce un valor a buscar en el arrayList");
                         numeroCache = sc.nextDouble();
 
-                        if (arrElementos.contains(numeroCache)) {
-                            Iterator<Double> iter = arrElementos.iterator();
-                            while (iter.hasNext()) {
-
-                            }
-
-                            System.out.println("Se ha encontrado el valor introducido en... "
-                                    + arrElementos.lastIndexOf(numeroCache));
-                        } else {
-
-                        }
+                        IteradorLista.funcionBusqueda(arrElementos, numeroCache).toString();
+                        
 
                     } catch (Exception e) {
                         System.out.println("Algo ha salido mal, error");
