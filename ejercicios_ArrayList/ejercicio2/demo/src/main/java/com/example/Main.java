@@ -11,6 +11,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        arrElementos = arrElementos;
 
         Integer opcionElegida = 0;
         Double numeroCache = 0.0;
@@ -27,6 +28,9 @@ public class Main {
                     + "[7] Orden ascendente\n"
                     + "[8] Orden descendente\n"
                     + "[9] Salir\n");
+
+            opcionElegida = sc.nextInt();
+
 
             switch (opcionElegida) {
 
@@ -47,10 +51,36 @@ public class Main {
 
                     try {
                         System.out.println("Introduce un valor a buscar en el arrayList");
+                        Integer numeroControlIndices = 0;
                         numeroCache = sc.nextDouble();
 
                         IteradorLista.funcionBusqueda(arrElementos, numeroCache).toString();
+                
                         
+
+                        do {
+                            System.out.println("\nIntroduce un índice a modificar, si has terminado introduce -1 ");
+
+                            numeroControlIndices = sc.nextInt();
+
+                            if(arrIndicesModificables.contains(numeroControlIndices) ){
+
+                                System.out.println("\nIntroduce el número Double para el índice ["+ numeroControlIndices +"]");
+                                arrElementos.add(numeroControlIndices, sc.nextDouble());
+
+
+
+                            }else{
+                                System.out.println("El indice seleccionado está fuera del rango de índices que corresponden a tu búsqueda"
+                                + ", por favor introduce otro valor");
+
+                            }
+
+
+
+                            
+                        } while (numeroControlIndices != -1);
+
 
                     } catch (Exception e) {
                         System.out.println("Algo ha salido mal, error");
