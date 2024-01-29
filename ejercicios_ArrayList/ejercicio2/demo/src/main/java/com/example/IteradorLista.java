@@ -6,22 +6,26 @@ public class IteradorLista {
 
 
 
-    public static ArrayList<Integer> funcionBusqueda(ArrayList<Double> arrElementos, Double numeroCache){
+    public static Integer funcionBusqueda(ArrayList<Double> arrElementos, Double numeroCache){
 
-        ArrayList<Integer> arrIndices = new ArrayList<Integer>();
-
-        arrIndices.clear();
+        Integer paraIterar = 0;
+        Double paraComprobar;
+        
         Main.arrIndicesModificables.clear();
 
 
         if (arrElementos.contains(numeroCache)) {
-            for (int i = 0; i < arrElementos.size();i++) {
-                if (arrElementos.get(i) == numeroCache) {
-                    if(i == 0){
+            for (paraIterar = 0; paraIterar < arrElementos.size();paraIterar++) {
+                System.out.println("Elemento actual en el indice "+ paraIterar +"..."+ arrElementos.get(paraIterar));
+
+                paraComprobar = arrElementos.get(paraIterar);
+
+                if (paraComprobar == numeroCache) {
+                    if(paraIterar == 0){
                         System.out.println("Se ha encontrado el valor introducido en... ");
                     }
-                    arrIndices.add(i);
-                    Main.arrIndicesModificables.add(i);
+                    
+                    Main.arrIndicesModificables.add(paraIterar);
     
 
                 }
@@ -33,7 +37,7 @@ public class IteradorLista {
         }
 
 
-        return arrIndices;
+        return 0;
 
 
         

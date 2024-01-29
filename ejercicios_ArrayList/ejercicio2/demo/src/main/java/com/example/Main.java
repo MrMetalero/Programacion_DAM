@@ -11,7 +11,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        arrElementos = arrElementos;
+        
 
         Integer opcionElegida = 0;
         Double numeroCache = 0.0;
@@ -51,7 +51,7 @@ public class Main {
 
                     try {
                         System.out.println("Introduce un valor a buscar en el arrayList");
-                        Integer numeroControlIndices = 0;
+                        Integer numeroControlIndices = -1;
                         numeroCache = sc.nextDouble();
 
                         IteradorLista.funcionBusqueda(arrElementos, numeroCache).toString();
