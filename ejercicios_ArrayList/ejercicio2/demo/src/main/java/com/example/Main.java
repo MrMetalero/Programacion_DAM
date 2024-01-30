@@ -49,14 +49,19 @@ public class Main {
 
                 case 2:
 
+                    
+
+                    break;
+
+                case 3:
+
                     try {
                         System.out.println("Introduce un valor a buscar en el arrayList");
                         Integer numeroControlIndices = -1;
                         numeroCache = sc.nextDouble();
 
-                        IteradorLista.funcionBusqueda(arrElementos, numeroCache).toString();
-                
-                        
+                        IteradorLista.funcionModificar(arrElementos, numeroCache);
+                        System.out.println("Los índices a modificar son los siguientes...: "+arrIndicesModificables.toString());
 
                         do {
                             System.out.println("\nIntroduce un índice a modificar, si has terminado introduce -1 ");
@@ -85,10 +90,6 @@ public class Main {
                     } catch (Exception e) {
                         System.out.println("Algo ha salido mal, error");
                     }
-
-                    break;
-
-                case 3:
 
                     break;
 
