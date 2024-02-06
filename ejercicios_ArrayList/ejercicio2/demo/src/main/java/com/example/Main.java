@@ -48,8 +48,19 @@ public class Main {
                     break;
 
                 case 2:
-
+                    System.out.println("Introduce un valor a buscar en el arrayList");
+                  
+                    try {
+                        numeroCache = sc.nextDouble();
                     
+                        IteradorLista.funcionBusqueda(arrElementos, numeroCache);
+    
+                    } catch (Exception e) {
+                       System.out.println("Algo ha salido mal");
+                    }
+
+
+
 
                     break;
 
@@ -94,6 +105,59 @@ public class Main {
                     break;
 
                 case 4:
+                    
+                    try {
+                        System.out.println("Introduce un valor a buscar en el arrayList para su TOTAL ELIMINACIÓN");
+                        Integer numeroControlIndices = -1;
+                        numeroCache = sc.nextDouble();
+
+                        IteradorLista.funcionModificar(arrElementos, numeroCache);
+                        System.out.println("Los índices a ELIMINAR son los siguientes...: "+arrIndicesModificables.toString());
+
+                        do {
+                            System.out.println("\nIntroduce un índice a ELIMINAR, si has terminado introduce -1 ");
+
+                            numeroControlIndices = sc.nextInt();
+
+                            if(arrIndicesModificables.contains(numeroControlIndices) ){
+
+                                
+                                System.out.println("\nQuieres ELIMINAR el valor contenido en: ["+ numeroControlIndices +"]  ?");
+                                String comprobarSi = sc.nextLine();
+                                if (comprobarSi.equalsIgnoreCase("si")) {
+
+                                    arrElementos.remove(arrElementos.get(numeroControlIndices));
+
+                                    //Borrar el índice modificable de la lista donde acabamos de borrar el Elemento
+                                    //           el indice del array de indices(que contiene el indice que acabamos de borrar)
+                                    arrIndicesModificables.remove(arrIndicesModificables.indexOf(numeroControlIndices));
+
+                                }else{
+                                    System.out.println("No se ha borrado nada");
+                                }
+
+
+
+                            }else{
+                                System.out.println("El indice seleccionado está fuera del rango de índices que corresponden a tu búsqueda"
+                                + ", por favor introduce otro valor");
+
+                            }
+
+
+
+                            
+                        } while (numeroControlIndices != -1);
+
+
+                    } catch (Exception e) {
+                        System.out.println("Algo ha salido mal, error");
+                    }
+
+
+
+
+
 
                     break;
 
