@@ -12,6 +12,7 @@ public class Main {
         System.out.println(lava1.getCargaLavadora());
         System.out.println(lava2.getCargaLavadora());
 
+        System.out.println(lava1.numeroObjElectrodomestico);
     
     }
 

@@ -17,19 +17,63 @@ abstract public class Electrodomestico {
     
     public static HashMap<Character,Integer> EnerPrecio = new HashMap<>();
 
-    public static void rellenarLetras(){
+    protected static void rellenarLetras(){
         EnerPrecio.put('A', 100);
-        EnerPrecio.put('B', 100);
-        EnerPrecio.put('C', 100);
-        EnerPrecio.put('D', 100);
-        EnerPrecio.put('E', 100);
-        EnerPrecio.put('F', 100);
+        EnerPrecio.put('B', 80);
+        EnerPrecio.put('C', 60);
+        EnerPrecio.put('D', 50);
+        EnerPrecio.put('E', 30);
+        EnerPrecio.put('F', 10);
 
 
     }
 
+    private static char comprobarConsumo(char letraComprobar){
+        if (EnerPrecio.containsKey(letraComprobar) ){
+           
+            return letraComprobar;
+        //Si la letra no coincide con las del hashmap te dice que nanay y pone F
+        }else{
 
 
+            return 'F';
+        }
+
+
+    }
+
+    final double incrementoPrecio(){
+        Double incrementoLavadora = 0.0;
+
+        if(pesoElec >= 0 && pesoElec <= 19){
+            incrementoLavadora = 10.0;
+
+        }else if(pesoElec >= 20 && pesoElec <= 49){
+            incrementoLavadora = 50.0;
+
+        }else if(pesoElec >= 50 && pesoElec <= 79){
+            incrementoLavadora = 80.0;
+
+        }else if(pesoElec >= 80){
+            incrementoLavadora = 100.0;
+
+        }
+
+        incrementoLavadora += EnerPrecio.get(consumoEn);
+
+
+
+
+        return incrementoLavadora;
+
+    }
+    
+
+
+
+    
+
+    // Constructores
     protected Electrodomestico(){
         numeroObjElectrodomestico += 1;
         
@@ -37,6 +81,7 @@ abstract public class Electrodomestico {
 
     public Electrodomestico(String modelo, Integer precioBase, Character consumoEn, Integer pesoElec) {
         numeroObjElectrodomestico += 1;
+        this.consumoEn = comprobarConsumo(consumoEn);
     }
 
 
