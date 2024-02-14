@@ -84,8 +84,14 @@ abstract public class Electrodomestico {
         this.consumoEn = comprobarConsumo(consumoEn);
     }
 
-
-
+    @Override
+    public String toString(){
+        return "Datos del electrodoméstico:\n"
+        + "Modelo: " + modelo + "\n"
+        + "Precio: " + precioBase + "\n"
+        + "Consumo Energético: " + consumoEn + "\n"
+        + "Peso: " + pesoElec + "\n";
+    }
 
 
 
