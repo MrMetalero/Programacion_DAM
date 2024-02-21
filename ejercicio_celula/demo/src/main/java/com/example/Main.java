@@ -29,6 +29,7 @@ class HiloJuegoVida extends Thread {
             if (estaEncendido) {
                 mostrarTablero();
                 decisionesTablero();
+                infectar();
                 movimientos++;
             }
             try {
@@ -46,11 +47,30 @@ class HiloJuegoVida extends Thread {
             for (int y = 0; y < tablero.length; y++) {
                 char casillaComprobar = tablero[x][y];
 
-                if ((int) ((Math.random() * 70) + 1) == 69) { // probabilidad 1 entre 10 de spawnear
-                    tablero[x][y] = 'x'; // spawnea
+                if ((int) ((Math.random() * 70) + 1) == 69) { // probabilidad 1 entre 70 de infectarse
+                    tablero[x][y] = 'x'; // infecta la célula
 
                 }
                 
+               try {
+                if(casillaComprobar == 'x' && (int) ((Math.random() * 5) + 1) == 4){ //Se esparce a todos los cercanos, si se cambia la probabilidad se hace más o menos infeccioso
+
+                    //Diagonales
+                    tablero[x+1][y+1] = 'x';
+                    tablero[x+1][y-1] = 'x';
+                    tablero[x-1][y+1] = 'x';
+                    tablero[x-1][y-1] = 'x';
+
+                    //Arriba abajo izquierda derecha
+                    tablero[x+1][y] = 'x';
+                    tablero[x-1][y] = 'x';
+                    tablero[x][y-1] = 'x';
+                    tablero[x][y+1] = 'x';
+                }
+
+               } catch (ArrayIndexOutOfBoundsException e) {
+                
+               }
 
             }
         }
@@ -87,6 +107,7 @@ class HiloJuegoVida extends Thread {
                         }
                     }
                 } else { // si está VIVO
+                    
                     if (checkCasillas(x, y)) { // en caso de 3 o más alrededor
                         tablero[x][y] = VIVO;
                         if ((int) ((Math.random() * 5) + 1) == 4) { // probabilidad 1 entre 5 de muerte súbita
@@ -96,7 +117,7 @@ class HiloJuegoVida extends Thread {
                     } else { // en caso de no tener 3 cerca
 
                         try {
-                            if ((int) ((Math.random() * 2) + 1) == 1) { // probabilidad 50/50 de elegir izquierda o derecha
+                            if ((int) ((Math.random() * 2) + 1) == 1 && tablero[x][y] == 'x') { // probabilidad 50/50 de elegir izquierda o derecha
                                 tablero[x + 1][y + 1] = MUERTO; // Spawnea una célula a der-arriba
                             }else {
                                 try {
