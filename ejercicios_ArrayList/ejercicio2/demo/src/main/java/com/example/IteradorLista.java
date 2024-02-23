@@ -46,7 +46,7 @@ public class IteradorLista {
 
                 paraComprobar = arrElementos.get(paraIterar);
 
-                if ( Double.compare(paraComprobar, numeroCache) == 0 ) { /*paraComprobar == numeroCache no funcionaba*/
+                if ( Double.compare(paraComprobar, numeroCache) == 0 ) { /*paraComprobar == numeroCache no funcionaba si da 0 es que son iguales */
                     if(paraIterar == 0){
                         System.out.println("Se ha encontrado el valor introducido en... [" + paraIterar + "]");
                     }
