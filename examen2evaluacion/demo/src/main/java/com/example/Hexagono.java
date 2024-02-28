@@ -41,4 +41,11 @@ public class Hexagono extends Figura {
         return perimetroHexa  ;
     }
 
+
+    @Override
+    public String toString() {
+     
+        return super.toString() + "\nArea: " + calculoArea() + " \nPerímetro: " + calculoPerimetro();
+
+    }
 }

@@ -33,4 +33,11 @@ public class Trapecio extends Figura {
         return baseLado + baseLado2 + (ladoOblicuo + ladoOblicuo) ;
     }
 
+    @Override
+    public String toString() {
+     
+        return super.toString() + "\nArea: " + calculoArea() + " \nPerímetro: " + calculoPerimetro();
+
+    }
+
 }

@@ -11,6 +11,11 @@ public class Rectangulo extends Figura {
 
     }
 
+    @Override
+    public String toString() {
+     
+        return super.toString() + "\nArea: " + calculoArea() + " \nPerímetro: " + calculoPerimetro();
 
+    }
 
 }

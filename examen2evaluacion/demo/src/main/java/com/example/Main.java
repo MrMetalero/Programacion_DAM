@@ -43,7 +43,7 @@ public class Main {
             System.out.println("Introduce una de las opciones: "
                     + "ACCIONES\n"
                     + "[1] Agregar una figura\n"
-                    + "[2] Consultar el número de figuras creadasn"
+                    + "[2] Consultar el número de figuras creadas\n"
                     + "[3] Mostrar todas las figuras, indicando la información:\n"
                     + "[4] Mostrar la figura de la posición seleccionada, indicando\n"
                     + "[5] Modificar los datos de la figura de la posición seleccionada y mostrar los cambios:\n"
@@ -57,7 +57,7 @@ public class Main {
             switch (opcionElegida) {
                 case 1:
                     
-                    System.out.println("Qué figura?" +"Introduce una de las opciones: "
+                    System.out.println("¿Qué figura? Introduce una de las opciones: \n"
                     + "[1] Triángulo\n"
                     + "[2] Rectángulo\n"
                     + "[3] Trapecio\n"
@@ -79,13 +79,13 @@ public class Main {
 
                 case 3:
                     for (int i = 0; i < CrearFigura.misFiguras.size(); i++) {
-                        CrearFigura.misFiguras.get(i).toString();
+                        System.out.println(CrearFigura.misFiguras.get(i).toString());;
 
                     }
                 break;
 
                 case 4:
-                //Usar get  con un scanner y soutear el .toString del objeto que sea
+                    //Usar get  con un scanner y soutear el .toString del objeto que sea
                 break;
 
 

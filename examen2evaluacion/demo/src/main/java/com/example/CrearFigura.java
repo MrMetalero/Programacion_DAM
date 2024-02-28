@@ -15,16 +15,17 @@ public class CrearFigura {
             case 1:
                 Integer controlTriangulo = 2;
                 System.out.println("[1] Isosceles o [2] equilatero?");
-                  if (controlTriangulo == 1) {
+                controlTriangulo = sc.nextInt();
+                if (controlTriangulo == 1) {
                     System.out.println("Introduce en orden: Base, lado y luego altura  ");
                     Triangulo isosceles = new Triangulo(sc.nextDouble(),sc.nextDouble(), sc.nextDouble());
                     misFiguras.add(isosceles);
-                  }else{
+                }else{
                     System.out.println("Introduce en orden: Base y luego altura  ");
                     Triangulo isosceles = new Triangulo(sc.nextDouble(), sc.nextDouble());
                     misFiguras.add(isosceles);
 
-                  }
+                }
                 
 
             break;
