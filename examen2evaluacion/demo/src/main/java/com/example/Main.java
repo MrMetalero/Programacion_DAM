@@ -79,18 +79,45 @@ public class Main {
 
                 case 3:
                     for (int i = 0; i < CrearFigura.misFiguras.size(); i++) {
-                        System.out.println(CrearFigura.misFiguras.get(i).toString());;
+                        System.out.println(CrearFigura.misFiguras.get(i).toString());
 
                     }
                 break;
 
                 case 4:
                     //Usar get  con un scanner y soutear el .toString del objeto que sea
+                    System.out.println("Introduce el número de la figura a imprimir");
+
+                    CrearFigura.misFiguras.get(sc.nextInt()).toString();
+                    
+
                 break;
 
 
                 case 5:
                     //igual que en el caso 4 pero antes de hacer toString, se cambian los valores del objeto al que se ha accedido
+
+                    System.out.println("Introduce el número de la figura a modificar");
+                    int figuraNumModificar = sc.nextInt(); //Puede meter numeros demasiado grandes, hay que checkear expciones
+
+                    System.out.println("Introducir altura");
+                    CrearFigura.misFiguras.get(figuraNumModificar).altura = sc.nextDouble();
+
+                    //En caso de que sea un Trapecio
+                    
+
+                    for (int i = 0; i < figuraNumModificar; i++) {
+                        
+                        if(CrearFigura.misFiguras.get(figuraNumModificar).getClass() == com.example.Trapecio.class && i == figuraNumModificar){
+                            System.out.println("Introducir base");
+                            CrearFigura.misFiguras.getClass = sc.nextDouble();
+                        }
+                    }
+
+
+
+
+
                 break;
 
 
