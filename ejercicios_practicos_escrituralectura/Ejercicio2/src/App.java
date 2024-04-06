@@ -17,6 +17,8 @@ public class App {
         String pathFile = "";
 
         try {
+            System.out.println("Por favor introduce la ruta de el archivo de texto");
+
             pathFile = sc.nextLine();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -29,41 +31,36 @@ public class App {
             BufferedReader br = new BufferedReader(fr);
 
             int j = 0;
-            String characterCache = "";
+            Character characterCache;
+            String stringCache = "";
+            String stringCompleto = "";
+
             while((j=br.read()) != -1) {
-                characterCache += (char)j;
+                characterCache = (char)j;
     
-                for (int i = 0; i < characterCache.length(); i++) {
-                    if (characterCache.charAt(i).matches("[a-z]")) {
-                        FileWriter fw = new FileWriter("resources/text.txt");
-                        BufferedWriter bw = new BufferedWriter(fw);
-                        Character.toUpperCase(characterCache);
-                        fw.write(characterCache);
-                        bw.close();
-                        fw.close();
-    
-                    }else if(characterCache.toString().matches("[A-Z]")){
-                        FileWriter fw = new FileWriter("resources/text.txt");
-                        BufferedWriter bw = new BufferedWriter(fw);
-                        Character.toLowerCase(characterCache);
-                        fw.write(characterCache);
-                        bw.close();
-                        fw.close();
-                    } else{
-                        FileWriter fw = new FileWriter("resources/text.txt");
-                        BufferedWriter bw = new BufferedWriter(fw);
-                        fw.write(characterCache);
-                        bw.close();
-                        fw.close();
-    
-    
-                    }
+            
+                if (characterCache.toString().matches("[a-z]")) {
+                    stringCache = characterCache.toString().toUpperCase();
+
+                }else if(characterCache.toString().matches("[A-Z]")){
+                    stringCache = characterCache.toString().toLowerCase();
+                } else{
+                    stringCache = characterCache.toString();
+
                 }
+
+                stringCompleto +=stringCache;
+
     
                 
     
     
             }
+            FileWriter fw = new FileWriter(pathFile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            fw.write(stringCompleto);
+            bw.close();
+            fw.close();
 
 
         }catch(FileNotFoundException e){
