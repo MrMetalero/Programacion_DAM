@@ -17,6 +17,7 @@ public class Main {
        
         int i;
         String textoCache = "";
+    
         try {
             FileReader fr = new FileReader("demo/src/main/resources/texto.txt");
             BufferedReader br = new BufferedReader(fr); //Lector Buffer
