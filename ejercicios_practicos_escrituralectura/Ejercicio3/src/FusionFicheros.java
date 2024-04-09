@@ -24,10 +24,7 @@ public class FusionFicheros {
         FileReader fr2 = new FileReader(pathFile2);
         BufferedReader br2 = new BufferedReader(fr2);
 
-        FileWriter fw = new FileWriter(archivoFusion);
-        BufferedWriter bw = new BufferedWriter(fw);
 
-       
 
 
         if (archivoFusion.exists()) { //Si existe
@@ -36,6 +33,11 @@ public class FusionFicheros {
             Character yesNo = sc.nextLine().charAt(0);
 
             if (yesNo == 'Y' || yesNo == 'y') { //Si existe y quieres sobreescribir
+
+                FileWriter fw = new FileWriter(archivoFusion);
+                BufferedWriter bw = new BufferedWriter(fw);
+        
+               
                 
 
                 int letraCache;
@@ -65,6 +67,11 @@ public class FusionFicheros {
 
 
         }else{ //Si NO existe
+            FileWriter fw = new FileWriter(archivoFusion);
+            BufferedWriter bw = new BufferedWriter(fw);
+    
+           
+
             int letraCache;
             bw.write("");
 

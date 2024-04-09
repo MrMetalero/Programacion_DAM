@@ -1,5 +1,6 @@
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,38 +11,35 @@ import java.util.ArrayList;
 
 public class EscribirDatos {
  
-    public static void Escribir(int[] numArray, String pahtFile)throws FileNotFoundException, IOException,IndexOutOfBoundsException{
-        File archivo1 = new File(pahtFile);
-        FileOutputStream fos = new FileOutputStream(pahtFile);
+    public static void Escribir(int[] numArray, String pathFile)throws FileNotFoundException, IOException,IndexOutOfBoundsException{
+        File archivo1 = new File(pathFile);
+        FileOutputStream fos = new FileOutputStream(pathFile);
         DataOutputStream dos = new DataOutputStream(fos);
-        BufferedOutputStream bdos = new BufferedOutputStream(dos);
+        
 
         
         int[] intArray = NumeroRandom.funcionNumeroRandom(100);
-        byte[] byteArray = new byte[intArray.length];
+        
 
-        for (int i : numArray) { // convierte el array de numeros a array de bytes
-            byteArray[i] = (byte)numArray[i]; 
+        for (int i : numArray) { 
+            dos.writeInt(i);
 
         }
-
-
-    
-        bdos.write(byteArray,(int)archivo1.length(),byteArray.length);
-     
+       
+        dos.flush();
+        dos.close();
         
-    
+        FileInputStream fis = new FileInputStream(pathFile);
+        DataInputStream dis  = new DataInputStream(fis);
         
-        bdos.flush();
-        bdos.close();
-        
-        FileInputStream fis  = new FileInputStream(pahtFile);
-        BufferedInputStream bis = new BufferedInputStream(fis);
 
         System.out.println();
         int charCache;
-        while ((charCache = bis.read()) != -1) {
-            System.out.println((char)charCache);
+        int contador = 0;
+        while ((charCache = dis.readInt()) != -1) {
+            contador++;
+            System.out.println(contador + "     "+ charCache);
+
         }
 
     }

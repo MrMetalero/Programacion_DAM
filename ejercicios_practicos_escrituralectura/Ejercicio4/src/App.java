@@ -30,7 +30,7 @@ public class App {
             bis.close();
 
             File archivoNuevo = new File("resources/binarioCopia.bin");
-
+        
             FileOutputStream fos = new FileOutputStream("resources/binarioCopia.bin");
             BufferedOutputStream fbos = new BufferedOutputStream(fos);
 
