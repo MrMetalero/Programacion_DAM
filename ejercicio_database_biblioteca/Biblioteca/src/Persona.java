@@ -1,10 +1,10 @@
 public abstract class Persona {
 
-    int id;
+    String id;
     String nombre;
     String apellido1;
-    String apellido2;
-    int edad;
+    String apellido2 = null;
+    String edad;
     
     Persona(){
         

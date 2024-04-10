@@ -6,21 +6,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class App {
+    static ArrayList<Libro> biblioteca = new ArrayList<>();
+    static ArrayList<Empleado> empleados = new ArrayList<>();
+    static ArrayList<Usuario> usuarios = new ArrayList<>();
+
     public static void main(String[] args) throws Exception {
         Connection connection = null;
-        int asignadorID = 0;
-        ArrayList<Libro> biblioteca = new ArrayList<>();
-        ArrayList<Empleado> empleados = new ArrayList<>();
-        ArrayList<Usuario> usuarios = new ArrayList<>();
+       
+        
 
-
-        String sql = "CREATE TABLE empleados " +
-        "(id INTEGER not NULL, " +
-        " nombre VARCHAR(255), " + 
-        " apellido VARCHAR(255), " + 
-        " edad INTEGER, " + 
-        " PRIMARY KEY ( id ))";
-
+     
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -30,32 +25,27 @@ public class App {
             System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
         }
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        
         Statement st = connection.createStatement();
         connection.setAutoCommit(false); // cuidado que si no está entre esto y commit no funciona
-        st.executeUpdate(sql); // ejecuta el comando que he escrito en el string sql
+
+        try {
+            Sincronizar.sync(st);
+        } catch (SQLException e) {
+            System.out.println("No se ha podido sincronizar" + e.getSQLState());
+        }
+        
 
 
 
 
+
+
+
+        usuarios.add(AddUser.adduser(st)); //añade un usuario nuevo
+        
+        for (int i = 0; i < usuarios.size(); i++) {
+            System.out.println(usuarios.get(i).nombre);
+        }
 
         connection.commit(); //Esta mierda putea si escribes algún comando sql debajo porque no lo ejecuta. (Confirma y ejecuta los cambios porque le he  puesto que no haga auto commit)
         st.close(); // cierra el statement
