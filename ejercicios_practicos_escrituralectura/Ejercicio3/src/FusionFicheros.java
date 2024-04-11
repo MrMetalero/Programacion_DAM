@@ -57,7 +57,6 @@ public class FusionFicheros {
 
                 bw.flush();//confirma y cierra el writer
                 bw.close();
-
                 br1.close(); //cierra el lector
 
 
