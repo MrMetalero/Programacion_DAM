@@ -6,8 +6,8 @@ public class Libro {
     String ubicacion;
     String isbn;
     boolean prestado = false;
-    Empleado prestadoPor;
-    Usuario prestadoUsuario;
+    Empleado prestadoPor = null;
+    Usuario prestadoUsuario = null;
 
     Libro(){
 

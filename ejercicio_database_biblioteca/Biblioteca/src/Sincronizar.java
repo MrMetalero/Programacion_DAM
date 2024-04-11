@@ -9,9 +9,13 @@ public class Sincronizar {
     public static void sync(Statement st) throws SQLException{
 
         ResultSet rsUsuarios;
-        st.executeQuery("SELECT * FROM usuarios");
+        rsUsuarios = st.executeQuery("SELECT * FROM usuarios");
     
+        ResultSet rsEmpleados;
+        rsUsuarios = st.executeQuery("SELECT * FROM empleados");
 
+        ResultSet rsLibros;
+        rsUsuarios = st.executeQuery("SELECT * FROM libros");
 
 
 
