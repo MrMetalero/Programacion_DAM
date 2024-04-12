@@ -1,5 +1,6 @@
 public class Libro {
 
+    int id;
     String titulo;
     String autor;
     String editorial;
@@ -9,8 +10,15 @@ public class Libro {
     Empleado prestadoPor = null;
     Usuario prestadoUsuario = null;
 
-    Libro(){
-
+    Libro(String titulo, String autor, String editorial, String ubicacion, String isbn, boolean prestado,Empleado prestadoPor, Usuario prestadoUsuario){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editorial = editorial;
+        this.ubicacion = ubicacion;
+        this.isbn = isbn;
+        this.prestado = prestado;
+        this.prestadoPor = prestadoPor;
+        this.prestadoUsuario = prestadoUsuario;
 
 
     }
