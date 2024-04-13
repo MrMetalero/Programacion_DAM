@@ -1,6 +1,6 @@
 public class Libro {
 
-    int id;
+    String id;
     String titulo;
     String autor;
     String editorial;
@@ -23,6 +23,7 @@ public class Libro {
 
     }
 
+      
 
 
 }

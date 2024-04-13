@@ -7,7 +7,7 @@ public abstract class AddUser {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static Usuario adduser(Statement statement) throws SQLException{
+    public static Usuario addUser(Statement statement) throws SQLException{
 
         
         ArrayList<String> listaParametros = new ArrayList<>();

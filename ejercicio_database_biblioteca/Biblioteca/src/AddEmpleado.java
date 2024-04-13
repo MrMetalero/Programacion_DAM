@@ -6,7 +6,7 @@ public abstract class AddEmpleado {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static Empleado adduser(Statement statement) throws SQLException{
+    public static Empleado addEmpleado(Statement statement) throws SQLException{
 
     
         ArrayList<String> listaParametros = new ArrayList<>();
@@ -25,10 +25,10 @@ public abstract class AddEmpleado {
 
 
         String sentenciaSqlBase = 
-        "INSERT INTO usuarios (nombre,apellido1,apellido2,edad)" //(nombre),(apellido1),[apellido2],(edad)
+        "INSERT INTO empleados (nombre,apellido1,apellido2,edad)" //(nombre),(apellido1),[apellido2],(edad)
         +"VALUES ("+"'" + empleadoNuevo.nombre+"',"+"'" + empleadoNuevo.apellido1+"'," +"'" + empleadoNuevo.apellido2+"'," + Integer.parseInt(empleadoNuevo.edad) + ")";
 
-        if (sentenciaSqlBase != "INSERT INTO usuarios (nombre,apellido1,apellido2,edad) VALUES ()") { // (nombre),(apellido1),[apellido2],(edad)
+        if (sentenciaSqlBase != "INSERT INTO empleados (nombre,apellido1,apellido2,edad) VALUES ()") { // (nombre),(apellido1),[apellido2],(edad)
         
         statement.execute(sentenciaSqlBase,Statement.RETURN_GENERATED_KEYS);//poner el segundo argumento permite que se retornen las claves generadas (Tengo que testear si las claves son las correctas)
         ResultSet generatedKeys = statement.getGeneratedKeys();

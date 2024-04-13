@@ -19,6 +19,7 @@ public class Sincronizar {
             usuarioNuevoSync.apellido2= rsUsuarios.getString("apellido2");
             usuarioNuevoSync.edad= rsUsuarios.getString("edad");
             App.usuarios.add(usuarioNuevoSync);
+            System.out.println("Sincronizando usuarios...");
         }
         
         
@@ -34,37 +35,39 @@ public class Sincronizar {
             empleadoNuevoSync.apellido2= rsEmpleados.getString("apellido2");
             empleadoNuevoSync.edad= rsEmpleados.getString("edad");
             App.empleados.add(empleadoNuevoSync);
+            System.out.println("Sincronizando empleados...");
         }
         ResultSet rsLibros;
         rsLibros = st.executeQuery("SELECT * FROM libros");
 
         while (rsLibros.next()) {
             Libro libroNuevoSync = new Libro(null, null, null, null, null, false, null, null);
-            libroNuevoSync.titulo= rsEmpleados.getString("id");
-            libroNuevoSync.autor= rsEmpleados.getString("nombre");
-            libroNuevoSync.editorial= rsEmpleados.getString("titulo");
-            libroNuevoSync.ubicacion= rsEmpleados.getString("autor");
-            libroNuevoSync.isbn= rsEmpleados.getString("editorial");
-            libroNuevoSync.prestado= rsEmpleados.getBoolean("prestado");
+            libroNuevoSync.titulo= rsLibros.getString("id");
+            libroNuevoSync.editorial= rsLibros.getString("titulo");
+            libroNuevoSync.autor= rsLibros.getString("autor");
+            libroNuevoSync.isbn= rsLibros.getString("editorial");
+            libroNuevoSync.ubicacion= rsLibros.getString("ubicacion");
+            libroNuevoSync.prestado= rsLibros.getBoolean("prestado");
 
             try {
                 libroNuevoSync.prestadoPor = getEmpleadoById(rsLibros.getInt("prestadopor"));
             } catch (Exception e) {
-                System.out.println("Se ha fallado al obtener la ID del empleado");
+                System.out.println("Se ha fallado al obtener la ID del empleado" + e.getMessage());
             }
             
             try {
                 libroNuevoSync.prestadoUsuario = getUsuarioById(rsUsuarios.getInt("prestadousuario"));
             } catch (Exception e) {
-                System.out.println("Se ha fallado al obtener la ID del usuario");
+                System.out.println("Se ha fallado al obtener la ID del usuario" + e.getMessage());
             }
             
             App.biblioteca.add(libroNuevoSync);
+            System.out.println("Sincronizando libros...");
         }
 
 
 
-    
+        System.out.println("Sincronización completada!!!");
 
 
     }
