@@ -12,21 +12,73 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         Connection connection = null;
-       
-        
+        boolean encendidoPrograma = true;
+        int programaControl = -1;
   
      
 
         try {
             Class.forName("org.postgresql.Driver");
             // Conectamos con la base de datos
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/biblioteca","postgres", "postgres");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/biblioteca","mati", "mati");
         } catch (ClassNotFoundException ex) {
             System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
         }
             
         Statement st = connection.createStatement();
         connection.setAutoCommit(false); // cuidado que si no está entre esto y commit no funciona
+
+        while (encendidoPrograma) {
+            
+            do {
+                
+                try {
+                    System.out.println(
+                        "Introduce una de las opciones del menú:"
+                        + "[1] Gestión de libros"
+                        + "[1] Gestión de usuarios" 
+                        + "[1] Gestión de empleados"
+
+                    );
+
+                    if (programaControl > 3 | programaControl < 1) {
+                        throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
+                    }else{
+
+                            switch (st) {
+                                case value:
+                                    
+                                    break;
+                            
+                                default:
+                                    break;
+                        }
+
+
+
+
+
+
+                    }
+
+                } catch (Exception e) {
+                
+
+                }
+
+
+                
+
+
+                
+            } while (programaControl > 3 | programaControl < 1);
+
+
+
+
+
+        }
+
 
         try {
             Sincronizar.sync(st);
@@ -39,7 +91,7 @@ public class App {
         }
 
 
-
+        
 
 
 
@@ -50,6 +102,10 @@ public class App {
         
 
         connection.commit(); //Esta mierda putea si escribes algún comando sql debajo porque no lo ejecuta. (Confirma y ejecuta los cambios porque le he  puesto que no haga auto commit)
+        
+        
+        
+        
         st.close(); // cierra el statement
         connection.close();// cierra la conexión
     }
