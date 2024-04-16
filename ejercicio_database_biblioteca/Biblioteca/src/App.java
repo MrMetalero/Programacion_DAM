@@ -9,9 +9,9 @@ public class App {
     static ArrayList<Libro> biblioteca = new ArrayList<>();
     static ArrayList<Empleado> empleados = new ArrayList<>();
     static ArrayList<Usuario> usuarios = new ArrayList<>();
-
+    static Connection connection = null;
     public static void main(String[] args) throws Exception {
-        Connection connection = null;
+        
         boolean encendidoPrograma = true;
         int programaControl = -1;
   
@@ -25,7 +25,7 @@ public class App {
             System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
         }
             
-        Statement st = connection.createStatement();
+        
         connection.setAutoCommit(false); // cuidado que si no está entre esto y commit no funciona
 
         while (encendidoPrograma) {
@@ -36,22 +36,34 @@ public class App {
                     System.out.println(
                         "Introduce una de las opciones del menú:"
                         + "[1] Gestión de libros"
-                        + "[1] Gestión de usuarios" 
-                        + "[1] Gestión de empleados"
+                        + "[2] Gestión de usuarios" 
+                        + "[3] Gestión de empleados"
+                        + "[4] Salir"
 
                     );
 
-                    if (programaControl > 3 | programaControl < 1) {
+
+                    if (programaControl > 4 | programaControl < 1) {
                         throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
                     }else{
+                        ID
+                        switch (programaControl) {
+                            case 1:
+                                GestionLibros.menuLibros();
+                                break;
 
-                            switch (st) {
-                                case value:
-                                    
-                                    break;
-                            
-                                default:
-                                    break;
+                            case 2:
+                                GestionUsuarios.menuUsuarios();
+                                break;
+                            case 3:
+                                GestionEmpleados.menuEmpleado();
+                                break;
+
+                            case 4:
+                                System.out.println("Saliendo...");
+                                break;
+                            default:
+                                break;
                         }
 
 
@@ -62,7 +74,7 @@ public class App {
                     }
 
                 } catch (Exception e) {
-                
+                    System.out.println(e.getMessage());
 
                 }
 
@@ -71,7 +83,7 @@ public class App {
 
 
                 
-            } while (programaControl > 3 | programaControl < 1);
+            } while (programaControl > 4 | programaControl < 1);
 
 
 
@@ -80,12 +92,16 @@ public class App {
         }
 
 
+
+        Statement stMain = connection.createStatement(); //statement para sincronizar al final
+
         try {
-            Sincronizar.sync(st);
+            Sincronizar.sync(stMain);
         } catch (SQLException e) {
             System.out.println("No se ha podido sincronizar" + e.getMessage());
         }
         
+
         for (int i = 0; i < usuarios.size(); i++) {
             System.out.println(usuarios.get(i).nombre);
         }
@@ -95,9 +111,9 @@ public class App {
 
 
 
-        usuarios.add(AddUser.addUser(st)); //añade un usuario nuevo
-        biblioteca.add(AddLibro.addLibro(st));
-        empleados.add(AddEmpleado.addEmpleado(st));
+        usuarios.add(AddUser.addUser(stMain)); //añade un usuario nuevo
+        biblioteca.add(AddLibro.addLibro(stMain));
+        empleados.add(AddEmpleado.addEmpleado(stMain));
         
         
 
@@ -106,7 +122,7 @@ public class App {
         
         
         
-        st.close(); // cierra el statement
+        stMain.close(); // cierra el statement
         connection.close();// cierra la conexión
     }
 
