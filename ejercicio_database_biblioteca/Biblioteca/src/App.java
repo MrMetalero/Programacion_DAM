@@ -46,7 +46,7 @@ public class App {
                     if (programaControl > 4 | programaControl < 1) {
                         throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
                     }else{
-                        ID
+                        
                         switch (programaControl) {
                             case 1:
                                 GestionLibros.menuLibros();
