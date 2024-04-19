@@ -16,13 +16,15 @@ public abstract class GestionLibros {
                     + "[1] Añadir un libro"
                     + "[2] ELIMINAR un libro" 
                     + "[3] Buscar un libro"
-                    + "[4] Salir"
+                    + "[4] Alquiler"
+                    + "[5] Devolución"
+                    + "[6] Salir"
 
                 );
 
                 programaControl = sc.nextInt(); //Introducción del usuario
 
-                if (programaControl > 4 | programaControl < 1) {
+                if (programaControl > 6 | programaControl < 1) {
                     throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
                 }else{
 
@@ -34,10 +36,22 @@ public abstract class GestionLibros {
                             break;
 
                         case 2:
-
+                            RemoveLibro.borrarLibro(stLibros);
                             break;
                         case 3:
+                            BuscarLibros.opcionesBuscarLibros();
+                            break;
 
+                        case 4:
+
+                            break;
+
+                        case 5:
+
+                            break;
+
+                        case 6:
+                            programaControl = -1;
                             break;
 
                         default:
@@ -61,7 +75,7 @@ public abstract class GestionLibros {
 
 
             
-        } while (programaControl > 4 | programaControl < 1);
+        } while ( programaControl != 6);
 
       
 
