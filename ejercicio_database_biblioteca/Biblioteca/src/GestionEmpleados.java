@@ -22,34 +22,40 @@ public abstract class GestionEmpleados {
                 
                 programaControl = sc.nextInt(); //Introducción del usuario
 
-                if (programaControl > 4 | programaControl < 1) {
-                    throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
-                }else{
+               
+                
 
-                    switch (programaControl) {
-                        case 1:
-                            App.empleados.add(AddEmpleado.addEmpleado(stEmpleados)); //añade al arraylist el empleado
-                            App.connection.commit(); //aplica los cambios
-                            stEmpleados.close(); // Cierra el statement
-                            break;
+                switch (programaControl) {
+                    case 1:
+                        App.empleados.add(AddEmpleado.addEmpleado(stEmpleados)); //añade al arraylist el empleado
+                        App.connection.commit(); //aplica los cambios
+                        stEmpleados.close(); // Cierra el statement
+                        break;
 
-                        case 2:
+                    case 2:
 
-                            break;
-                        case 3:
+                        break;
+                    case 3:
 
-                            break;
+                        break;
 
-                        default:
-                            break;
-                    }
-
-
+                    case 4:
+                    System.out.println("Saliendo...");
+                    programaControl = -1;
+                    break;
 
 
-
-
+                    default:
+                    System.out.println("Opción inválida: inténtalo de nuevo");
+                        break;
                 }
+
+
+
+
+
+
+                
 
             } catch (Exception e) {
                 System.out.println("Ha ocurrido un error: \n" + e.getMessage());
@@ -61,7 +67,7 @@ public abstract class GestionEmpleados {
 
 
             
-        } while (programaControl > 4 | programaControl < 1);
+        } while (programaControl < 1 | programaControl > 4);
 
       
 

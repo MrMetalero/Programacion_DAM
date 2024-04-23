@@ -9,73 +9,63 @@ public abstract class GestionLibros {
         Statement stLibros = App.connection.createStatement();
 
         do {
-                
-            try {
-                System.out.println(
-                    "Introduce una de las opciones del menú:"
-                    + "[1] Añadir un libro"
-                    + "[2] ELIMINAR un libro" 
-                    + "[3] Buscar un libro"
-                    + "[4] Alquiler"
-                    + "[5] Devolución"
-                    + "[6] Salir"
+        
+            System.out.println(
+                "Introduce una de las opciones del menú:"
+                + "[1] Añadir un libro"
+                + "[2] ELIMINAR un libro" 
+                + "[3] Buscar un libro"
+                + "[4] Alquiler"
+                + "[5] Devolución"
+                + "[6] Salir"
 
-                );
+            );
 
-                programaControl = sc.nextInt(); //Introducción del usuario
+            programaControl = sc.nextInt(); //Introducción del usuario
 
-                if (programaControl > 6 | programaControl < 1) {
-                    throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
-                }else{
 
-                    switch (programaControl) {
-                        case 1:
-                            App.biblioteca.add(AddLibro.addLibro(stLibros)); //añade al arraylist el libro
-                            App.connection.commit(); //aplica los cambios
-                            stLibros.close(); // Cierra el statement
-                            break;
+            switch (programaControl) {
+                case 1:
+                    App.biblioteca.add(AddLibro.addLibro(stLibros)); //añade al arraylist el libro
+                    App.connection.commit(); //aplica los cambios
+                    stLibros.close(); // Cierra el statement
+                    break;
 
-                        case 2:
-                            RemoveLibro.borrarLibro(stLibros);
-                            break;
-                        case 3:
-                            BuscarLibros.opcionesBuscarLibros();
-                            break;
+                case 2:
 
-                        case 4:
-
-                            break;
-
-                        case 5:
-
-                            break;
-
-                        case 6:
-                            programaControl = -1;
-                            break;
-
-                        default:
-                            break;
+                    try {
+                        RemoveLibro.borrarLibro(stLibros);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
 
+                    break;
+                case 3:
+                    BuscarLibros.opcionesBuscarLibros();
+                    break;
 
+                case 4:
 
+                    break;
 
+                case 5:
 
+                    break;
 
-                }
+                case 6:
+                System.out.println("Saliendo...");
+                    programaControl = -1;
+                    break;
 
-            } catch (Exception e) {
-                System.out.println("Ha ocurrido un error: \n" + e.getMessage());
-
+                default:
+                System.out.println("Opción no válida: Inténtalo de nuevo");
+                    break;
             }
 
 
             
-
-
-            
-        } while ( programaControl != 6);
+        } while ( programaControl > 6 | programaControl < 1);
 
       
 

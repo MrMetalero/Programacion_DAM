@@ -39,41 +39,38 @@ public class App {
                         + "[2] Gestión de usuarios" 
                         + "[3] Gestión de empleados"
                         + "[4] Salir"
-
                     );
 
 
-                    if (programaControl > 4 | programaControl < 1) {
-                        throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
-                    }else{
+        
                         
-                        switch (programaControl) {
-                            case 1:
-                                GestionLibros.menuLibros();
-                                break;
+                    switch (programaControl) {
+                        case 1:
+                            GestionLibros.menuLibros();
+                            break;
 
-                            case 2:
-                                GestionUsuarios.menuUsuarios();
-                                break;
-                            case 3:
-                                GestionEmpleados.menuEmpleado();
-                                break;
+                        case 2:
+                            GestionUsuarios.menuUsuarios();
+                            break;
+                        case 3:
+                            GestionEmpleados.menuEmpleado();
+                            break;
 
-                            case 4:
-                                System.out.println("Saliendo...");
-                                break;
-                            default:
-                                break;
-                        }
-
-
-
-
-
-
+                        case 4:
+                            System.out.println("Saliendo...");
+                            encendidoPrograma = false;
+                            break;
+                        default:
+                        System.out.println("Opción no válida: Inténtalo de nuevo");
+                            break;
                     }
 
-                } catch (Exception e) {
+
+
+
+
+
+                    }catch (Exception e) {
                     System.out.println(e.getMessage());
 
                 }

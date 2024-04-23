@@ -363,7 +363,8 @@ public abstract class BuscarLibros {
             + "[11] Salir\n"
             );
 
-
+            //Introducción del menú
+            opcionesMenuBuscar = sc.nextInt();
             
             switch (opcionesMenuBuscar) {
 
@@ -427,52 +428,63 @@ public abstract class BuscarLibros {
                 break;
         
                 case 3:
+                System.out.println("introduce el titulo");
                     buscarTitulo(titulo = sc.nextLine());
                 break;
         
                 case 4:
+                System.out.println("introduce el autor");
                     buscarAutor(autor = sc.nextLine());
                 break;
         
                 case 5:
+                System.out.println("introduce el editorial");
                     buscarEditorial(editorial = sc.nextLine());
                 break;
         
                 case 6:
+                System.out.println("introduce el ubicacion");
                     buscarUbicacion( ubicacion = sc.nextLine());
                 break;
         
                 case 7:
+                System.out.println("introduce el isbn");
                     buscarIsbn(isbn = sc.nextLine());
                 break;
         
                 case 8:
+                System.out.println("introduce si está prestado o no");
                     buscarPrestado(prestado = sc.nextBoolean());
                 break;
         
                 case 9:
+                System.out.println("introduce el id del empleado que ha prestado");
                     buscarPrestadoPorId(id = sc.nextLine());
                 break;
         
                 case 10:
-                    buscarPrestadoUsuarioId(idUsuarioBuscar = sc.nextLine());
+                System.out.println("introduce el id del usuario al que se ha prestado");
 
+                    buscarPrestadoUsuarioId(idUsuarioBuscar = sc.nextLine());
+                    
                 break;
         
                 case 11:
+                System.out.println("Saliendo...");
+
                     opcionesMenuBuscar = -1;
                 break;
         
 
                 default:
-                
+                    System.out.println("Opción incorrecta vuelve a intentarlo");
                 break;
             }
 
 
 
 
-        } while (opcionesMenuBuscar > 1 | opcionesMenuBuscar < 10);
+        } while (opcionesMenuBuscar < 1 | opcionesMenuBuscar > 10);
 
         
 

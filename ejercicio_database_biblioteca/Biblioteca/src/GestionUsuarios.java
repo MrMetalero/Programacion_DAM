@@ -22,34 +22,37 @@ public abstract class GestionUsuarios {
 
                 programaControl = sc.nextInt(); //Introducción del usuario
 
-                if (programaControl > 4 | programaControl < 1) {
-                    throw new Exception("Esa opción del menú no existe, inténtalo de nuevo");
-                }else{
 
-                    switch (programaControl) {
-                        case 1:
-                            App.usuarios.add(AddUser.addUser(stUsuarios)); //añade al arraylist el usuario
-                            App.connection.commit(); //aplica los cambios
-                            stUsuarios.close(); // Cierra el statement
-                            break;
+                switch (programaControl) {
+                    case 1:
+                        App.usuarios.add(AddUser.addUser(stUsuarios)); //añade al arraylist el usuario
+                        App.connection.commit(); //aplica los cambios
+                        stUsuarios.close(); // Cierra el statement
+                        break;
 
-                        case 2:
+                    case 2:
 
-                            break;
-                        case 3:
+                        break;
+                    case 3:
 
-                            break;
+                        break;
 
-                        default:
-                            break;
-                    }
+                    case 4:
+                        System.out.println("Saliendo...");
+                        programaControl = -1;
+                    break;
 
-
-
-
-
-
+                    default:
+                    System.out.println("Selección incorrecta: Vuelve a introducir un valor");
+                        break;
                 }
+
+
+
+
+
+
+                
 
             } catch (Exception e) {
                 System.out.println("Ha ocurrido un error: \n" + e.getMessage());
@@ -61,7 +64,7 @@ public abstract class GestionUsuarios {
 
 
             
-        } while (programaControl > 1 | programaControl < 3);
+        } while (programaControl < 1 | programaControl > 4);
 
       
 

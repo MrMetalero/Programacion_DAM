@@ -3,12 +3,13 @@ import java.util.ArrayList;
 public abstract class RemoveLibro {
 
 
-    public static void borrarLibro(Statement stBorrar){
+    public static void borrarLibro(Statement stBorrar) throws Exception{
+        //Llama primero a la búsqueda de libros para traerse los datos de los libros que quieres eliminar
         ArrayList<Libro> librosBorrables = BuscarLibros.opcionesBuscarLibros();
         String sentenciaIdsLibrosBorrables= "";
-        for (int i = 0; i < librosBorrables.size()-1; i++) {
+        for (int i = 0; i < librosBorrables.size()-1; i++) {  //ASEGURARSE DE QUE SIZE ES CORRECTO PENDIENTE
 
-            if (librosBorrables.size() == 2) {
+            if (librosBorrables.size() == 2) { // PUEDE CAMBIAR POR SIZE
                 if (i == 0) {
                     sentenciaIdsLibrosBorrables += librosBorrables.get(i).id +",";
                 }else{
@@ -16,8 +17,12 @@ public abstract class RemoveLibro {
                 }
                 
             }
-            else if (librosBorrables.size() == 1) {
+            else if (librosBorrables.size() == 1) { // PUEDE CAMBIAR POR SIZE
                 sentenciaIdsLibrosBorrables += librosBorrables.get(i).id;
+
+            }else if (librosBorrables.size() < 1) {
+                throw new Exception("Error, no se han seleccionado libros borrables");
+
             }else {
 
                 if (i == 0) {
