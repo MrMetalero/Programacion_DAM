@@ -64,7 +64,7 @@ public abstract class GestionUsuarios {
 
 
             
-        } while (programaControl < 1 | programaControl > 4);
+        } while (programaControl != -1);
 
       
 

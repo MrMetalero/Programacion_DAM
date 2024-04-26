@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class BuscarLibros {
 
     // String id;
-    // String titulo;
+    // String titulo; 
     // String autor;
     // String editorial;
     // String ubicacion;
@@ -16,6 +16,167 @@ public abstract class BuscarLibros {
     // Empleado prestadoPor = null;
     // Usuario prestadoUsuario = null;
     public static Scanner sc = new Scanner(System.in);
+
+
+
+
+    public static ArrayList<Libro> opcionesBuscarLibros(){
+
+        ArrayList<Libro> librosEncontrados = new ArrayList<>();
+        int opcionesMenuBuscar = -1;
+
+
+  
+
+        do {
+
+            System.out.println("Introduce una opción del menú: \n"
+            + "[1] Búsqueda múltiple \n"
+            + "[2] Búsqueda id\n"
+            + "[3] Búsqueda titulo\n"
+            + "[4] Búsqueda autor\n"
+            + "[5] Búsqueda editorial\n"
+            + "[6] Búsqueda ubicacion\n"
+            + "[7] Búsqueda isbn\n"
+            + "[8] Búsqueda prestados\n"
+            + "[9] Búsqueda prestados por...\n"
+            + "[10] Búsqueda prestado a...\n"
+            + "[11] Salir\n"
+            );
+
+            //Introducción del menú
+            opcionesMenuBuscar = sc.nextInt();
+            
+            switch (opcionesMenuBuscar) {
+
+                case 1:
+                    
+
+                    System.out.println("introduce el id");
+                    String id = sc.nextLine();
+
+                    System.out.println("introduce el titulo");
+                    String titulo = sc.nextLine();
+                    
+                    System.out.println("introduce el autor");
+                    String autor = sc.nextLine();
+
+                    System.out.println("introduce el editorial");
+                    String editorial = sc.nextLine();
+
+                    System.out.println("introduce el ubicacion");
+                    String ubicacion = sc.nextLine();
+
+                    System.out.println("introduce el isbn");
+                    String isbn = sc.nextLine();
+                    
+                    System.out.println("introduce true para buscar prestados, false para no prestados");
+                    boolean prestado = sc.nextBoolean();
+
+
+                    System.out.println("introduce el id del Empleado que prestó el libro");
+                    Empleado empleadoBuscar = null;
+                    String idEmpleadoBuscar = sc.nextLine(); // Guardamos la id a buscar y la comparamos con los empleados
+
+                    for (Empleado empleado : App.empleados) {
+                        if (empleado.id == idEmpleadoBuscar) {
+                            empleadoBuscar = empleado;
+                        }
+                    }
+
+
+                    System.out.println("introduce el id del Usuario al que se le prestó el libro");
+                    Usuario usuarioBuscar = null;
+                    String idUsuarioBuscar = sc.nextLine(); // Guardamos la id a buscar y la comparamos con los empleados
+
+                    for (Usuario usuario : App.usuarios) {
+                        if (usuario.id == idUsuarioBuscar) {
+                            usuarioBuscar = usuario;
+                        }
+                    }
+
+
+                    buscarLibros(id, titulo, autor, editorial, ubicacion, isbn, prestado, empleadoBuscar, usuarioBuscar);
+
+                    
+                break;
+
+
+                case 2:
+                System.out.println("introduce el id");
+                    sc.nextLine();
+                    buscarPorId(id = sc.nextLine());
+                break;
+        
+                case 3:
+                System.out.println("introduce el titulo");
+                    buscarTitulo(titulo = sc.nextLine());
+                break;
+        
+                case 4:
+                System.out.println("introduce el autor");
+                    buscarAutor(autor = sc.nextLine());
+                break;
+        
+                case 5:
+                System.out.println("introduce el editorial");
+                    buscarEditorial(editorial = sc.nextLine());
+                break;
+        
+                case 6:
+                System.out.println("introduce el ubicacion");
+                    buscarUbicacion( ubicacion = sc.nextLine());
+                break;
+        
+                case 7:
+                System.out.println("introduce el isbn");
+                    buscarIsbn(isbn = sc.nextLine());
+                break;
+        
+                case 8:
+                System.out.println("introduce si está prestado o no");
+                    buscarPrestado(prestado = sc.nextBoolean());
+                break;
+        
+                case 9:
+                System.out.println("introduce el id del empleado que ha prestado");
+                    buscarPrestadoPorId(id = sc.nextLine());
+                break;
+        
+                case 10:
+                System.out.println("introduce el id del usuario al que se ha prestado");
+
+                    buscarPrestadoUsuarioId(idUsuarioBuscar = sc.nextLine());
+                    
+                break;
+        
+                case 11:
+                System.out.println("Saliendo...");
+
+                    opcionesMenuBuscar = -1;
+                break;
+        
+
+                default:
+                    System.out.println("Opción incorrecta vuelve a intentarlo");
+                break;
+            }
+
+
+
+
+        } while (opcionesMenuBuscar < 1 | opcionesMenuBuscar > 10);
+
+        
+
+        return librosEncontrados;
+    }
+
+
+
+
+
+
 
     public static ArrayList<Libro> buscarLibros(String busqIdLibro,String busqTitulo, String busqAutor, String busqEditorial,String busqUbicacion, String busqIsbn,boolean busqPrestado, Empleado busqPrestadoPor, Usuario busqPrestadoUsuario ){
         int i = 0;
@@ -308,6 +469,7 @@ public abstract class BuscarLibros {
     }
 
 
+
     public static ArrayList<Libro> buscarPorId(String busqId ){
         int i = 0;
         ArrayList<Libro> librosEncontrados = new ArrayList<>();
@@ -337,159 +499,6 @@ public abstract class BuscarLibros {
 
 
 
-
-
-    public static ArrayList<Libro> opcionesBuscarLibros(){
-
-        ArrayList<Libro> librosEncontrados = new ArrayList<>();
-        int opcionesMenuBuscar = -1;
-
-
-  
-
-        do {
-
-            System.out.println("Introduce una opción del menú: \n"
-            + "[1] Búsqueda múltiple \n"
-            + "[2] Búsqueda id\n"
-            + "[3] Búsqueda titulo\n"
-            + "[4] Búsqueda autor\n"
-            + "[5] Búsqueda editorial\n"
-            + "[6] Búsqueda ubicacion\n"
-            + "[7] Búsqueda isbn\n"
-            + "[8] Búsqueda prestados\n"
-            + "[9] Búsqueda prestados por...\n"
-            + "[10] Búsqueda prestado a...\n"
-            + "[11] Salir\n"
-            );
-
-            //Introducción del menú
-            opcionesMenuBuscar = sc.nextInt();
-            
-            switch (opcionesMenuBuscar) {
-
-                case 1:
-                    
-
-                    System.out.println("introduce el id");
-                    String id = sc.nextLine();
-
-                    System.out.println("introduce el titulo");
-                    String titulo = sc.nextLine();
-                    
-                    System.out.println("introduce el autor");
-                    String autor = sc.nextLine();
-
-                    System.out.println("introduce el editorial");
-                    String editorial = sc.nextLine();
-
-                    System.out.println("introduce el ubicacion");
-                    String ubicacion = sc.nextLine();
-
-                    System.out.println("introduce el isbn");
-                    String isbn = sc.nextLine();
-                    
-                    System.out.println("introduce true para buscar prestados, false para no prestados");
-                    boolean prestado = sc.nextBoolean();
-
-
-                    System.out.println("introduce el id del Empleado que prestó el libro");
-                    Empleado empleadoBuscar = null;
-                    String idEmpleadoBuscar = sc.nextLine(); // Guardamos la id a buscar y la comparamos con los empleados
-
-                    for (Empleado empleado : App.empleados) {
-                        if (empleado.id == idEmpleadoBuscar) {
-                            empleadoBuscar = empleado;
-                        }
-                    }
-
-
-                    System.out.println("introduce el id del Usuario al que se le prestó el libro");
-                    Usuario usuarioBuscar = null;
-                    String idUsuarioBuscar = sc.nextLine(); // Guardamos la id a buscar y la comparamos con los empleados
-
-                    for (Usuario usuario : App.usuarios) {
-                        if (usuario.id == idUsuarioBuscar) {
-                            usuarioBuscar = usuario;
-                        }
-                    }
-
-
-                    buscarLibros(id, titulo, autor, editorial, ubicacion, isbn, prestado, empleadoBuscar, usuarioBuscar);
-
-                    
-                break;
-
-
-                case 2:
-                System.out.println("introduce el id");
-
-                    buscarPorId(id = sc.nextLine());
-                break;
-        
-                case 3:
-                System.out.println("introduce el titulo");
-                    buscarTitulo(titulo = sc.nextLine());
-                break;
-        
-                case 4:
-                System.out.println("introduce el autor");
-                    buscarAutor(autor = sc.nextLine());
-                break;
-        
-                case 5:
-                System.out.println("introduce el editorial");
-                    buscarEditorial(editorial = sc.nextLine());
-                break;
-        
-                case 6:
-                System.out.println("introduce el ubicacion");
-                    buscarUbicacion( ubicacion = sc.nextLine());
-                break;
-        
-                case 7:
-                System.out.println("introduce el isbn");
-                    buscarIsbn(isbn = sc.nextLine());
-                break;
-        
-                case 8:
-                System.out.println("introduce si está prestado o no");
-                    buscarPrestado(prestado = sc.nextBoolean());
-                break;
-        
-                case 9:
-                System.out.println("introduce el id del empleado que ha prestado");
-                    buscarPrestadoPorId(id = sc.nextLine());
-                break;
-        
-                case 10:
-                System.out.println("introduce el id del usuario al que se ha prestado");
-
-                    buscarPrestadoUsuarioId(idUsuarioBuscar = sc.nextLine());
-                    
-                break;
-        
-                case 11:
-                System.out.println("Saliendo...");
-
-                    opcionesMenuBuscar = -1;
-                break;
-        
-
-                default:
-                    System.out.println("Opción incorrecta vuelve a intentarlo");
-                break;
-            }
-
-
-
-
-        } while (opcionesMenuBuscar < 1 | opcionesMenuBuscar > 10);
-
-        
-
-        return librosEncontrados;
-    }
 
 
 }

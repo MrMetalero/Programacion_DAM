@@ -26,7 +26,12 @@ public abstract class GestionLibros {
 
             switch (programaControl) {
                 case 1:
-                    App.biblioteca.add(AddLibro.addLibro(stLibros)); //añade al arraylist el libro
+                    try {
+                        App.biblioteca.add(AddLibro.addLibro(stLibros)); //añade al arraylist el libro
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    
                     App.connection.commit(); //aplica los cambios
                     stLibros.close(); // Cierra el statement
                     break;
@@ -42,14 +47,36 @@ public abstract class GestionLibros {
 
                     break;
                 case 3:
-                    BuscarLibros.opcionesBuscarLibros();
+
+                    try {
+                        for (Libro libro : BuscarLibros.opcionesBuscarLibros()) {
+                            System.out.println(libro.toString());
+                            
+                        }
+
+                        
+                        
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
                     break;
 
                 case 4:
-
+                    try {
+                        AlquilarLibro.alquilarLibro(stLibros);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     break;
 
                 case 5:
+                    try {
+                        AlquilarLibro.devolverLibro(stLibros);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     break;
 
@@ -59,7 +86,7 @@ public abstract class GestionLibros {
                     break;
 
                 default:
-                System.out.println("Opción no válida: Inténtalo de nuevo");
+                System.out.println("Opción no válida: inténtalo de nuevo");
                     break;
             }
 

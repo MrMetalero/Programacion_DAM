@@ -4,12 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     static ArrayList<Libro> biblioteca = new ArrayList<>();
     static ArrayList<Empleado> empleados = new ArrayList<>();
     static ArrayList<Usuario> usuarios = new ArrayList<>();
     static Connection connection = null;
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
         
         boolean encendidoPrograma = true;
@@ -30,11 +32,22 @@ public class App {
 
         while (encendidoPrograma) {
             
+
+            Statement stSyncInicial = connection.createStatement(); //statement para sincronizar al final
+
+            try {
+                Sincronizar.sync(stSyncInicial);
+            } catch (SQLException e) {
+                System.out.println("No se ha podido sincronizar" + e.getMessage());
+            }
+        
+
+
             do {
                 
                 try {
                     System.out.println(
-                        "Introduce una de las opciones del menú:"
+                        "\n\nIntroduce una de las opciones del menú:"
                         + "[1] Gestión de libros"
                         + "[2] Gestión de usuarios" 
                         + "[3] Gestión de empleados"
@@ -42,6 +55,7 @@ public class App {
                     );
 
 
+                    programaControl = sc.nextInt();
         
                         
                     switch (programaControl) {
