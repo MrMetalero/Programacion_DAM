@@ -19,7 +19,7 @@ public class Sincronizar {
             usuarioNuevoSync.apellido2= rsUsuarios.getString("apellido2");
             usuarioNuevoSync.edad= rsUsuarios.getString("edad");
             App.usuarios.add(usuarioNuevoSync);
-            System.out.println("Sincronizando usuarios...");
+            //System.out.println("Sincronizando usuarios...");
         }
         
         
@@ -35,17 +35,18 @@ public class Sincronizar {
             empleadoNuevoSync.apellido2= rsEmpleados.getString("apellido2");
             empleadoNuevoSync.edad= rsEmpleados.getString("edad");
             App.empleados.add(empleadoNuevoSync);
-            System.out.println("Sincronizando empleados...");
+            //System.out.println("Sincronizando empleados...");
         }
         ResultSet rsLibros;
         rsLibros = st.executeQuery("SELECT * FROM libros");
 
         while (rsLibros.next()) {
             Libro libroNuevoSync = new Libro(null, null, null, null, null, false, null, null);
-            libroNuevoSync.titulo= rsLibros.getString("id");
-            libroNuevoSync.editorial= rsLibros.getString("titulo");
+            libroNuevoSync.id = rsLibros.getString("id");
+            libroNuevoSync.titulo= rsLibros.getString("titulo");
+            libroNuevoSync.editorial= rsLibros.getString("editorial");
             libroNuevoSync.autor= rsLibros.getString("autor");
-            libroNuevoSync.isbn= rsLibros.getString("editorial");
+            libroNuevoSync.isbn= rsLibros.getString("isbn");
             libroNuevoSync.ubicacion= rsLibros.getString("ubicacion");
             libroNuevoSync.prestado= rsLibros.getBoolean("prestado");
 
@@ -56,13 +57,13 @@ public class Sincronizar {
             }
             
             try {
-                libroNuevoSync.prestadoUsuario = getUsuarioById(rsUsuarios.getInt("prestadousuario"));
+                libroNuevoSync.prestadoUsuario = getUsuarioById(rsLibros.getInt("prestadousuario"));
             } catch (Exception e) {
-                System.out.println("Se ha fallado al obtener la ID del usuario" + e.getMessage());
+                System.out.println("Se ha fallado al obtener la ID del usuario o no tiene un ID asignado " + e.getMessage());
             }
             
             App.biblioteca.add(libroNuevoSync);
-            System.out.println("Sincronizando libros...");
+            //System.out.println("Sincronizando libros...");
         }
 
 

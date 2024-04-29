@@ -47,11 +47,11 @@ public class App {
                 
                 try {
                     System.out.println(
-                        "\n\nIntroduce una de las opciones del menú:"
-                        + "[1] Gestión de libros"
-                        + "[2] Gestión de usuarios" 
-                        + "[3] Gestión de empleados"
-                        + "[4] Salir"
+                        "\n\nIntroduce una de las opciones del menú:\n"
+                        + "[1] Gestión de libros\n"
+                        + "[2] Gestión de usuarios\n" 
+                        + "[3] Gestión de empleados\n"
+                        + "[4] Salir\n"
                     );
 
 

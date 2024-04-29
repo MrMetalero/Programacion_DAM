@@ -24,11 +24,12 @@ public abstract class BuscarLibros {
 
         ArrayList<Libro> librosEncontrados = new ArrayList<>();
         int opcionesMenuBuscar = -1;
-
+        librosEncontrados.clear();
 
   
 
         do {
+            librosEncontrados.clear();
 
             System.out.println("Introduce una opción del menú: \n"
             + "[1] Búsqueda múltiple \n"
@@ -55,7 +56,7 @@ public abstract class BuscarLibros {
                     System.out.println("introduce el id");
                     String id = sc.nextLine();
 
-                    System.out.println("introduce el titulo");
+                    System.out.println("introduce eLl titulo");
                     String titulo = sc.nextLine();
                     
                     System.out.println("introduce el autor");
@@ -95,8 +96,8 @@ public abstract class BuscarLibros {
                         }
                     }
 
-
-                    buscarLibros(id, titulo, autor, editorial, ubicacion, isbn, prestado, empleadoBuscar, usuarioBuscar);
+                    System.out.println(buscarLibros(id, titulo, autor, editorial, ubicacion, isbn, prestado, empleadoBuscar, usuarioBuscar));
+                    
 
                     
                 break;
@@ -105,48 +106,67 @@ public abstract class BuscarLibros {
                 case 2:
                 System.out.println("introduce el id");
                     sc.nextLine();
-                    buscarPorId(id = sc.nextLine());
+                    System.out.println("\n"+ buscarPorId(id = sc.nextLine()) + "\n");
+                    
+
                 break;
         
                 case 3:
                 System.out.println("introduce el titulo");
-                    buscarTitulo(titulo = sc.nextLine());
+                    sc.nextLine();
+                    
+                    System.out.println("\n"+ buscarTitulo(titulo = sc.nextLine()) + "\n");
                 break;
         
                 case 4:
                 System.out.println("introduce el autor");
-                    buscarAutor(autor = sc.nextLine());
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarAutor(autor = sc.nextLine()) + "\n");
+                    
                 break;
         
                 case 5:
                 System.out.println("introduce el editorial");
-                    buscarEditorial(editorial = sc.nextLine());
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarEditorial(editorial = sc.nextLine()) + "\n");
+                    
                 break;
         
                 case 6:
                 System.out.println("introduce el ubicacion");
-                    buscarUbicacion( ubicacion = sc.nextLine());
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarUbicacion( ubicacion = sc.nextLine()) + "\n");
+                    
                 break;
         
                 case 7:
                 System.out.println("introduce el isbn");
-                    buscarIsbn(isbn = sc.nextLine());
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarIsbn(isbn = sc.nextLine()) + "\n");
+
                 break;
         
                 case 8:
                 System.out.println("introduce si está prestado o no");
-                    buscarPrestado(prestado = sc.nextBoolean());
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarPrestado(prestado = sc.nextBoolean()) + "\n");
+                    
                 break;
         
                 case 9:
                 System.out.println("introduce el id del empleado que ha prestado");
-                    buscarPrestadoPorId(id = sc.nextLine());
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarPrestadoPorId(id = sc.nextLine()) + "\n");
+
+                    
                 break;
         
                 case 10:
                 System.out.println("introduce el id del usuario al que se ha prestado");
+                    sc.nextLine();
+                    System.out.println("\n"+ buscarPrestadoUsuarioId(idUsuarioBuscar = sc.nextLine()) + "\n");
 
-                    buscarPrestadoUsuarioId(idUsuarioBuscar = sc.nextLine());
+                    
                     
                 break;
         
@@ -279,6 +299,7 @@ public abstract class BuscarLibros {
             if (App.biblioteca.get(i).autor.equals(busqAutor)) {
                 listaCoincidencias += "[Autor "+busqAutor+"] ";
                 coincideAlguno = true;
+                
             }
 
             if (coincideAlguno) {
@@ -476,22 +497,30 @@ public abstract class BuscarLibros {
 
 
         for (i = 0; i < App.biblioteca.size(); i++) {
-            String listaCoincidencias = "Coincidencia encontrada en: \n"; 
+            String listaCoincidencias = "\nCoincidencia encontrada en: \n"; 
             boolean coincideAlguno = false;
 
-            System.out.println("Libro ["+ i +"]");
+                System.out.println("Buscando en libros... ["+ i +"]");
             if (App.biblioteca.get(i).id.equals(busqId)) {
                 listaCoincidencias += "[ID "+busqId+"] ";
+                
+                
                 coincideAlguno = true;
             }
 
             if (coincideAlguno) {
-                System.out.println(listaCoincidencias);
                 librosEncontrados.add(App.biblioteca.get(i));
+                System.out.println(listaCoincidencias);
+            }else{
+
+                System.out.println("No se han encontrado coincidencias\n\n");
             }
 
 
         }
+
+
+
 
         return librosEncontrados;
 

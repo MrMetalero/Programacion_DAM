@@ -12,11 +12,11 @@ public abstract class GestionUsuarios {
                 
             try {
                 System.out.println(
-                    "Introduce una de las opciones del menú:"
-                    + "[1] Añadir un usuario"
-                    + "[2] ELIMINAR un usuario" 
-                    + "[3] Buscar un usuario"
-                    + "[4] Salir"
+                    "Introduce una de las opciones del menú:\n"
+                    + "[1] Añadir un usuario\n"
+                    + "[2] ELIMINAR un usuario\n" 
+                    + "[3] Buscar un usuario\n"
+                    + "[4] Salir\n"
 
                 );
 

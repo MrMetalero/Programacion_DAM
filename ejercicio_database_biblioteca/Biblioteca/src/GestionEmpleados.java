@@ -12,11 +12,11 @@ public abstract class GestionEmpleados {
                 
             try {
                 System.out.println(
-                    "Introduce una de las opciones del menú:"
-                    + "[1] Añadir un empleado"
-                    + "[2] ELIMINAR un empleado" 
-                    + "[3] Buscar un empleado"
-                    + "[4] Salir"
+                    "Introduce una de las opciones del menú:\n"
+                    + "[1] Añadir un empleado\n"
+                    + "[2] ELIMINAR un empleado\n" 
+                    + "[3] Buscar un empleado\n"
+                    + "[4] Salir\n"
 
                 );
                 

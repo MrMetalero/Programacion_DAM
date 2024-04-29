@@ -19,7 +19,7 @@ public class AlquilarLibro {
         boolean empleadoEncontrado = false;
         boolean usuarioEncontrado = false;
         boolean idLibroEncontrada = false;
-        String sentenciaAlquilar = "UPDATE libros SET prestado = true, SET prestadopor ="+idEmpleadoPrestar+",SET prestadousuario ="+idUsuarioaPrestar+" WHERE id= idControlPrestar;";
+        String sentenciaAlquilar = "UPDATE libros SET prestado = true, SET prestadopor ="+idEmpleadoPrestar+",SET prestadousuario ="+idUsuarioaPrestar+" WHERE id= "+idControlPrestar+";";
 
 
 
@@ -30,7 +30,7 @@ public class AlquilarLibro {
             idEmpleadoPrestar = sc.nextInt();
 
             for (Empleado empleado : App.empleados) { //Comprueba si existe tu numero de empleado
-                if (String.valueOf(idEmpleadoPrestar) == empleado.id) {
+                if (String.valueOf(idEmpleadoPrestar).equals(empleado.id) ) {
                     empleadoEncontrado = true;
                 }
             }
@@ -44,14 +44,14 @@ public class AlquilarLibro {
                     if (libro.prestado == true) {
                         librosPrestables.remove(libro);
                     }else{
-                        System.out.println("\n\n"+libro.toString());
+                        System.out.println("Libros Prestable |[0]| \n\n"+libro.toString());
                         
         
                     }
         
 
                 }
-                    System.out.println("Introduce un indice para prestar un libro\n"
+                    System.out.println("Introduce la id para prestar un libro\n"
                     +"o introduce [-1] para salir"
                     );
     
@@ -60,7 +60,7 @@ public class AlquilarLibro {
                     if (idControlPrestar != -1) { //comprueba si el ID introducido coincide con uno de los libros listados
         
                         for (Libro libro : librosPrestables) {
-                            if (String.valueOf(idControlPrestar) == libro.id) {
+                            if (String.valueOf(idControlPrestar).equals(libro.id) ) {
                                 idLibroEncontrada = true; //Si coincide con alguno
 
         

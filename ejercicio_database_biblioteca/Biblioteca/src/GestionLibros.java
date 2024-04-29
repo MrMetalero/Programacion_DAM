@@ -11,13 +11,13 @@ public abstract class GestionLibros {
         do {
         
             System.out.println(
-                "Introduce una de las opciones del menú:"
-                + "[1] Añadir un libro"
-                + "[2] ELIMINAR un libro" 
-                + "[3] Buscar un libro"
-                + "[4] Alquiler"
-                + "[5] Devolución"
-                + "[6] Salir"
+                "Introduce una de las opciones del menú:\n"
+                + "[1] Añadir un libro\n"
+                + "[2] ELIMINAR un libro\n" 
+                + "[3] Buscar un libro\n"
+                + "[4] Alquiler\n"
+                + "[5] Devolución\n"
+                + "[6] Salir\n"
 
             );
 
@@ -46,15 +46,12 @@ public abstract class GestionLibros {
                     }
 
                     break;
+                    
                 case 3:
 
                     try {
-                        for (Libro libro : BuscarLibros.opcionesBuscarLibros()) {
-                            System.out.println(libro.toString());
-                            
-                        }
+                       BuscarLibros.opcionesBuscarLibros();
 
-                        
                         
                     } catch (Exception e) {
                         e.printStackTrace();
