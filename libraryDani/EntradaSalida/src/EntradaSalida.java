@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 /**
  * EntradaSalida
+ * @author Mr_Metalero (Daniel Mena)
+ * 
+ * @Descripcion Esta es una clase custom para hacer cositas
  */
 public abstract class EntradaSalida {
     public static Scanner sc = new Scanner(System.in);
@@ -50,8 +53,6 @@ public abstract class EntradaSalida {
 
     }
         
-   
-    
 
     /**
      * Devuelve un String introducido por el usuario
@@ -74,8 +75,14 @@ public abstract class EntradaSalida {
      * @throws InvalidInputException Error por tipo de dato incorrecto
      */
     public static char getChar() throws Exception{
-        
-        return sc.nextLine().charAt(0);
+    
+        char inputChar = sc.nextLine().charAt(0);
+
+        try {
+            return inputChar;
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Error: NO SE PERMITEN LETRAS O SÍMBOLOS");
+        }
 
     }
 
@@ -88,8 +95,15 @@ public abstract class EntradaSalida {
      */
     public static Character getCharacter() throws Exception{
         
-        return sc.nextLine().charAt(0);
+        char inputCharacter = sc.nextLine().charAt(0);
 
+        try {
+            return inputCharacter;
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Error: NO SE PERMITEN LETRAS O SÍMBOLOS");
+        }
+
+        
     }
 
 
@@ -101,7 +115,14 @@ public abstract class EntradaSalida {
      */
     public static double getDouble() throws Exception{
 
-        return Double.parseDouble(sc.nextLine());
+
+        String inputDouble = sc.nextLine();
+
+        try {
+            return Double.parseDouble(inputDouble) ;
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Error: NO SE PERMITEN LETRAS O SÍMBOLOS");
+        }
     }
 
 
@@ -113,7 +134,14 @@ public abstract class EntradaSalida {
      */
     public static Double getDoubleWrapper() throws Exception{
 
-        return Double.parseDouble(sc.nextLine());
+        String inputDouble = sc.nextLine();
+
+        try {
+            return Double.parseDouble(inputDouble) ;
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Error: NO SE PERMITEN LETRAS O SÍMBOLOS");
+        }
+
     }
 
 
@@ -125,7 +153,13 @@ public abstract class EntradaSalida {
      */
     public static float getFloat() throws Exception{
 
-        return Float.parseFloat(sc.nextLine());
+        String inputFloat = sc.nextLine();
+
+        try {
+            return Float.parseFloat(inputFloat);
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Error: NO SE PERMITEN LETRAS O SÍMBOLOS");
+        }
     }
 
 
@@ -137,7 +171,13 @@ public abstract class EntradaSalida {
      */
     public static Float getFloatWrapper() throws Exception{
 
-        return Float.parseFloat(sc.nextLine());
+        String inputFloat = sc.nextLine();
+
+        try {
+            return Float.parseFloat(inputFloat);
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Error: NO SE PERMITEN LETRAS O SÍMBOLOS");
+        }
     }
 
 
