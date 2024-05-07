@@ -216,6 +216,7 @@ public abstract class EntradaSalida {
 
 /**
  * InvalidInputException
+ * Error que indica que el input es inválido
  */
 class InvalidInputException extends Exception {
     
@@ -231,6 +232,7 @@ class InvalidInputException extends Exception {
 
 /**
  * InvalidRangeException
+ * Error que indica que el rango es inválido
  */
 class InvalidRange extends Exception {
     
