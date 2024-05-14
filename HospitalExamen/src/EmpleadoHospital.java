@@ -44,13 +44,7 @@ public abstract class EmpleadoHospital {
             this.nombre = EntradaSalida.getString();
             this.categoriaProfesional = EntradaSalida.getCharacter();
             this.servicio = EntradaSalida.getString();
-            this.turnicidad = EntradaSalida.get
-
-
-
-
-
-
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -80,8 +74,8 @@ public abstract class EmpleadoHospital {
         return categoriaProfesional + String.valueOf(numeroId);
     }
 
-
-
-
-
 }
+
+
+
+

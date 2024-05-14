@@ -1,7 +1,10 @@
 import java.util.Random;
 import java.util.Scanner;
-
-
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.*;
 /**
  * EntradaSalida
  * @author Mr_Metalero (Daniel Mena)
@@ -10,6 +13,57 @@ import java.util.Scanner;
  */
 public abstract class EntradaSalida {
     public static Scanner sc = new Scanner(System.in);
+
+    /**Este arrayList contiene los posibles valores de entrada para verdadero o falso (Si,no,Yes,No,N,Y etc...) 
+     * que puede introduir un usuario relacionados con
+     * true o false como booleanos
+     */
+    public static HashMap<String,Boolean> tablaBoolean = new HashMap<String,Boolean>();
+
+
+    public static Boolean getBoolean() throws InvalidInputException{
+
+        //Valores posibles para verdadero
+        tablaBoolean.put("Si", true);
+        tablaBoolean.put("si", true);
+        tablaBoolean.put("S", true);
+        tablaBoolean.put("s", true);
+        tablaBoolean.put("y", true);
+        tablaBoolean.put("Y", true);
+        tablaBoolean.put("Yes", true);
+        tablaBoolean.put("yes", true);
+        tablaBoolean.put("true", true);
+        tablaBoolean.put("True", true);
+        tablaBoolean.put("Verdadero", true);
+        tablaBoolean.put("verdadero", true);
+
+        //Valores posibles para falso
+        tablaBoolean.put("No", true);
+        tablaBoolean.put("no", true);
+        tablaBoolean.put("N", true);
+        tablaBoolean.put("n", true);
+        tablaBoolean.put("false", false);
+        tablaBoolean.put("False", false);
+        tablaBoolean.put("falso", false);
+        tablaBoolean.put("Falso", false);
+
+        String inputBooleanString = sc.nextLine();
+
+
+        if (tablaBoolean.containsKey(inputBooleanString)) {
+            return tablaBoolean.get(inputBooleanString);
+        }else{
+            throw new InvalidInputException("El valor introducido no es valido");
+
+        }
+
+
+
+    }
+
+
+
+
 
 
     /**
@@ -243,4 +297,30 @@ class InvalidRange extends Exception {
 
 
 }
+
+
+class Keyboard {
+
+    private static final Map<Integer, Boolean> pressedKeys = new HashMap<>();
+
+    static {
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(event -> {
+            synchronized (Keyboard.class) {
+                if (event.getID() == KeyEvent.KEY_PRESSED) pressedKeys.put(event.getKeyCode(), true);
+                else if (event.getID() == KeyEvent.KEY_RELEASED) pressedKeys.put(event.getKeyCode(), false);
+                return false;
+            }
+        });
+    }
+
+    public static boolean isKeyPressed(int keyCode) { // Any key code from the KeyEvent class
+        return pressedKeys.getOrDefault(keyCode, false);
+    }
+}
+
+class FrameApp extends JFrame{
+    public FrameApp(String name){
+    super(name);
+    }
+    } 
 

@@ -1,11 +1,10 @@
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.Scanner;
+import java.util.Random;
+import javax.swing.*;
 /**
  * EntradaSalida
  * @author Mr_Metalero (Daniel Mena)
@@ -18,76 +17,9 @@ public abstract class EntradaSalida {
 
 
 
-    /** Hashmap que relaciona las teclas con un boolean que representa si están presionadas o no.*/
-    private static final Map<Integer, Boolean> pressedKeys = new HashMap<>();
-    
     /** Escaner de toda la clase */
     private static Scanner sc = new Scanner(System.in);
-    
-    //Código para la comprobación de los eventos de presionar teclas
-    static {
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(event -> {
-            synchronized (Keyboard.class) {
-                if (event.getID() == KeyEvent.KEY_PRESSED) pressedKeys.put(event.getKeyCode(), true);
-                else if (event.getID() == KeyEvent.KEY_RELEASED) pressedKeys.put(event.getKeyCode(), false);
-                return false;
-            }
-        });
-    }
-
-    /** Comprueba si se está presionando una tecla
-     * @param 
-     * @return (boolean)
-     * 
-     */
-    public static boolean isKeyPressed(int keyCode) { // Cualquier Keycode de la clase KeyEvent 
-        return pressedKeys.getOrDefault(keyCode, false);
-    }
-
-
-
-
-
-    
-    private static HashMap<String,Boolean> tablaBooleanos = new HashMap<String,Boolean>();
-    /**
-     * Devuelve un boolean introducido por el usuario
-     * @return boolean
-     * 
-     * @throws InvalidInputException Error por tipo de dato incorrecto
-     */
-    public static Boolean getBoolean() throws InvalidInputException{
-        
-        tablaBooleanos.put("true", 1);
-        tablaBooleanos.put("True", 1);
-        tablaBooleanos.put("si", 1);
-        tablaBooleanos.put("Si", 1);
-        tablaBooleanos.put("s", 1);
-        tablaBooleanos.put("S", 1);
-        tablaBooleanos.put("y", 1);
-        tablaBooleanos.put("Y", 1);
-        tablaBooleanos.put("false", 0);
-        tablaBooleanos.put("False", 0);
-        tablaBooleanos.put("no", 0);
-        tablaBooleanos.put("No", 0);
-        tablaBooleanos.put("n", 0);
-        tablaBooleanos.put("N", 0);
-     
-        
-
-
-        String inputBoolean = sc.nextLine();
-        if(tablaBooleanos.containsKey(inputBoolean);){
-
-        }
-
-        
-
-
-
-
-    }
-
+   
 
     /**
      * Devuelve un int introducido por el usuario
@@ -280,13 +212,6 @@ public abstract class EntradaSalida {
     }
     
 
-    
-
-
-
-
-
-
 
 }
 
@@ -307,6 +232,7 @@ class InvalidInputException extends Exception {
 
 }
 
+
 /**
  * InvalidRangeException
  * Error que indica que el rango es inválido
@@ -319,7 +245,32 @@ class InvalidRange extends Exception {
     }
 
 
-
-
 }
+
+
+
+class Keyboard {
+
+    private static final Map<Integer, Boolean> pressedKeys = new HashMap<>();
+
+    static {
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(event -> {
+            synchronized (Keyboard.class) {
+                if (event.getID() == KeyEvent.KEY_PRESSED) pressedKeys.put(event.getKeyCode(), true);
+                else if (event.getID() == KeyEvent.KEY_RELEASED) pressedKeys.put(event.getKeyCode(), false);
+                return false;
+            }
+        });
+    }
+
+    public static boolean isKeyPressed(int keyCode) { // Any key code from the KeyEvent class
+        return pressedKeys.getOrDefault(keyCode, false);
+    }
+}
+
+class FrameApp extends JFrame{
+    public FrameApp(String name){
+    super(name);
+    }
+    } 
 
