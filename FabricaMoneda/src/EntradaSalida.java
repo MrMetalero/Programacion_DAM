@@ -12,6 +12,8 @@ public abstract class EntradaSalida {
     public static Scanner sc = new Scanner(System.in);
 
 
+
+    
     /**
      * Devuelve un int introducido por el usuario
      * @return int
