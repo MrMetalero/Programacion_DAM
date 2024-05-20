@@ -1,4 +1,5 @@
 package empleados;
+import java.util.ArrayList;
 import java.util.HashMap;
 import main.EntradaSalida;
 
@@ -15,6 +16,12 @@ import main.EntradaSalida;
  *
  */
 public abstract class EmpleadoHospital {
+
+    /**listaEmpleados 
+     * @description La lista que recopila todos los usuarios actuales en el sistema 
+     */
+    public static ArrayList<EmpleadoHospital> listaEmpleados = new ArrayList<EmpleadoHospital>();
+    
     
     /**categoríaProf 
      * @description Enlaza las categorías profesionales con un dígito para el código del empleado
@@ -52,9 +59,9 @@ public abstract class EmpleadoHospital {
         //Se inicializan los atributos comunes a los valores pasados por el usuario con sus posibles Exceptions
         try {
            
-            
+            System.out.println("Introduce el nombre del empleado");
             this.nombre = EntradaSalida.getString();
-            this.categoriaProfesional = tablaCategoriaProf.get(0);
+            System.out.println("Introduce el servicio del empleado");
             this.servicio = EntradaSalida.getString();
             
         } catch (Exception e) {

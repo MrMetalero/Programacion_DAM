@@ -1,6 +1,9 @@
 package main.utilidades;
 
 import empleados.Auxiliar;
+import empleados.EmpleadoHospital;
+import empleados.Enfermero;
+import empleados.Medico;
 import main.EntradaSalida;
 
 /**
@@ -13,8 +16,7 @@ public class MenuCrearEmpleados {
         System.out.println("[1] Crear Medico \n"+
                            "[2] Crear Auxiliar \n"+
                            "[3] Crear Enfermero \n"+
-                           "[4] Atrás"
-        
+                           "[4] Atrás\n"
         );
         int controlMenu = EntradaSalida.getInt();
 
@@ -47,15 +49,30 @@ public class MenuCrearEmpleados {
 
 
     public static void crearMedico(){
-        Auxiliar aux1 = new Auxiliar();
+        try {
+            Medico medicoNuevo = new Medico();
+            EmpleadoHospital.listaEmpleados.add(medicoNuevo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void crearAuxiliar(){
-            
+        try {
+            Auxiliar auxiliarNuevo = new Auxiliar();
+            EmpleadoHospital.listaEmpleados.add(auxiliarNuevo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void crearEnfermero(){
-    
+        try {
+            Enfermero enfermeroNuevo = new Enfermero();
+            EmpleadoHospital.listaEmpleados.add(enfermeroNuevo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

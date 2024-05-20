@@ -184,7 +184,7 @@ public abstract class EntradaSalida {
 
     /**
      * Devuelve un Double introducido por el usuario
-     * @rehome.eddmenlaf.Documentos.repositorios.Programacion_DAM.HospitalExamen.src.EntradaSalida.java;turn Double
+     * @return Double
      * 
      * @throws InvalidInputException Error por tipo de dato incorrecto
      */

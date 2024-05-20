@@ -11,9 +11,7 @@ public class Medico extends EmpleadoHospital {
     public Medico(){
         super();
         
-       
-        
-
+        this.categoriaProfesional = tablaCategoriaProf.get(1);
         numeroTotalMedicos += 1;
     }
     

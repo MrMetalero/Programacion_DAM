@@ -6,11 +6,12 @@ import main.EntradaSalida;
 /**
  * Menu
  */
-public class Menu {
+public class MenuPrincipal {
 
 
-    /**Método que nos muestra el menú principal y nos deja meter las opciones */
-    public static void menuPrincipal() {
+    /**Método que nos muestra el menú principal y nos deja meter las opciones 
+     * @throws Exception */
+    public static void menuPrincipal() throws Exception {
 
         System.out.println("[1] Dar de alta a un empleado\n" + //
         "[2] Mostrar a todos los empleados\n" + //
@@ -38,8 +39,7 @@ public class Menu {
                 try {
                     MenuCrearEmpleados.menuCrearEmpleados();
                 } catch (Exception e) {
-                 
-                    e.getMessage();
+                    e.printStackTrace();
                 }
 
             break;
@@ -77,7 +77,8 @@ public class Menu {
             break;
         
             default:
-                break;
+                throw new Exception("ESA OPCIÓN NO EXISTE, ELIGE OTRA");
+                
         }
 
     }

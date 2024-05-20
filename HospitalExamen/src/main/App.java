@@ -4,7 +4,8 @@ import java.awt.*;
 import javax.swing.JFrame;
 
 import empleados.EmpleadoHospital;
-import main.utilidades.Menu;
+import empleados.Medico;
+import main.utilidades.MenuPrincipal;
 
 
 public class App {
@@ -14,17 +15,19 @@ public class App {
 
         //Se rellenan los HashMap con los datos de inicio
         EmpleadoHospital.rellenarHashMaps();
-        
+
 
         while (encendidoPrograma) {
-            
-        
-            Menu.menuPrincipal();
+            try {
+                MenuPrincipal.menuPrincipal();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
    
 
-            
-        }
 
+        }
+    
         
         
 
