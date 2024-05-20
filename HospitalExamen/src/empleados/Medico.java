@@ -1,3 +1,4 @@
+package empleados;
 /**
  * Medico
  */
@@ -17,12 +18,7 @@ public class Medico extends EmpleadoHospital {
     }
     
 
-  /*   public void modificame()
-    {
-        this.ca
-
-    }
-*/
+  
 
     
 }

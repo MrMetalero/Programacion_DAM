@@ -1,4 +1,6 @@
+package empleados;
 import java.util.HashMap;
+import main.EntradaSalida;
 
 /**
  * EmpleadoHospital
@@ -31,9 +33,9 @@ public abstract class EmpleadoHospital {
     
 
     private final String EMPLEADO_ID;
-    public final static double SUELDO_BASE_A = 2000;
-    public final static double SUELDO_BASE_B = 1800;
-    public final static double SUELDO_BASE_C = 1500;
+    private final static double SUELDO_BASE_A = 2000;
+    private final static double SUELDO_BASE_B = 1800;
+    private final static double SUELDO_BASE_C = 1500;
 
 
     private static int numeroTotalEmpleados = 0;
@@ -50,7 +52,7 @@ public abstract class EmpleadoHospital {
         //Se inicializan los atributos comunes a los valores pasados por el usuario con sus posibles Exceptions
         try {
            
-
+            
             this.nombre = EntradaSalida.getString();
             this.categoriaProfesional = tablaCategoriaProf.get(0);
             this.servicio = EntradaSalida.getString();

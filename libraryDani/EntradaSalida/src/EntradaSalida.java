@@ -180,7 +180,7 @@ public abstract class EntradaSalida {
     }
 
 
-    /**
+    /**numeroTotalEnfermeros
      * Devuelve un Double introducido por el usuario
      * @return Double
      * 

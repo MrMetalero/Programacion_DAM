@@ -1,3 +1,4 @@
+package main;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -14,12 +15,58 @@ import javax.swing.*;
 public abstract class EntradaSalida {
 
 
-
-
-
     /** Escaner de toda la clase */
     private static Scanner sc = new Scanner(System.in);
    
+
+    /**Este arrayList contiene los posibles valores de entrada para verdadero o falso (Si,no,Yes,No,N,Y etc...) 
+     * que puede introduir un usuario relacionados con
+     * true o false como booleanos
+     */
+    public static HashMap<String,Boolean> tablaBoolean = new HashMap<String,Boolean>();
+
+    /**Esta funcion nos sirve  */
+    public static Boolean getBoolean() throws InvalidInputException{
+
+        //Valores posibles para verdadero
+        tablaBoolean.put("Si", true);
+        tablaBoolean.put("si", true);
+        tablaBoolean.put("S", true);
+        tablaBoolean.put("s", true);
+        tablaBoolean.put("y", true);
+        tablaBoolean.put("Y", true);
+        tablaBoolean.put("Yes", true);
+        tablaBoolean.put("yes", true);
+        tablaBoolean.put("true", true);
+        tablaBoolean.put("True", true);
+        tablaBoolean.put("Verdadero", true);
+        tablaBoolean.put("verdadero", true);
+
+        //Valores posibles para falso
+        tablaBoolean.put("No", true);
+        tablaBoolean.put("no", true);
+        tablaBoolean.put("N", true);
+        tablaBoolean.put("n", true);
+        tablaBoolean.put("false", false);
+        tablaBoolean.put("False", false);
+        tablaBoolean.put("falso", false);
+        tablaBoolean.put("Falso", false);
+
+        String inputBooleanString = sc.nextLine();
+
+
+        if (tablaBoolean.containsKey(inputBooleanString)) {
+            return tablaBoolean.get(inputBooleanString);
+        }else{
+            throw new InvalidInputException("El valor introducido no es valido");
+
+        }
+
+
+
+    }
+
+
 
     /**
      * Devuelve un int introducido por el usuario
@@ -137,7 +184,7 @@ public abstract class EntradaSalida {
 
     /**
      * Devuelve un Double introducido por el usuario
-     * @return Double
+     * @rehome.eddmenlaf.Documentos.repositorios.Programacion_DAM.HospitalExamen.src.EntradaSalida.java;turn Double
      * 
      * @throws InvalidInputException Error por tipo de dato incorrecto
      */
