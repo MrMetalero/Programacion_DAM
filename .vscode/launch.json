@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "REFACTOR.refactor_trabajo_individual.Main",
+            "projectName": "Programacion_DAM_e3b61271"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "com.example.Main",
             "projectName": ""
         },
