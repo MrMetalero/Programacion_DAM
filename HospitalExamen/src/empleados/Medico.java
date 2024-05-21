@@ -1,8 +1,11 @@
 package empleados;
+
+
+
 /**
  * Medico
  */
-public class Medico extends EmpleadoHospital {
+public class Medico extends EmpleadoHospital implements CalcularSueldoFinal {
 
     private static int numeroTotalMedicos = 0;
     public final static int GUARDIAS_MAXIMAS = 5;
@@ -16,7 +19,16 @@ public class Medico extends EmpleadoHospital {
     }
     
 
-  
+    public double CalcularSueldoFinal(){
+
+        
+        
+
+        return tablaSueldos.get(categoriaProfesional);
+
+    }
+
+
 
     
 }

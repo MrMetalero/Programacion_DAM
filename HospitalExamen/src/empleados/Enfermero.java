@@ -3,7 +3,7 @@ package empleados;
 /**
  * Enfermero
  */
-public class Enfermero extends EmpleadoHospital {
+public class Enfermero extends EmpleadoHospital  {
 
     private static int numeroTotalEnfermeros = 0;
     

@@ -15,7 +15,7 @@ import main.EntradaSalida;
  * 
  *
  */
-public abstract class EmpleadoHospital {
+public abstract class EmpleadoHospital implements CalcularSueldoFinal{
 
     /**listaEmpleados 
      * @description La lista que recopila todos los usuarios actuales en el sistema 
@@ -95,7 +95,6 @@ public abstract class EmpleadoHospital {
         return categoriaProfesional + String.valueOf(numeroId);
     }
 
-
     /**Rellena los HashMap con los datos iniciales correspondientes de forma que tengamos
      * todos los valores disponibles al iniciar el programa para 
      */
@@ -124,6 +123,7 @@ public abstract class EmpleadoHospital {
 
 
 }
+
   
 /**Excepción que salta cuando no se encuentra la clave asociada en el HashMap */
 class ExcepcionNoMapMatch extends Exception {
