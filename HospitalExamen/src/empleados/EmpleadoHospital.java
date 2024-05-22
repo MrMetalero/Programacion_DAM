@@ -43,6 +43,7 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
     private final static double SUELDO_BASE_A = 2000;
     private final static double SUELDO_BASE_B = 1800;
     private final static double SUELDO_BASE_C = 1500;
+    protected final static double PORCENTAJE_TURNICIDAD = 5;
 
 
     private static int numeroTotalEmpleados = 0;
@@ -94,6 +95,22 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
 
         return categoriaProfesional + String.valueOf(numeroId);
     }
+
+    /**Calcula el sueldo total del empleado */
+    public double calcularSueldoFinal(){
+        // Variable para simplificar la lectura de los porcentajes
+        double sueldoEnfermero = tablaSueldos.get(categoriaProfesional);
+        double totalSueldo = sueldoEnfermero;
+
+        if(tablaPorcentajeSuplementos.containsKey(servicio)){
+            //Calculo del valor extra del servicio
+            totalSueldo += sueldoEnfermero*tablaPorcentajeSuplementos.get(servicio)/100;
+        }
+
+        return totalSueldo;
+    }
+
+
 
     /**Rellena los HashMap con los datos iniciales correspondientes de forma que tengamos
      * todos los valores disponibles al iniciar el programa para 
