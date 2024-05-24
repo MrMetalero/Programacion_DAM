@@ -2,6 +2,7 @@ package empleados;
 import java.util.ArrayList;
 import java.util.HashMap;
 import main.EntradaSalida;
+import java.util.Map.Entry;
 
 /**
  * EmpleadoHospital
@@ -76,25 +77,42 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
 
     }
    
- 
+
+
     /**
      * Genera un código basado en la letra de la categoría profesional y un número random de 5 cifras
      * @return (String) 
      */
     private String generarCodigoEmpleado(){
-        int numeroId = 0;
-        for (int i = 0; i < 6; i++) { 
-            try {
-                numeroId += EntradaSalida.getRandomInt(0, 9);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-             
+        String codigoEmpleadoTemp = "";
+        String cerosCodigo = "";
+        String numeroEmpleados;
+
+        if (this.getCategoriaProfesional() == 'A') {
+            numeroEmpleados = String.valueOf(Medico.getNumeroTotalMedicos());
         }
+
+        if (this.getCategoriaProfesional() == 'B') {
+            numeroEmpleados = String.valueOf(Enfermero.getNumeroTotalEnfermeros());
+        }
+
+        if (this.getCategoriaProfesional() == 'C') {
+            numeroEmpleados = String.valueOf(Auxiliar.getNumeroTotalAuxiliares());
+        }
+
+
+            //añaden la letra y el número de la categoría profesional quedan 5 cifras
+            codigoEmpleadoTemp += getCategoriaProfesional();
+            codigoEmpleadoTemp += buscarNumeroCategoríaProf();
     
 
-        return categoriaProfesional + String.valueOf(numeroId);
+
+
+
+
+        return codigoEmpleadoTemp;
     }
+
 
     /**Calcula el sueldo total del empleado */
     public double calcularSueldoFinal(){
@@ -109,6 +127,87 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
 
         return totalSueldo;
     }
+
+
+
+    //<Getters>
+    
+        public String getEMPLEADO_ID() {
+            return EMPLEADO_ID;
+        }
+
+
+        public static double getSueldoBaseA() {
+            return SUELDO_BASE_A;
+        }
+
+
+        public static double getSueldoBaseB() {
+            return SUELDO_BASE_B;
+        }
+
+
+        public static double getSueldoBaseC() {
+            return SUELDO_BASE_C;
+        }
+
+
+        public static double getPorcentajeTurnicidad() {
+            return PORCENTAJE_TURNICIDAD;
+        }
+
+
+        public static int getNumeroTotalEmpleados() {
+            return numeroTotalEmpleados;
+        }
+
+
+        public String getNombre() {
+            return nombre;
+        }
+
+
+        public Character getCategoriaProfesional() {
+            return categoriaProfesional;
+        }
+
+
+        public String getServicio() {
+            return servicio;
+        }
+
+
+        public boolean isTurnicidad() {
+            return turnicidad;
+        }
+
+    //</Getters>
+
+    //<Setters>
+        public static void setNumeroTotalEmpleados(int numeroTotalEmpleados) {
+            EmpleadoHospital.numeroTotalEmpleados = numeroTotalEmpleados;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public void setCategoriaProfesional(Character categoriaProfesional) {
+            this.categoriaProfesional = categoriaProfesional;
+        }
+
+        public void setServicio(String servicio) {
+            this.servicio = servicio;
+        }
+
+        public void setTurnicidad(boolean turnicidad) {
+            this.turnicidad = turnicidad;
+        }
+    //</Setters>
+
+
+
+
 
 
 
@@ -137,11 +236,29 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
     }
 
 
+    public int buscarNumeroCategoríaProf(){
+        int numeroCategoria = -1;
+        // comprueba si el HashMap contiene nuestra categoría profesional
+        // iterate each entry of hashmap
+        for(Entry<Integer, Character> entry : tablaCategoriaProf.entrySet()) {
 
+            // si el valor que paso es igual al valor de entry
+            // retornamos el valor de la Key de entry (Osea, el número asociado a nuestra categoría profesional)
+            if(entry.getValue() == this.getCategoriaProfesional()) {
+                numeroCategoria = entry.getKey();
+            }
+        }
+        return numeroCategoria;
+    }
+  
+
+
+    
 
 }
-
   
+
+
 /**Excepción que salta cuando no se encuentra la clave asociada en el HashMap */
 class ExcepcionNoMapMatch extends Exception {
 

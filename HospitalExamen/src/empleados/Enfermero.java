@@ -33,4 +33,12 @@ public class Enfermero extends EmpleadoHospital  {
 
         return totalSueldo;
     }
+
+    public static int getNumeroTotalEnfermeros() {
+        return numeroTotalEnfermeros;
+    }
+
+    public static void setNumeroTotalEnfermeros(int numeroTotalEnfermeros) {
+        Enfermero.numeroTotalEnfermeros = numeroTotalEnfermeros;
+    }
 }

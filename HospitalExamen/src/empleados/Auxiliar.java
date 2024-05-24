@@ -30,6 +30,26 @@ public class Auxiliar extends EmpleadoHospital {
     }
 
 
+    public static int getNumeroTotalAuxiliares() {
+        return numeroTotalAuxiliares;
+    }
+
+
+    public static void setNumeroTotalAuxiliares(int numeroTotalAuxiliares) {
+        Auxiliar.numeroTotalAuxiliares = numeroTotalAuxiliares;
+    }
+
+
+    public boolean isEsDiscapacitado() {
+        return esDiscapacitado;
+    }
+
+
+    public void setEsDiscapacitado(boolean esDiscapacitado) {
+        this.esDiscapacitado = esDiscapacitado;
+    }
+
+
     @Override
     /**Calcula el sueldo total del empleado Auxiliar */
     public double calcularSueldoFinal(){
