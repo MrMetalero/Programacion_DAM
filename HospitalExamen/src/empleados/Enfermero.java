@@ -5,14 +5,14 @@ package empleados;
  */
 public class Enfermero extends EmpleadoHospital  {
 
-    private static int numeroTotalEnfermeros = 0;
+    private static int numeroTotalEnfermerosCreados = 0;
     
 
     public Enfermero(){
         super();
 
         this.categoriaProfesional = tablaCategoriaProf.get(2);
-        numeroTotalEnfermeros += 1;
+        numeroTotalEnfermerosCreados += 1;
     }
 
     @Override
@@ -34,11 +34,11 @@ public class Enfermero extends EmpleadoHospital  {
         return totalSueldo;
     }
 
-    public static int getNumeroTotalEnfermeros() {
-        return numeroTotalEnfermeros;
+    public static int getnumeroTotalEnfermerosCreados() {
+        return numeroTotalEnfermerosCreados;
     }
 
-    public static void setNumeroTotalEnfermeros(int numeroTotalEnfermeros) {
-        Enfermero.numeroTotalEnfermeros = numeroTotalEnfermeros;
+    public static void setnumeroTotalEnfermerosCreados(int numeroTotalEnfermerosCreados) {
+        Enfermero.numeroTotalEnfermerosCreados = numeroTotalEnfermerosCreados;
     }
 }

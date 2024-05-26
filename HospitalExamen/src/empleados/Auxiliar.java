@@ -8,7 +8,7 @@ import main.EntradaSalida;
 public class Auxiliar extends EmpleadoHospital {
 
     
-    private static int numeroTotalAuxiliares = 0;
+    private static int numeroTotalAuxiliaresCreados = 0;
     private boolean esDiscapacitado;
     private final double PORCENTAJE_DISCAPACIDAD = 3;
 
@@ -24,19 +24,19 @@ public class Auxiliar extends EmpleadoHospital {
             e.printStackTrace();
         }
 
-        numeroTotalAuxiliares += 1;
+        numeroTotalAuxiliaresCreados += 1;
 
 
     }
 
 
-    public static int getNumeroTotalAuxiliares() {
-        return numeroTotalAuxiliares;
+    public static int getnumeroTotalAuxiliaresCreados() {
+        return numeroTotalAuxiliaresCreados;
     }
 
 
-    public static void setNumeroTotalAuxiliares(int numeroTotalAuxiliares) {
-        Auxiliar.numeroTotalAuxiliares = numeroTotalAuxiliares;
+    public static void setnumeroTotalAuxiliaresCreados(int numeroTotalAuxiliaresCreados) {
+        Auxiliar.numeroTotalAuxiliaresCreados = numeroTotalAuxiliaresCreados;
     }
 
 

@@ -1,5 +1,6 @@
 package main.utilidades;
 
+import empleados.EmpleadoHospital;
 import main.EntradaSalida;
 
 
@@ -45,15 +46,24 @@ public class MenuPrincipal {
             break;
 
             case 2:
-            
+                for (EmpleadoHospital empleadoi : EmpleadoHospital.listaEmpleados) {
+                    System.out.println(empleadoi.toString());;
+                }
             break;
 
             case 3:
-            
+                System.out.println("Existen actualmente "+ EmpleadoHospital.getNumeroTotalEmpleadosActuales() + " empleados en el sistema");
             break;
 
             case 4:
-            
+                System.out.println("Introduce la categoría profesional (A,B,C) para buscar cuantos empleados hay de ese tipo");
+
+                try {
+                    System.out.println("Existen actualmente "+ EmpleadoHospital.getNumeroTotalEmpleadosTipoX() + " empleados en el sistema");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                
             break;
 
             case 5:
@@ -61,11 +71,11 @@ public class MenuPrincipal {
             break;
 
             case 6:
-            
+                EmpleadoHospital.eliminarEmpleado();
             break;
 
             case 7:
-            
+                EmpleadoHospital.listaEmpleados.sort(null);
             break;
 
             case 8:

@@ -7,7 +7,7 @@ import main.EntradaSalida;
  */
 public class Medico extends EmpleadoHospital {
 
-    private static int numeroTotalMedicos = 0;
+    private static int numeroTotalMedicosCreados = 0;
     public final static int GUARDIAS_MAXIMAS = 5;
     private int numeroGuardias;
 
@@ -26,15 +26,15 @@ public class Medico extends EmpleadoHospital {
 
 
         
-        numeroTotalMedicos += 1;
+        numeroTotalMedicosCreados += 1;
     }
     
-    public static int getNumeroTotalMedicos() {
-        return numeroTotalMedicos;
+    public static int getnumeroTotalMedicosCreados() {
+        return numeroTotalMedicosCreados;
     }
 
-    public static void setNumeroTotalMedicos(int numeroTotalMedicos) {
-        Medico.numeroTotalMedicos = numeroTotalMedicos;
+    public static void setnumeroTotalMedicosCreados(int numeroTotalMedicosCreados) {
+        Medico.numeroTotalMedicosCreados = numeroTotalMedicosCreados;
     }
 
     @Override

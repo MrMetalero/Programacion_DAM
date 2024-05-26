@@ -1,8 +1,15 @@
 package empleados;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import main.EntradaSalida;
+
 import java.util.Map.Entry;
+import java.util.Queue;
+import java.util.Set;
 
 /**
  * EmpleadoHospital
@@ -12,17 +19,16 @@ import java.util.Map.Entry;
  * @param nombreCompleto (String) nombre del empleado
  * @param servicio (String) la actividad específica que realiza el empleado
  * @param turnicidad (boolean) si realiza turnicidad 
- * @param numeroTotalEmpleados (int) numero total
+ * @param numeroTotalEmpleadosCreados (int) numero total
  * 
  *
  */
-public abstract class EmpleadoHospital implements CalcularSueldoFinal{
+public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparable<EmpleadoHospital>{
 
     /**listaEmpleados 
      * @description La lista que recopila todos los usuarios actuales en el sistema 
      */
     public static ArrayList<EmpleadoHospital> listaEmpleados = new ArrayList<EmpleadoHospital>();
-    
     
     /**categoríaProf 
      * @description Enlaza las categorías profesionales con un dígito para el código del empleado
@@ -38,7 +44,18 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
      * @description Enlaza los servicios con un dígito para el porcentaje de suplemento
      */
     public static HashMap<String,Integer> tablaPorcentajeSuplementos = new HashMap<String,Integer>();
-    
+
+    /** usadasIds
+     * @description Almacena las IDs que están siendo usadas en este momento
+     * */    
+    private static final Set<String> usadasIds = new HashSet<>();
+
+    /** disponiblesIds
+     * @description Guarda las IDs disponibles para ofrecer a los nuevos empleados
+     */
+    private static final Queue<String> disponiblesIds = new LinkedList<>();
+
+
 
     private final String EMPLEADO_ID;
     private final static double SUELDO_BASE_A = 2000;
@@ -46,8 +63,9 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
     private final static double SUELDO_BASE_C = 1500;
     protected final static double PORCENTAJE_TURNICIDAD = 5;
 
-
-    private static int numeroTotalEmpleados = 0;
+    
+    private static int numeroTotalEmpleadosCreados = 0;
+    protected static int contadorIds = 0;  //para IDs únicas cuando no son reutilizables
     protected String nombre;
     protected Character categoriaProfesional;
     protected String servicio;
@@ -72,7 +90,7 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
 
 
         //Agrega un empleado al contador
-        numeroTotalEmpleados+=1;
+        numeroTotalEmpleadosCreados+=1;
         
 
     }
@@ -85,27 +103,34 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
      */
     private String generarCodigoEmpleado(){
         String codigoEmpleadoTemp = "";
-        String cerosCodigo = "";
-        String numeroEmpleados;
-
-        if (this.getCategoriaProfesional() == 'A') {
-            numeroEmpleados = String.valueOf(Medico.getNumeroTotalMedicos());
-        }
-
-        if (this.getCategoriaProfesional() == 'B') {
-            numeroEmpleados = String.valueOf(Enfermero.getNumeroTotalEnfermeros());
-        }
-
-        if (this.getCategoriaProfesional() == 'C') {
-            numeroEmpleados = String.valueOf(Auxiliar.getNumeroTotalAuxiliares());
-        }
+        
 
 
-            //añaden la letra y el número de la categoría profesional quedan 5 cifras
-            codigoEmpleadoTemp += getCategoriaProfesional();
-            codigoEmpleadoTemp += buscarNumeroCategoríaProf();
+
+
+        //añaden la letra y el número de la categoría profesional quedan 5 cifras
+        codigoEmpleadoTemp += getCategoriaProfesional();
+        codigoEmpleadoTemp += buscarNumeroCategoríaProf();
+
+
+
+        String parteUnica;
+        // Re-usa las Ids que están disponibles si es posible y si no genera una nueva
+        if (!disponiblesIds.isEmpty()) {
+            parteUnica = disponiblesIds.poll();
+        } else {
+            if (contadorIds == 99999) { //Se asegura de que no creemos más de las IDs posibles con 5 cifras
+                throw new IllegalStateException("No se pueden generar más códigos, se ha alcanzado el límite");
+            }
     
+            do {
+                parteUnica = String.format("%05d", contadorIds++ % 100000); // Formatea rellenando con 0s una longitud de 5 cifras, asegurándose de que tiene 5 cifras usando modulo
+            } while (usadasIds.contains(parteUnica));
+        }
 
+
+        usadasIds.add(parteUnica); // Añade al set de usadas la ID generada pero solo la parte variable
+        codigoEmpleadoTemp += parteUnica; // Suma al string la parte nueva
 
 
 
@@ -113,97 +138,68 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
         return codigoEmpleadoTemp;
     }
 
+    /**
+     * Elimina un usuario con la ID proporcionado por el usuario
+     */
+    public static void eliminarEmpleado(){
+        boolean empleadoEncontrado = false;
+        String inputUsuarioId = "";
+        System.out.println("Introduce el ID del empleado a eliminar:");
+        Iterator<EmpleadoHospital> iteradorEmpleados = listaEmpleados.iterator();
+
+        try {
+            inputUsuarioId = EntradaSalida.getString();
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+
+        
+
+        // Usa el iterador para atravesar el arraylist y que no de error al borrar
+        // compara la ID que tiene el objeto y borra el objeto del arraylist si coincide con la ID introducida
+        // Además pone en disponible la id borrada y la saca de la lista de IDs usadas
+        while (iteradorEmpleados.hasNext()) {
+            EmpleadoHospital empleadoActual = iteradorEmpleados.next();
+            String posibleIdDisponible;
+
+            if (empleadoActual.EMPLEADO_ID.equals(inputUsuarioId)) {
+                empleadoEncontrado = true; //para controlar si has introducido un ID erroneo
+                posibleIdDisponible = empleadoActual.EMPLEADO_ID; 
+                iteradorEmpleados.remove();
+                
+                //Añade a las ID disponibles el trozo variable de el empleado eliminado
+                disponiblesIds.add(posibleIdDisponible.substring(2)); 
+
+                //Añade a las ID disponibles el trozo variable de el empleado eliminado
+                usadasIds.remove(posibleIdDisponible.substring(2));
+
+
+                
+            }
+        }
+
+
+        if (!empleadoEncontrado) {
+            System.out.println("Empleado con ID " + inputUsuarioId + " no encontrado");
+
+        }
+
+    }
+
 
     /**Calcula el sueldo total del empleado */
     public double calcularSueldoFinal(){
-        // Variable para simplificar la lectura de los porcentajes
-        double sueldoEnfermero = tablaSueldos.get(categoriaProfesional);
-        double totalSueldo = sueldoEnfermero;
-
-        if(tablaPorcentajeSuplementos.containsKey(servicio)){
-            //Calculo del valor extra del servicio
-            totalSueldo += sueldoEnfermero*tablaPorcentajeSuplementos.get(servicio)/100;
-        }
+        // para hacer override en los demás
+        double totalSueldo= 0;
 
         return totalSueldo;
     }
 
 
 
-    //<Getters>
     
-        public String getEMPLEADO_ID() {
-            return EMPLEADO_ID;
-        }
 
-
-        public static double getSueldoBaseA() {
-            return SUELDO_BASE_A;
-        }
-
-
-        public static double getSueldoBaseB() {
-            return SUELDO_BASE_B;
-        }
-
-
-        public static double getSueldoBaseC() {
-            return SUELDO_BASE_C;
-        }
-
-
-        public static double getPorcentajeTurnicidad() {
-            return PORCENTAJE_TURNICIDAD;
-        }
-
-
-        public static int getNumeroTotalEmpleados() {
-            return numeroTotalEmpleados;
-        }
-
-
-        public String getNombre() {
-            return nombre;
-        }
-
-
-        public Character getCategoriaProfesional() {
-            return categoriaProfesional;
-        }
-
-
-        public String getServicio() {
-            return servicio;
-        }
-
-
-        public boolean isTurnicidad() {
-            return turnicidad;
-        }
-
-    //</Getters>
-
-    //<Setters>
-        public static void setNumeroTotalEmpleados(int numeroTotalEmpleados) {
-            EmpleadoHospital.numeroTotalEmpleados = numeroTotalEmpleados;
-        }
-
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
-
-        public void setCategoriaProfesional(Character categoriaProfesional) {
-            this.categoriaProfesional = categoriaProfesional;
-        }
-
-        public void setServicio(String servicio) {
-            this.servicio = servicio;
-        }
-
-        public void setTurnicidad(boolean turnicidad) {
-            this.turnicidad = turnicidad;
-        }
-    //</Setters>
 
 
 
@@ -239,7 +235,7 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
     public int buscarNumeroCategoríaProf(){
         int numeroCategoria = -1;
         // comprueba si el HashMap contiene nuestra categoría profesional
-        // iterate each entry of hashmap
+        // itera todo el HashMap
         for(Entry<Integer, Character> entry : tablaCategoriaProf.entrySet()) {
 
             // si el valor que paso es igual al valor de entry
@@ -252,23 +248,172 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal{
     }
   
 
+    /**cuenta los empleados dentro del arraylist
+     * @return (int) numero de empleados
+     */
+    public static int getNumeroTotalEmpleadosActuales(){
 
+
+        return listaEmpleados.size();
+    }
+
+    /**
+     * 
+     * @param tipoEmpleado La letra de la categoría profesional para contar cuantos hay de X tipo.
+     * @return contadorEmpleadosEncontrados (int) el número de empleados encontrados con esa categoría profesional
+     * @throws Exception 
+     */
+    public static int getNumeroTotalEmpleadosTipoX() throws Exception{
+
+        Character tipoEmpleado = EntradaSalida.getCharacter();
+
+        if (!tablaCategoriaProf.containsKey(tipoEmpleado) ) {
+            throw new Exception("Esa categoría no existe");
+        }
+       
+        int contadorEmpleadosEncontrados = 0;
+        Iterator<EmpleadoHospital> iteradorEmpleadosGetMedicos = listaEmpleados.iterator();
+
+        while (iteradorEmpleadosGetMedicos.hasNext()) {
+            EmpleadoHospital empleadoActual = iteradorEmpleadosGetMedicos.next();
+
+            if (empleadoActual.categoriaProfesional.equals(tipoEmpleado)) {
+                contadorEmpleadosEncontrados++;
+            }
+        }
+
+        return contadorEmpleadosEncontrados;
+
+    }
+
+
+    /**Compara un objeto EmpleadoHospital con otro utilizando el comparador de String en el valor de EmpleadoID */
+    @Override
+    public int compareTo(EmpleadoHospital empeladoComparar){
+        return this.getEMPLEADO_ID().compareTo(empeladoComparar.getEMPLEADO_ID());
+        
+    }
+
+    //Esto se puede mejorar seguro estoy utilizando demasiados iteradores que hacen los mismo.
+    //Tal vez lo mejor sea meterlos en una función de búsqueda con un parámetro que controle las funciones 
+    //internas de borrar, modificar etc...
+    /**Busca en el arraylist el objeto de la posición seleccionada, cambia el valor de sus guardias en un objeto temporal
+     * y luego reemplaza el original con el modificado. Casteado a Medico porque si no no puedo usar sus funciones particulares
+     */
+    public static void buscarMedico(){
+
+        try {
+            int posicionSeleccionada = EntradaSalida.getInt();
+            if (listaEmpleados.get(posicionSeleccionada).categoriaProfesional == 'A') {
+                Medico empleadoActual = (Medico)listaEmpleados.get(posicionSeleccionada);
+                empleadoActual.setNumeroGuardias();
     
+
+                listaEmpleados.set(posicionSeleccionada, empleadoActual); 
+                
+            }else{
+                System.out.println("El empleado elegido no es un médico");
+            }
+    
+           
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public String toString(){
+        return listaEmpleados.indexOf(this) + "\t" + this.getEMPLEADO_ID() + "\t" + this.nombre;
+
+
+    }
+
+
+    //<Getters>
+    
+    public String getEMPLEADO_ID() {
+        return EMPLEADO_ID;
+    }
+
+
+    public static double getSueldoBaseA() {
+        return SUELDO_BASE_A;
+    }
+
+
+    public static double getSueldoBaseB() {
+        return SUELDO_BASE_B;
+    }
+
+
+    public static double getSueldoBaseC() {
+        return SUELDO_BASE_C;
+    }
+
+
+    public static double getPorcentajeTurnicidad() {
+        return PORCENTAJE_TURNICIDAD;
+    }
+
+
+    public static int getnumeroTotalEmpleadosCreados() {
+        return numeroTotalEmpleadosCreados;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    public Character getCategoriaProfesional() {
+        return categoriaProfesional;
+    }
+
+
+    public String getServicio() {
+        return servicio;
+    }
+
+
+    public boolean isTurnicidad() {
+        return turnicidad;
+    }
+
+//</Getters>
+
+//<Setters>
+    public static void setnumeroTotalEmpleadosCreados(int numeroTotalEmpleadosCreados) {
+        EmpleadoHospital.numeroTotalEmpleadosCreados = numeroTotalEmpleadosCreados;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCategoriaProfesional(Character categoriaProfesional) {
+        this.categoriaProfesional = categoriaProfesional;
+    }
+
+    public void setServicio(String servicio) {
+        this.servicio = servicio;
+    }
+
+    public void setTurnicidad(boolean turnicidad) {
+        this.turnicidad = turnicidad;
+    }
+//</Setters>
+
+
+
 
 }
   
 
 
-/**Excepción que salta cuando no se encuentra la clave asociada en el HashMap */
-class ExcepcionNoMapMatch extends Exception {
-
-    public ExcepcionNoMapMatch(String message){
-        super(message);
-
-
-    }
-    
-}
 
 
 
