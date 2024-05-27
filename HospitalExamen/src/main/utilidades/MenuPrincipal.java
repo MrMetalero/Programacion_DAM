@@ -14,7 +14,7 @@ public class MenuPrincipal {
      * @throws Exception */
     public static void menuPrincipal() throws Exception {
 
-        System.out.println("[1] Dar de alta a un empleado\n" + //
+        System.out.println("\n[1] Dar de alta a un empleado\n" + //
         "[2] Mostrar a todos los empleados\n" + //
         "[3] Consultar el número de empleados en activo\n" + //
         "[4] Consultar el número de empleados por categoría\n" + //
@@ -46,20 +46,18 @@ public class MenuPrincipal {
             break;
 
             case 2:
-                for (EmpleadoHospital empleadoi : EmpleadoHospital.listaEmpleados) {
-                    System.out.println(empleadoi.toString());;
-                }
+                EmpleadoHospital.mostrarEmpleados();
             break;
 
             case 3:
-                System.out.println("Existen actualmente "+ EmpleadoHospital.getNumeroTotalEmpleadosActuales() + " empleados en el sistema");
+                System.out.println("\nExisten actualmente "+ EmpleadoHospital.getNumeroTotalEmpleadosActuales() + " empleados en el sistema");
             break;
 
             case 4:
-                System.out.println("Introduce la categoría profesional (A,B,C) para buscar cuantos empleados hay de ese tipo");
+                System.out.println("\nIntroduce la categoría profesional (A,B,C) para buscar cuantos empleados hay de ese tipo");
 
                 try {
-                    System.out.println("Existen actualmente "+ EmpleadoHospital.getNumeroTotalEmpleadosTipoX() + " empleados en el sistema");
+                    System.out.println("\nExisten actualmente "+ EmpleadoHospital.getNumeroTotalEmpleadosTipoX() + " empleados en el sistema");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -67,7 +65,7 @@ public class MenuPrincipal {
             break;
 
             case 5:
-            
+                EmpleadoHospital.listarEmpleadoBuscado();
             break;
 
             case 6:
@@ -79,7 +77,7 @@ public class MenuPrincipal {
             break;
 
             case 8:
-            
+            EmpleadoHospital.modificarGuardiasMedicoSeleccionado();
             break;
 
             case 9:

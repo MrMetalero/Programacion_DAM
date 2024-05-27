@@ -139,8 +139,68 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
         return codigoEmpleadoTemp;
     }
 
+    /**Busca el empleado identificado por ID pasada por el usuario
+     * @return (int) Retorna el índice del objeto encontrado para otras funciones
+     * @throws Exception Si no se encuentra el ID asociado a ningún miembro de listaEmpleados
+     */
+    public static int buscarEmpleadoPorId() throws Exception{
+        Iterator<EmpleadoHospital> iteradorEmpleados = listaEmpleados.iterator();
+
+        boolean empleadoEncontrado = false;
+        String inputUsuarioId = "";
+        int encontradoEn = -1;
+        
+        System.out.println("Introduce el ID del empleado:");
+
+        try {
+            inputUsuarioId = EntradaSalida.getString();
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+
+
+        while (iteradorEmpleados.hasNext()) {
+            EmpleadoHospital empleadoActual = iteradorEmpleados.next();
+
+            //Si la ID pasada por parámetro es igual a la del objeto en el iterador
+            if (empleadoActual.EMPLEADO_ID.equals(inputUsuarioId)) {
+                empleadoEncontrado = true; //para controlar si has introducido un ID erroneo
+                encontradoEn = listaEmpleados.lastIndexOf(empleadoActual);
+                
+                    
+                
+
+                
+            }
+        }
+
+        if (empleadoEncontrado) {
+            return encontradoEn;
+        }else{
+            throw new Exception("Nuh uh! No hay empleado con esa ID");
+
+        }
+
+       
+
+    }
+
+    /**Utiliza buscarEmpleadoporId para encontrar un empleado y muestra sus detalles por pantalla usando .toString del objeto encontrado */
+    public static void listarEmpleadoBuscado(){
+        try {
+            System.out.println(listaEmpleados.get(buscarEmpleadoPorId()).toString()); //Printea los detalles del objeto encontrado por ID
+        } catch (Exception e) {
+           
+            e.printStackTrace();
+        }
+
+
+    }
+
+
     /**
-     * Elimina un usuario con la ID proporcionado por el usuario
+     * Elimina un usuario con la ID proporcionado por el usuario y añade a disponiblesIds la ID recién liberada además de quitar de usadasIds la misma ID
      */
     public static void eliminarEmpleado(){
         boolean empleadoEncontrado = false;
@@ -155,7 +215,6 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
             e.printStackTrace();
         }
 
-        
 
         // Usa el iterador para atravesar el arraylist y que no de error al borrar
         // compara la ID que tiene el objeto y borra el objeto del arraylist si coincide con la ID introducida
@@ -172,7 +231,7 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
                 //Añade a las ID disponibles el trozo variable de el empleado eliminado
                 disponiblesIds.add(posibleIdDisponible.substring(2)); 
 
-                //Añade a las ID disponibles el trozo variable de el empleado eliminado
+                //Elimina a las ID usadas del trozo variable de el empleado eliminado
                 usadasIds.remove(posibleIdDisponible.substring(2));
 
 
@@ -296,16 +355,19 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
         
     }
 
-    //Esto se puede mejorar seguro estoy utilizando demasiados iteradores que hacen los mismo.
-    //Tal vez lo mejor sea meterlos en una función de búsqueda con un parámetro que controle las funciones 
-    //internas de borrar, modificar etc...
-    /**Busca en el arraylist el objeto de la posición seleccionada, cambia el valor de sus guardias en un objeto temporal
-     * y luego reemplaza el original con el modificado. Casteado a Medico porque si no no puedo usar sus funciones particulares
-     */
-    public static void buscarMedico(){
+    /**Lista los empleados del ArrayList listaEmpleados y te pide que elijas uno. Comprueba si existe, si es un medico y ejecuta setNumeroGuardias() sobre el objeto Médico elegido */
+    public static void modificarGuardiasMedicoSeleccionado(){
 
+        mostrarEmpleados(); //muestra los empleados para que elijas uno de los médicos
+        System.out.println("Introduce el inidce del médico a modificar:\n");     
         try {
             int posicionSeleccionada = EntradaSalida.getInt();
+
+            if (posicionSeleccionada > listaEmpleados.size() || posicionSeleccionada < 0) {
+                throw new Exception("Error, Esa posición no existe");
+            }
+
+            // Si es un médico te deja cambiar su número de guardias (Se usa un objeto temporal)
             if (listaEmpleados.get(posicionSeleccionada).categoriaProfesional == 'A') {
                 Medico empleadoActual = (Medico)listaEmpleados.get(posicionSeleccionada);
                 empleadoActual.setNumeroGuardias();
@@ -317,14 +379,34 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
                 System.out.println("El empleado elegido no es un médico");
             }
     
-           
+            
             
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    
+
+
+
+
+
+
+
+
     }
+
+    /**Lista los empleados de listaEmpleados usando sus toString() */
+    public static void mostrarEmpleados(){
+
+        for (EmpleadoHospital empleadoi : listaEmpleados) {
+            System.out.println(empleadoi.toString());
+        }
+
+
+    }
+
 
     @Override
     public String toString(){
