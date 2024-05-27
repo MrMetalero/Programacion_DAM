@@ -62,19 +62,21 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
     private final static double SUELDO_BASE_B = 1800;
     private final static double SUELDO_BASE_C = 1500;
     protected final static double PORCENTAJE_TURNICIDAD = 5;
-
+    
     
     private static int numeroTotalEmpleadosCreados = 0;
     protected static int contadorIds = 0;  //para IDs únicas cuando no son reutilizables
     protected String nombre;
-    protected Character categoriaProfesional;
+     Character categoriaProfesional;
     protected String servicio;
     protected boolean turnicidad;
     
    
-    public EmpleadoHospital(){
+    public EmpleadoHospital(Character categoriaProf){
+        //Asigna la categoría profesional recibida a través de el constructor de la clase hija
+        this.categoriaProfesional = categoriaProf;
         //Se genera el código del empleado
-        EMPLEADO_ID = generarCodigoEmpleado();
+        EMPLEADO_ID = generarCodigoEmpleado();        
 
         //Se inicializan los atributos comunes a los valores pasados por el usuario con sus posibles Exceptions
         try {
@@ -92,18 +94,17 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
         //Agrega un empleado al contador
         numeroTotalEmpleadosCreados+=1;
         
-
+       
     }
    
 
 
     /**
-     * Genera un código basado en la letra de la categoría profesional y un número random de 5 cifras
+     * Genera un código basado en la letra de la categoría profesional, que asigna al entrar y un número random de 5 cifras
      * @return (String) 
      */
     private String generarCodigoEmpleado(){
         String codigoEmpleadoTemp = "";
-        
 
 
 
@@ -267,11 +268,12 @@ public abstract class EmpleadoHospital implements CalcularSueldoFinal, Comparabl
 
         Character tipoEmpleado = EntradaSalida.getCharacter();
 
-        if (!tablaCategoriaProf.containsKey(tipoEmpleado) ) {
+        // Si la categoría a buscar no está dentro de las contempladas en tablaCategoriaProf da error
+        if (!tablaCategoriaProf.containsValue(tipoEmpleado) ) {
             throw new Exception("Esa categoría no existe");
         }
        
-        int contadorEmpleadosEncontrados = 0;
+        int contadorEmpleadosEncontrados = 0; // variable para contar los encontrados de X tipo
         Iterator<EmpleadoHospital> iteradorEmpleadosGetMedicos = listaEmpleados.iterator();
 
         while (iteradorEmpleadosGetMedicos.hasNext()) {

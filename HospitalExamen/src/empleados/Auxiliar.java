@@ -11,11 +11,10 @@ public class Auxiliar extends EmpleadoHospital {
     private static int numeroTotalAuxiliaresCreados = 0;
     private boolean esDiscapacitado;
     private final double PORCENTAJE_DISCAPACIDAD = 3;
+    
 
     public Auxiliar(){
-        super();
-
-        this.categoriaProfesional = tablaCategoriaProf.get(3);
+        super(tablaCategoriaProf.get(3));
 
         try {
             System.out.println("¿Es discapacitado?");

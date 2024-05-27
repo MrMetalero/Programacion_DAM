@@ -9,9 +9,8 @@ public class Enfermero extends EmpleadoHospital  {
     
 
     public Enfermero(){
-        super();
+        super(tablaCategoriaProf.get(2));
 
-        this.categoriaProfesional = tablaCategoriaProf.get(2);
         numeroTotalEnfermerosCreados += 1;
     }
 

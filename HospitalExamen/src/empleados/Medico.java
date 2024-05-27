@@ -12,9 +12,8 @@ public class Medico extends EmpleadoHospital {
     private int numeroGuardias;
 
     public Medico(){
-        super();
-        
-        this.categoriaProfesional = tablaCategoriaProf.get(1);
+        super(tablaCategoriaProf.get(1));
+       
         
         
         // Estableces manualmente el numero de guardias y se repite si fallas
