@@ -15,7 +15,7 @@ public class App {
 
         //Se rellenan los HashMap con los datos de inicio
         EmpleadoHospital.rellenarHashMaps();
-
+        System.out.println("Iniciando programa...");
 
         while (encendidoPrograma) {
             try {
