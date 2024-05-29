@@ -5,9 +5,9 @@ package Empleados;
  */
 public interface Prestaciones {
 
-    public double calcularPrestacion();
+    public Double calcularPrestacion();
 
-    public double calcularVacaciones();
+    public Double calcularVacaciones();
 
-    public double calcularBonificaciones();
+    public Double calcularBonificaciones();
 }

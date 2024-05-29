@@ -14,11 +14,11 @@ import java.util.ArrayList;
  * Clase abstracta que envuelve a los empleados contratados de forma temporal y a los gerentes. No se puede instanciar
  */
 public abstract class Empleado implements Prestaciones, Serializable{
-    public static ArrayList<Empleado> listaEmpleados = new ArrayList<Empleado>();
+    
     protected String nombre = null;
     protected String apellido = null;
     protected String identificador = null;
-    protected double salario;
+    protected Double salario;
     protected static int contadorIds = 0;  //para IDs únicas cuando no son reutilizables
     
 
@@ -38,28 +38,33 @@ public abstract class Empleado implements Prestaciones, Serializable{
         nombre = EntradaSalida.getString();
         apellido = EntradaSalida.getString();
         salario = EntradaSalida.getDouble();
-        identificador = generarCodigoEmpleado();
+        identificador = generarCodigoEmpleadoLocal();
 
     }
 
-    public Empleado(String nombreEmpleado, String apellidoEmpleado, String identificadorEmpleado, float salarioEmpleado){
+    /**
+     * 
+     * @param nombreEmpleado (String)
+     * @param apellidoEmpleado (String)
+     * @param salarioEmpleado (float)
+     */
+    public Empleado(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado){
         nombre = nombreEmpleado;
         apellido = apellidoEmpleado;
-        identificador = identificadorEmpleado;
         salario = salarioEmpleado;
-        identificador = generarCodigoEmpleado();
+        identificador = generarCodigoEmpleadoLocal(); // CAMBIAR POR EL DE LA BASE DE DATOS
         
     }
 
     /**Clase abstracta para implementar en las subclases y permitir calcular sus prestaciones */
-    public abstract double calcularPrestacion();
+    public abstract Double calcularPrestacion();
 
     
     /**
      * Genera un código basado en la letra de la categoría profesional, que asigna al entrar y un número random de 5 cifras
      * @return (String) 
      */
-    private String generarCodigoEmpleado(){
+    private String generarCodigoEmpleadoLocal(){
         String codigoEmpleadoTemp = "";
 
 

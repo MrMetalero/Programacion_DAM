@@ -5,20 +5,32 @@ package Empleados;
  */
 public class EmpleadoTemporal extends Empleado {
 
+    public EmpleadoTemporal(){
+        super();
+
+
+    }
+
+    public EmpleadoTemporal(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado){
+        super(nombreEmpleado,apellidoEmpleado,salarioEmpleado);
+
+
+    }
+
     @Override
-    public double calcularPrestacion() {
+    public Double calcularPrestacion() {
 
         throw new UnsupportedOperationException("Unimplemented method 'calcularPrestacion'");
     }
 
     @Override
-    public double calcularVacaciones() {
+    public Double calcularVacaciones() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'calcularVacaciones'");
     }
 
     @Override
-    public double calcularBonificaciones() {
+    public Double calcularBonificaciones() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'calcularBonificaciones'");
     }
