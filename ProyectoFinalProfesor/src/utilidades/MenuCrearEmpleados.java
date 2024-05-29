@@ -1,5 +1,4 @@
 package utilidades;
-import main.EntradaSalida;
 
 /**
  * MenuCrearEmpleados

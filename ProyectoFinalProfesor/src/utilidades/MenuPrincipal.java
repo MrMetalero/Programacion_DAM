@@ -1,6 +1,4 @@
 package utilidades;
-import main.EntradaSalida;
-
 
 /**
  * Menu
