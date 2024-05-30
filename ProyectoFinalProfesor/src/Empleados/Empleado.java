@@ -17,9 +17,9 @@ public abstract class Empleado implements Prestaciones, Serializable{
     
     protected String nombre = null;
     protected String apellido = null;
-    protected String identificador = null;
+    protected Integer identificador = null;
     protected Double salario;
-    protected static int contadorIds = 0;  //para IDs únicas cuando no son reutilizables
+    protected static int contadorIds = 0;  //para IDs únicas cuando no son reutilizables (Si construyo IDs locales)
     
 
 

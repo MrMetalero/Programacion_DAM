@@ -10,7 +10,7 @@ import utilidades.EntradaSalida;
 public abstract class BDFunciones {
 
     public static Connection conexion = EntradaSalida.establecerConexion("proyectofinal", "mati", "mati");
-    
+
 
     /**
      * Se encarga de contar las columnas que tiene una tabla

@@ -10,12 +10,12 @@ public class App {
 
     public static void main(String[] args) throws Exception {
      
-        conexion = EntradaSalida.establecerConexion("biblioteca", "postgres", "postgres");
+        conexion = EntradaSalida.establecerConexion("empleadosproyectofinal", "mati", "mati");
         Statement st = conexion.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM empleados");
+        ResultSet rs = st.executeQuery("SELECT * FROM empleados_temporales");
         while (rs.next()) {
             
-            String datos = "";
+            String datos = ""; 
             datos += rs.getString("nombre");
             System.out.println(datos);
         }
