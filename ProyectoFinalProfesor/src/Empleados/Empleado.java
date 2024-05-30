@@ -3,6 +3,10 @@ package Empleados;
 import utilidades.EntradaSalida;
 import java.util.HashSet;
 import java.util.Set;
+
+import BaseDatosFunciones.BDFunciones;
+import excepciones.SalarioInvalidoException;
+
 import java.util.Queue;
 import java.util.LinkedList;
 import java.io.Serializable;
@@ -15,51 +19,86 @@ import java.util.ArrayList;
  */
 public abstract class Empleado implements Prestaciones, Serializable{
     
+    protected Integer identificador = null;
     protected String nombre = null;
     protected String apellido = null;
-    protected Integer identificador = null;
     protected Double salario;
     protected static int contadorIds = 0;  //para IDs únicas cuando no son reutilizables (Si construyo IDs locales)
     
 
 
     /** usadasIds
-     * @description Almacena las IDs que están siendo usadas en este momento
+     * @description Almacena las IDs que están siendo usadas en este momento LOCAL
      * */    
     private static final Set<String> usadasIds = new HashSet<>();
 
     /** disponiblesIds
-     * @description Guarda las IDs disponibles para ofrecer a los nuevos empleados
+     * @description Guarda las IDs disponibles para ofrecer a los nuevos empleados LOCAL
      */
     private static final Queue<String> disponiblesIds = new LinkedList<>();
 
-
-    public Empleado(){
+    /**El constructor para construir un objeto Empleado en sus atributos comunes */
+    public Empleado() throws SalarioInvalidoException{
+        System.out.println("Introduce un nombre");
         nombre = EntradaSalida.getString();
+        System.out.println("Introduce un apellido");
         apellido = EntradaSalida.getString();
+        System.out.println("Introduce un salario");
         salario = EntradaSalida.getDouble();
-        identificador = generarCodigoEmpleadoLocal();
-
+        
+        //400 como número arbitrario de salario mínimo hehe
+        if (salario < 400) {
+            throw new SalarioInvalidoException(apellido);
+        }
     }
 
     /**
-     * 
+     * Constructor de objetos Empleado con los atributos comunes pasados como argumentos
      * @param nombreEmpleado (String)
      * @param apellidoEmpleado (String)
      * @param salarioEmpleado (float)
+     * @throws SalarioInvalidoException 
      */
-    public Empleado(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado){
+    public Empleado(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado) throws SalarioInvalidoException{
         nombre = nombreEmpleado;
         apellido = apellidoEmpleado;
         salario = salarioEmpleado;
-        identificador = generarCodigoEmpleadoLocal(); // CAMBIAR POR EL DE LA BASE DE DATOS
-        
+
+        //400 como número arbitrario de salario mínimo hehe
+        if (salario < 400) {
+            throw new SalarioInvalidoException(apellido);
+        }
     }
 
-    /**Clase abstracta para implementar en las subclases y permitir calcular sus prestaciones */
+        /**
+     * Constructor de objetos Empleado PARA LA CARGA DE LA BASE DE DATOS con los atributos comunes pasados como argumentos
+     * @param nombreEmpleado (String)
+     * @param apellidoEmpleado (String)
+     * @param salarioEmpleado (float)
+     * @throws SalarioInvalidoException 
+     */
+    public Empleado(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado, Integer id) throws SalarioInvalidoException{
+        nombre = nombreEmpleado;
+        apellido = apellidoEmpleado;
+        salario = salarioEmpleado;
+        identificador = id;
+
+        //400 como número arbitrario de salario mínimo hehe
+        if (salario < 400) {
+            throw new SalarioInvalidoException(apellido);
+        }
+    }
+    
+
+    /**Clase abstracta para implementar en las subclases y permitir calcular sus Prestacion */
     public abstract Double calcularPrestacion();
 
-    
+    /**Clase abstracta para implementar en las subclases y permitir calcular sus Vacaciones */
+    public abstract void calcularVacaciones();
+
+    /**Clase abstracta para implementar en las subclases y permitir calcular sus Bonificaciones */
+    public abstract void calcularBonificaciones();
+
     /**
      * Genera un código basado en la letra de la categoría profesional, que asigna al entrar y un número random de 5 cifras
      * @return (String) 
@@ -92,4 +131,60 @@ public abstract class Empleado implements Prestaciones, Serializable{
         return codigoEmpleadoTemp;
     }
     
+
+    //GETTERS Y SETTERS
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public Integer getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(Integer identificador) {
+        this.identificador = identificador;
+    }
+
+    public Double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+
+    public static int getContadorIds() {
+        return contadorIds;
+    }
+
+    public static void setContadorIds(int contadorIds) {
+        Empleado.contadorIds = contadorIds;
+    }
+
+    public static Set<String> getUsadasids() {
+        return usadasIds;
+    }
+
+    public static Queue<String> getDisponiblesids() {
+        return disponiblesIds;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado [identificador=" + identificador + ", nombre=" + nombre + ", apellido=" + apellido
+                + ", salario=" + salario + ", calcularPrestacion()=" + calcularPrestacion() + "]";
+    }
+
 }

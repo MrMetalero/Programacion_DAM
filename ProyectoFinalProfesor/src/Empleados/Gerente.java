@@ -1,20 +1,21 @@
 package Empleados;
 
+import excepciones.SalarioInvalidoException;
 import utilidades.EntradaSalida;
 
 /**
  * Gerente
  */
 public class Gerente extends Empleado {
-    private static String departamento;
+    private String departamento;
 
-    public Gerente(){
+    public Gerente() throws SalarioInvalidoException{
         super();
         departamento = EntradaSalida.getString();
         
     }
 
-    public Gerente(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado, String departamentoEmpleado){
+    public Gerente(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado, String departamentoEmpleado) throws SalarioInvalidoException{
         super(nombreEmpleado,apellidoEmpleado,salarioEmpleado);
         departamento = departamentoEmpleado;
 
@@ -23,19 +24,18 @@ public class Gerente extends Empleado {
 
     @Override
     public Double calcularPrestacion() {
-        throw new UnsupportedOperationException("Unimplemented method 'calcularPrestacion'");
+        Double extraGerente = 2000.0;
+        return salario + extraGerente;
     }
 
     @Override
-    public Double calcularVacaciones() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularVacaciones'");
+    public void calcularVacaciones() {
+        System.out.println("CALCULANDO VACACIONES FICTICIAS BLABLABLA");
     }
 
     @Override
-    public Double calcularBonificaciones() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularBonificaciones'");
+    public void calcularBonificaciones() {
+        System.out.println("CALCULANDO BONIFICACIONES FICTICIAS BLABLABLA");
     }
 
     

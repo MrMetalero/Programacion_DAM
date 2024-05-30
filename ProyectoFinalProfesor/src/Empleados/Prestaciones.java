@@ -7,7 +7,7 @@ public interface Prestaciones {
 
     public Double calcularPrestacion();
 
-    public Double calcularVacaciones();
+    public void calcularVacaciones();
 
-    public Double calcularBonificaciones();
+    public void calcularBonificaciones();
 }
