@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import BaseDatosFunciones.BDFunciones;
+import excepciones.FailedCreateEmpleado;
 import excepciones.SalarioInvalidoException;
 
 import java.util.Queue;
@@ -37,8 +38,10 @@ public abstract class Empleado implements Prestaciones, Serializable{
      */
     private static final Queue<String> disponiblesIds = new LinkedList<>();
 
+
+    
     /**El constructor para construir un objeto Empleado en sus atributos comunes */
-    public Empleado() throws SalarioInvalidoException{
+    public Empleado() throws SalarioInvalidoException, FailedCreateEmpleado{
         System.out.println("Introduce un nombre");
         nombre = EntradaSalida.getString();
         System.out.println("Introduce un apellido");
@@ -183,8 +186,8 @@ public abstract class Empleado implements Prestaciones, Serializable{
 
     @Override
     public String toString() {
-        return "Empleado [identificador=" + identificador + ", nombre=" + nombre + ", apellido=" + apellido
-                + ", salario=" + salario + ", calcularPrestacion()=" + calcularPrestacion() + "]";
+        return "Empleado [identificador= " + identificador + ", nombre= " + nombre + ", apellido= " + apellido
+                + ", salario= " + salario + ", calcularPrestacion()= " + calcularPrestacion() + "]";
     }
 
 }

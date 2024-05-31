@@ -190,7 +190,6 @@ public abstract class EntradaSalida {
     public static Character getCharacter(){
         
         char inputCharacter = sc.nextLine().charAt(0);
-
         try {
             return inputCharacter;
         } catch (NumberFormatException e) {

@@ -1,6 +1,8 @@
 package Empleados;
 
 import BaseDatosFunciones.BDFunciones;
+import excepciones.FailedCreateEmpleado;
+import excepciones.SalarioInvalidoException;
 
 /**
  * EmpleadoTemporal
@@ -9,14 +11,15 @@ public class EmpleadoTemporal extends Empleado {
 
     /**
      * Constructor de EmpleadoTemporal que pide los datos al usuario a través de EntradaSalida y utiliza BDFunciones para replicar la creación del objeto en la Base de Datos
+     * @throws SalarioInvalidoException 
      * @throws Exception
      */
-    public EmpleadoTemporal() throws Exception{
+    public EmpleadoTemporal() throws FailedCreateEmpleado, SalarioInvalidoException{
         super();
         identificador = BDFunciones.crearEmpleadoTemporalBD(this);
 
         if (identificador == null) {
-            throw new Exception("ERROR AL CREAR EL EMPLEADO TEMPORAL, LA ID NO SE PUDO OBTENER");
+            throw new FailedCreateEmpleado("ERROR AL CREAR EL EMPLEADO TEMPORAL, LA ID NO SE PUDO OBTENER");
         }
     }
 
@@ -41,13 +44,14 @@ public class EmpleadoTemporal extends Empleado {
      * @param apellidoEmpleado
      * @param salarioEmpleado
      * @param id
+     * @throws SalarioInvalidoException 
      * @throws Exception
      */
-    public EmpleadoTemporal(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado, Integer id) throws Exception{
+    public EmpleadoTemporal(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado, Integer id) throws FailedCreateEmpleado, SalarioInvalidoException{
         super(nombreEmpleado,apellidoEmpleado,salarioEmpleado, id);
 
         if (identificador == null) {
-            throw new Exception("ERROR AL CREAR EL EMPLEADO TEMPORAL, LA ID NO SE PUDO OBTENER");
+            throw new FailedCreateEmpleado("ERROR AL CREAR EL EMPLEADO TEMPORAL, LA ID NO SE PUDO OBTENER");
         }
     }
 

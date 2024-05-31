@@ -5,6 +5,7 @@ import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 import Empleados.EmpleadoTemporal;
+import Empleados.Gerente;
 import Empleados.GestionEmpleados;
 import utilidades.EntradaSalida;
 /**
@@ -12,7 +13,7 @@ import utilidades.EntradaSalida;
  */
 public abstract class BDFunciones {
 
-    public static Connection conexion = EntradaSalida.establecerConexion("proyectofinalprofesor", "postgres", "postgres");
+    public static Connection conexion = EntradaSalida.establecerConexion("proyectofinalprofesor", "mati", "mati");
 
 
     /**
@@ -83,6 +84,44 @@ public abstract class BDFunciones {
 
     }
 
+
+    /**Crea un Gerente en la base de datos y devuelve el identificador del empleado Gerente creado
+     * @returns (Integer) identificador de la base de datos para un Gerente
+     */
+    public static Integer crearGerenteBD(Gerente gerenteTemp1){
+        String codigoSql = "INSERT INTO gerentes (nombre,apellido,salario,departamento) VALUES(?,?,?,?)";
+        PreparedStatement stCrearTemporal;
+
+        try {
+            stCrearTemporal = conexion.prepareStatement(codigoSql, Statement.RETURN_GENERATED_KEYS);
+            
+
+            stCrearTemporal.setString(1,gerenteTemp1.getNombre());
+            stCrearTemporal.setString(2,gerenteTemp1.getApellido());
+            stCrearTemporal.setDouble(3,gerenteTemp1.getSalario());
+            stCrearTemporal.setString(4,gerenteTemp1.getDepartamento());
+
+            int filasAfectadas = stCrearTemporal.executeUpdate();
+            //Como solo hago un insert por ejecución siempre va a haber una sola clave generada o ninguna por algún error
+            ResultSet clavesGeneradas = stCrearTemporal.getGeneratedKeys();
+            clavesGeneradas.next();
+            //asignamos al empleado que estamos creando su clave creada por SERIAL en la base de datos
+            gerenteTemp1.setIdentificador(clavesGeneradas.getInt("identificador"));
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }
+
+
+
+    
+        return gerenteTemp1.getIdentificador();
+        
+
+    }
+
     /**Guarda los datos de los empleados en la base de datos
      * @returns void
      */
@@ -123,12 +162,30 @@ public abstract class BDFunciones {
                 GestionEmpleados.listaEmpleados.add(empleadoTemporalCache);
             }
 
+            PreparedStatement statementCargaDatosGerente = conexion.prepareStatement(codigoSqlGerentes);
+            ResultSet resultadoQueryTemporalesGerente = statementCargaDatosGerente.executeQuery();
+            while (resultadoQueryTemporalesGerente.next()) {
+
+                //Saca los datos necesarios del resultset para obtener de una fila todos los atributos necesarios para construir un empleadoTemporal y los guarda en variables
+                nombreCache = resultadoQueryTemporalesGerente.getString("nombre");
+                apellidoCache = resultadoQueryTemporalesGerente.getString("apellido");
+                salarioCache =  resultadoQueryTemporalesGerente.getDouble("salario") ;
+                identificadorCache = resultadoQueryTemporalesGerente.getInt("identificador");
+
+                //Se usan las variables para crear un objeto temporal que añadir al ArrayList que contiene nuestros empleados
+                EmpleadoTemporal empleadoTemporalCache = new EmpleadoTemporal(nombreCache, apellidoCache, salarioCache, identificadorCache);
+                GestionEmpleados.listaEmpleados.add(empleadoTemporalCache);
+                
+            }
+
+
 
 
         } catch (SQLException e) {
             realizarRollback();
             e.printStackTrace();
         }
+        
         
         realizarCommitBD();
 

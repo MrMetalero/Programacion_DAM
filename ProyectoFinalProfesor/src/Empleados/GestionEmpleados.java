@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import excepciones.EmpleadoNoEncontradoException;
+import excepciones.FailedCreateEmpleado;
 import excepciones.SalarioInvalidoException;
 import utilidades.EntradaSalida;
 
@@ -24,7 +25,10 @@ public abstract class GestionEmpleados {
      */
     public static void rellenarHashMap(){
         for (Empleado empleadoActual : listaEmpleados) {
-            mapaEmpleadosId.put(empleadoActual.getIdentificador(), empleadoActual);
+            if (empleadoActual.identificador != null) {
+                mapaEmpleadosId.put(empleadoActual.getIdentificador(), empleadoActual);
+            }
+            
         }
     }
 
@@ -32,7 +36,7 @@ public abstract class GestionEmpleados {
 
 
     /**
-     * 
+     * No está desarrollado porque se ha optado por usar la base de datos para obtener los IDs (Impredecible)
      * @param empleado
      * @return
      */
@@ -71,25 +75,18 @@ public abstract class GestionEmpleados {
     /**
      * Crea y agrega un nuevo EmpleadoTemporal a la base de datos y al Arraylist listaEmpleados
      * @param empleado
+     * @throws SalarioInvalidoException 
      */
-    public static void agregarEmpleadoTemporal(){
+    public static void agregarEmpleadoTemporal() throws FailedCreateEmpleado, SalarioInvalidoException{
         EmpleadoTemporal empTempCreado = null;
         try {
             empTempCreado = new EmpleadoTemporal();
-        } catch (Exception e) {
-    
-            e.printStackTrace();
-        }
-        if (empTempCreado == null) {
-
-            try {
-                throw new Exception("Error al Crear el empleado. El empleado es nulo");
-            } catch (Exception e) {
-                e.printStackTrace();
-                BDFunciones.realizarRollback(); 
-            }
+            
+        } catch (FailedCreateEmpleado e) {
+            throw e;
         }
 
+        
         BDFunciones.realizarCommitBD();
         listaEmpleados.add(empTempCreado);
         
@@ -98,9 +95,10 @@ public abstract class GestionEmpleados {
     /**
      * Agrega un Gerente generalista con unos parámetros definidos (Para debug)
      * @param empleado
+     * @throws FailedCreateEmpleado 
      * 
      */
-    public static void agregarEmpleadoGerenteDefault(Gerente empleado,int opcionEjemplo){
+    public static void agregarEmpleadoGerenteDefault(Gerente empleado,int opcionEjemplo) throws FailedCreateEmpleado{
 
         
         switch (opcionEjemplo) {
@@ -146,14 +144,24 @@ public abstract class GestionEmpleados {
       
     }
 
+
     /**
      * Agrega un Gerente al que se le pasan por parámetro los valores a través de funciones de  EntradaSalida.java
      * @param empleado
+     * @throws SalarioInvalidoException 
      *
      */
-    public static void agregarEmpleadoGerente(Gerente empleado){
+    public static void agregarEmpleadoGerente() throws FailedCreateEmpleado, SalarioInvalidoException{
         Gerente empTempCreado = null;
+        try {
+            empTempCreado = new Gerente();
+        } catch (FailedCreateEmpleado e) {
+            throw e;
+        }
 
+        BDFunciones.realizarCommitBD();
+        listaEmpleados.add(empTempCreado);
+        
     
     }
 
@@ -171,13 +179,18 @@ public abstract class GestionEmpleados {
                 it.remove();
             }
         }
+
+
+
+        //FALTA QUE LO REFLEJE EN LA BASE DE DATOS
     }
 
     /**
      * Busca y lista empleados recogiendo una ID
-     * @param id
+     * @param idInput (Integer) Se pide un valor a través de EntradaSalida que es la ID a buscar
+     * @param printearEmpleado (boolean) true para mostrar el empleado, false para no mostrarlo
      */
-    public static Empleado buscarEmpleado(){
+    public static Empleado buscarEmpleado(boolean printearEmpleado){
         Empleado empleadoEncontrado = null;
         System.out.println("Introduce una ID para buscar un empleado");
         Integer idInput = EntradaSalida.getInteger();
@@ -190,7 +203,10 @@ public abstract class GestionEmpleados {
                 empleadoActual = it.next();
                 if (empleadoActual.identificador == idInput) {
                     empleadoEncontrado = empleadoActual;
-                    empleadoActual.toString(); // OPCIONAL, DESACTIVAR SI HACE FALTA
+                    if (printearEmpleado) {
+                        empleadoActual.toString(); // OPCIONAL EL MOSTRAR EL EMPLEADO
+                    }
+                    
                 }
             }
 
@@ -228,10 +244,6 @@ public abstract class GestionEmpleados {
     
 
  
-    /**Lista los empleados del ArrayList */
-    public static void listarEmpleados(Empleado empleadoEncontrado){
-
-    }
 
 
 
