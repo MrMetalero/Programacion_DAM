@@ -13,7 +13,7 @@ import utilidades.EntradaSalida;
  */
 public abstract class BDFunciones {
 
-    public static Connection conexion = EntradaSalida.establecerConexion("proyectofinalprofesor", "mati", "mati");
+    public static Connection conexion = EntradaSalida.establecerConexion("proyectofinalprofesor", "postgres", "postgres");
 
 
     /**
@@ -140,6 +140,7 @@ public abstract class BDFunciones {
         String apellidoCache;
         Double salarioCache;
         Integer identificadorCache;
+        String departamentoCache;
         
         
         String codigoSqlEmpleadosTemporales = "SELECT * FROM empleados_temporales";
@@ -171,9 +172,10 @@ public abstract class BDFunciones {
                 apellidoCache = resultadoQueryTemporalesGerente.getString("apellido");
                 salarioCache =  resultadoQueryTemporalesGerente.getDouble("salario") ;
                 identificadorCache = resultadoQueryTemporalesGerente.getInt("identificador");
+                departamentoCache = resultadoQueryTemporalesGerente.getString("departamento");
 
                 //Se usan las variables para crear un objeto temporal que añadir al ArrayList que contiene nuestros empleados
-                EmpleadoTemporal empleadoTemporalCache = new EmpleadoTemporal(nombreCache, apellidoCache, salarioCache, identificadorCache);
+                Gerente empleadoTemporalCache = new Gerente(nombreCache, apellidoCache, salarioCache,departamentoCache, identificadorCache);
                 GestionEmpleados.listaEmpleados.add(empleadoTemporalCache);
                 
             }

@@ -197,18 +197,15 @@ public abstract class GestionEmpleados {
 
         //Recorre el arraylist de los Empleados y busca el que coincide
         for (Empleado empleadoActual : listaEmpleados) {
-            Iterator<Empleado> it = listaEmpleados.iterator();
             //Recorre el arraylist de los Empleados y busca el que coincide
-            while (it.hasNext()) {
-                empleadoActual = it.next();
                 if (empleadoActual.identificador == idInput) {
                     empleadoEncontrado = empleadoActual;
                     if (printearEmpleado) {
-                        empleadoActual.toString(); // OPCIONAL EL MOSTRAR EL EMPLEADO
+                        System.out.println(empleadoActual.toString()); // OPCIONAL EL MOSTRAR EL EMPLEADO
                     }
                     
                 }
-            }
+            
 
         }
         //Si no se encuentra el empleado lanza una excepción
@@ -240,6 +237,34 @@ public abstract class GestionEmpleados {
             }
                 System.out.println(empleadoActual.toString());
         }
+    }
+
+    /**
+     *  Muestra la cantidad de empleados que hay en el Arraylist listaEmpleados
+     * @return (Integer) el número de empleados contenidos en el Arraylist listaEmpleados
+     */
+    public static Integer contarEmpleados(){
+        return listaEmpleados.size();
+    }
+
+    public static Integer contarEmpleadosTemporales(){
+        Integer contadorTemporales = 0;
+        for (Empleado empleadoTemporal : listaEmpleados) {
+            if (empleadoTemporal.getClass().getSimpleName().matches("EmpleadoTemporal")) {
+                contadorTemporales+=1;
+            }
+        }
+        return contadorTemporales;
+    }
+
+    public static Integer contarEmpleadosGerentes(){
+        Integer contadorGerentes = 0;
+        for (Empleado empleadoGerente : listaEmpleados) {
+            if (empleadoGerente.getClass().getSimpleName().matches("Gerente") ) {
+                contadorGerentes+=1;
+            }
+        }
+        return contadorGerentes;
     }
     
 

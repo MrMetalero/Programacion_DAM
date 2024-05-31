@@ -139,54 +139,43 @@ public abstract class Empleado implements Prestaciones, Serializable{
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getApellido() {
         return apellido;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
     public Integer getIdentificador() {
         return identificador;
     }
-
     public void setIdentificador(Integer identificador) {
         this.identificador = identificador;
     }
-
     public Double getSalario() {
         return salario;
     }
-
     public void setSalario(Double salario) {
         this.salario = salario;
     }
-
     public static int getContadorIds() {
         return contadorIds;
     }
-
     public static void setContadorIds(int contadorIds) {
         Empleado.contadorIds = contadorIds;
     }
-
     public static Set<String> getUsadasids() {
         return usadasIds;
     }
-
     public static Queue<String> getDisponiblesids() {
         return disponiblesIds;
     }
 
     @Override
     public String toString() {
-        return "Empleado [identificador= " + identificador + ", nombre= " + nombre + ", apellido= " + apellido
+        return this.getClass().getSimpleName()+ "[identificador= " + identificador + ", nombre= " + nombre + ", apellido= " + apellido
                 + ", salario= " + salario + ", calcularPrestacion()= " + calcularPrestacion() + "]";
     }
 

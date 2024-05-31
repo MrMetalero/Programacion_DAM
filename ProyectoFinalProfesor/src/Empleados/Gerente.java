@@ -33,6 +33,15 @@ public class Gerente extends Empleado {
         }
     }
 
+    public Gerente(String nombreEmpleado, String apellidoEmpleado, Double salarioEmpleado, String departamentoEmpleado, Integer idInputBD) throws SalarioInvalidoException, FailedCreateEmpleado{
+        super(nombreEmpleado,apellidoEmpleado,salarioEmpleado);
+        departamento = departamentoEmpleado;
+        identificador = idInputBD;
+        if (identificador == null) {
+            throw new FailedCreateEmpleado("ERROR AL CREAR EL EMPLEADO TEMPORAL, LA ID NO SE PUDO OBTENER");
+        }
+    }
+
    
 
 
@@ -62,7 +71,7 @@ public class Gerente extends Empleado {
 
     @Override
     public String toString() {
-        return super.toString() + " Gerente [departamento= " + departamento + "]";
+        return super.toString() + " [departamento= " + departamento + "]";
     }
 
     

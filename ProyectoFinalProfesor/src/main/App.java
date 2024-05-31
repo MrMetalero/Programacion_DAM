@@ -5,15 +5,19 @@ import BaseDatosFunciones.BDFunciones;
 import Empleados.Empleado;
 import Empleados.EmpleadoTemporal;
 import Empleados.GestionEmpleados;
+import excepciones.CaseNotFoundException;
 import excepciones.FailedCreateEmpleado;
 import excepciones.SalarioInvalidoException;
 import utilidades.EntradaSalida;
+import utilidades.MenuPrincipal;
 
 public class App {
     public static Connection conexion;
-
+    public static boolean programaEncendido = true;
     public static void main(String[] args) {
+        
         BDFunciones.apagarAutoCommit();
+        System.out.println("Comenzando programa... Autocommit apagado...");
 
         try {
             BDFunciones.cargarDatosDesdeBD();
@@ -21,38 +25,28 @@ public class App {
             e.printStackTrace();
             BDFunciones.realizarRollback();
         }
+        System.out.println("Base de datos cargada");
 
-        try {
-            GestionEmpleados.agregarEmpleadoTemporal();
-        } catch (FailedCreateEmpleado e) { //Si se detecta error al crear el usuario o su salario es inválido rollback
-            e.printStackTrace();
-            BDFunciones.realizarRollback(); 
-        } catch (SalarioInvalidoException e) {
-            e.printStackTrace();
-            BDFunciones.realizarRollback();
+
+        while (programaEncendido) {
+            try {
+                MenuPrincipal.menuPrincipal();
+            } catch (CaseNotFoundException e) {
+                e.printStackTrace();
+            }
         }
-
 
       
-        try {
-            GestionEmpleados.agregarEmpleadoGerente();
-        } catch (FailedCreateEmpleado e) { //Si se detecta error al crear el usuario o su salario es inválido rollback
-            e.printStackTrace();
-            BDFunciones.realizarRollback();
-        } catch (SalarioInvalidoException e) {
-            e.printStackTrace();
-            BDFunciones.realizarRollback();
-
-        }
+        
         
 
 
         //Empleado empleadoPrinteable = GestionEmpleados.buscarEmpleado();
         //System.out.println(empleadoPrinteable.toString());
 
-        //GestionEmpleados.listarEmpleados();
         
-        GestionEmpleados.listarEmpleados();
+        
+        
         
       
     }

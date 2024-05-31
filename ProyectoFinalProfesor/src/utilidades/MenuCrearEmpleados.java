@@ -7,7 +7,7 @@ public class MenuCrearEmpleados {
    
 
     public static void menuOpciones() throws Exception{
-        System.out.println("[1] Crear Medico \n"+
+        System.out.println("[1] Crear  \n"+
                            "[2] Crear Auxiliar \n"+
                            "[3] Crear Enfermero \n"+
                            "[4] Atrás\n"
