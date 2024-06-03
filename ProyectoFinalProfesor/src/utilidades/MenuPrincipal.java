@@ -3,6 +3,7 @@ package utilidades;
 import BaseDatosFunciones.BDFunciones;
 import Empleados.GestionEmpleados;
 import excepciones.CaseNotFoundException;
+import excepciones.EmpleadoNoEncontradoException;
 import excepciones.FailedCreateEmpleado;
 import excepciones.SalarioInvalidoException;
 import main.App;
@@ -76,7 +77,11 @@ public class MenuPrincipal {
             break;
 
             case 5:
-                
+                try {
+                    GestionEmpleados.eliminarEmpleado();
+                } catch (EmpleadoNoEncontradoException e) {
+                    e.printStackTrace();
+                }
             break;
 
             case 6:

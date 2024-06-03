@@ -4,6 +4,7 @@ import java.sql.*;
 import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
+import Empleados.Empleado;
 import Empleados.EmpleadoTemporal;
 import Empleados.Gerente;
 import Empleados.GestionEmpleados;
@@ -13,7 +14,7 @@ import utilidades.EntradaSalida;
  */
 public abstract class BDFunciones {
 
-    public static Connection conexion = EntradaSalida.establecerConexion("proyectofinalprofesor", "postgres", "postgres");
+    public static Connection conexion = EntradaSalida.establecerConexion("proyectofinalprofesor", "mati", "mati");
 
 
     /**
@@ -118,7 +119,29 @@ public abstract class BDFunciones {
 
     
         return gerenteTemp1.getIdentificador();
-        
+    }
+
+
+    public static void eliminarEmpleadoBD(Empleado gerenteTemp1){
+        String codigoSql = "DELETE FROM empleados_temporales WHERE identificador = ?; DELETE FROM gerentes WHERE identificador = ?";
+        PreparedStatement stCrearTemporal;
+        int filasAfectadas = 0;
+
+        try {
+            stCrearTemporal = conexion.prepareStatement(codigoSql);
+            stCrearTemporal.setInt(1, gerenteTemp1.getIdentificador());
+            stCrearTemporal.setInt(2, gerenteTemp1.getIdentificador());
+            System.out.println(filasAfectadas = stCrearTemporal.executeUpdate() );
+            //Como solo hago un insert por ejecución siempre va a haber una sola clave generada o ninguna por algún error
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }
+
+
+
+    
 
     }
 

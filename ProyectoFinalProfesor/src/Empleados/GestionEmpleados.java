@@ -168,18 +168,29 @@ public abstract class GestionEmpleados {
     /**
      * Elimina empleados recogiendo una ID. Utiliza un iterador para evitar excepciones recorriendo el ArrayList
      * @param id
+     * @throws EmpleadoNoEncontradoException 
      */
-    public static void eliminarEmpleado(){
+    public static void eliminarEmpleado() throws EmpleadoNoEncontradoException{
+        Empleado empleadoActual = null;
         Iterator<Empleado> it = listaEmpleados.iterator();
+        System.out.println("Introduce la ID del empleado a eliminar:");
         Integer idInput = EntradaSalida.getInteger();
         //Recorre el arraylist de los Empleados y busca el que coincide
        while (it.hasNext()) {
-            Empleado empleadoActual = it.next();
+            empleadoActual = it.next();
             if (empleadoActual.identificador == idInput) {
                 it.remove();
+                break;
             }
         }
 
+        // Para evitar eliminar en la base de datos si no se encuentra o que de error porque el empleado está inicializado en null
+        if (empleadoActual == null) {
+            throw new EmpleadoNoEncontradoException("No se ha podido encontrar el empleado a borrar");
+        }
+
+        BDFunciones.eliminarEmpleadoBD(empleadoActual); //El empleado que tiene que pasar es el que coincide en el momento que encuentra el ID
+        BDFunciones.realizarCommitBD();
 
 
         //FALTA QUE LO REFLEJE EN LA BASE DE DATOS
