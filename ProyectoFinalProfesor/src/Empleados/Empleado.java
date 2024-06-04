@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Empleado
  * Clase abstracta que envuelve a los empleados contratados de forma temporal y a los gerentes. No se puede instanciar
  */
-public abstract class Empleado implements Prestaciones, Serializable{
+public abstract class Empleado implements Prestaciones{
     
     protected Integer identificador = null;
     protected String nombre = null;

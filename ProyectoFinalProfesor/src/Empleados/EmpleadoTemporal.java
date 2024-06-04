@@ -1,5 +1,7 @@
 package Empleados;
 
+import java.io.Serializable;
+
 import BaseDatosFunciones.BDFunciones;
 import excepciones.FailedCreateEmpleado;
 import excepciones.SalarioInvalidoException;
@@ -7,7 +9,7 @@ import excepciones.SalarioInvalidoException;
 /**
  * EmpleadoTemporal
  */
-public class EmpleadoTemporal extends Empleado {
+public class EmpleadoTemporal extends Empleado implements Serializable {
 
     /**
      * Constructor de EmpleadoTemporal que pide los datos al usuario a través de EntradaSalida y utiliza BDFunciones para replicar la creación del objeto en la Base de Datos

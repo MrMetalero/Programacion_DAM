@@ -1,5 +1,7 @@
 package Empleados;
 
+import java.io.Serializable;
+
 import BaseDatosFunciones.BDFunciones;
 import excepciones.FailedCreateEmpleado;
 import excepciones.SalarioInvalidoException;
@@ -8,7 +10,7 @@ import utilidades.EntradaSalida;
 /**
  * Gerente
  */
-public class Gerente extends Empleado {
+public class Gerente extends Empleado implements Serializable {
     private String departamento;
 
     public Gerente() throws SalarioInvalidoException, FailedCreateEmpleado{

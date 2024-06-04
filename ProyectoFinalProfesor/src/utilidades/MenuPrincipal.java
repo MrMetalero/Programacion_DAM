@@ -1,5 +1,7 @@
 package utilidades;
 
+import java.io.IOException;
+
 import BaseDatosFunciones.BDFunciones;
 import Empleados.GestionEmpleados;
 import excepciones.CaseNotFoundException;
@@ -26,7 +28,9 @@ public class MenuPrincipal {
         "[6] Listar todos los empleados\n" + //
         "[7] Encender Autocommit\n" + //
         "[8] Apagar Autocommit\n" + //
-        "[9] Salir");
+        "[9] Aplanar ArrayList \n" + //
+        "[10] Leer ArrayList aplanados \n" + //
+        "[12] Salir");
 
         int programaControl = 9;
 
@@ -97,6 +101,29 @@ public class MenuPrincipal {
             break;
 
             case 9:
+                try {
+                    GestionEmpleados.aplanarArraylistOutput();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            break;
+
+            case 10:
+                try {
+                    GestionEmpleados.aplanarArraylistLectura();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            break;
+
+            case 11:
+            
+            break;
+
+            case 12:
                 App.programaEncendido = false;
             break;
         

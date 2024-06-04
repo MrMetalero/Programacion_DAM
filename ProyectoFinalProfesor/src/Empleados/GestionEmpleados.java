@@ -2,10 +2,19 @@ package Empleados;
 
 import java.util.Iterator;
 
+import AplanamientoObjetos.MiObjectOutputWriter;
 import BaseDatosFunciones.BDFunciones;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.*;
 
 import excepciones.EmpleadoNoEncontradoException;
 import excepciones.FailedCreateEmpleado;
@@ -279,7 +288,89 @@ public abstract class GestionEmpleados {
     }
     
 
+    /**
+     * Un método que dependiendo de si existe un fichero o no en un directorio, crea un fichero con el objeto listaEmpleados
+     * dentro a través de un MiObjectOutputWriter o un ObjectOutputStream para poder leer más de un objeto de dentro del fichero
+     * Utiliza un BufferedOutputStream
+     * @throws IOException
+     */
+    public static void aplanarArraylistOutput() throws IOException{
+
+        //Usar la ruta sin "/" como root porque tomará la de la raíz de linux y ahí no tengo permisos para escribir
+        // Dará IO exception
+        File fichero = new File("src/OutputArchivos/empleados.ddr");
+  
+        
+        if (fichero.exists()) {
+            //El parámetro de true sirve para indicar que escribirá al final del fichero y no al inicio
+            FileOutputStream fileOutputSt = new FileOutputStream(fichero, true);
+            BufferedOutputStream bufferedOutputSt = new BufferedOutputStream(fileOutputSt);
+
+            //Utiliza mi Clase custom MiObjectOutputWriter para crear el objectWriter
+            MiObjectOutputWriter objectWriterStreamCustom = new MiObjectOutputWriter(bufferedOutputSt);    
+            objectWriterStreamCustom.writeObject(listaEmpleados);
+            objectWriterStreamCustom.close();
+
+        }else{
+
+    
+
+            //El parámetro de true sirve para indicar que escribirá al final del fichero y no al inicio
+            FileOutputStream fileOutputSt = new FileOutputStream(fichero, true);
+            BufferedOutputStream bufferedOutputSt = new BufferedOutputStream(fileOutputSt);
+
+            //Utiliza la clase por defecto ObjectOutputStream para crear el objectWriter
+            ObjectOutputStream objectWriterStream = new MiObjectOutputWriter(bufferedOutputSt);    
+            objectWriterStream.writeObject(listaEmpleados);
+            objectWriterStream.flush();
+            objectWriterStream.close();
+        }
+
+        
+
+        
+
+    }
  
+    
+    /**
+     * Un método que dependiendo de si existe un fichero o no en un directorio, lee de este objeto un arraylist guardado como binario y sobreescribe listaEmpleados
+     * por sus valores
+     * Utiliza un BufferedInputStream
+     * @throws IOException
+     * @throws ClassNotFoundException 
+     */
+    public static void aplanarArraylistLectura() throws IOException, ClassNotFoundException{
+        ArrayList<Empleado> listaEmpleadosLectura1;
+        ArrayList<Empleado> listaEmpleadosLectura2;
+        //Usar la ruta sin "/" como root porque tomará la de la raíz de linux y ahí no tengo permisos para escribir
+        // Dará IO exception
+        File ficheroLectura = new File("src/OutputArchivos/empleados.ddr");
+  
+        
+        //El parámetro de true sirve para indicar que escribirá al final del fichero y no al inicio
+        InputStream fileInputSt = new FileInputStream(ficheroLectura);
+        BufferedInputStream bufferedInputSt = new BufferedInputStream(fileInputSt);
+
+        //Utiliza mi Clase custom MiObjectOutputWriter para crear el objectWriter
+        ObjectInputStream objetoInputSt = new ObjectInputStream(bufferedInputSt);  //Aquí un error
+        listaEmpleadosLectura1 = (ArrayList)objetoInputSt.readObject();
+        
+        //listaEmpleadosLectura2 = (ArrayList)objetoInputSt.readObject();
+        
+        objetoInputSt.close();
+
+        System.out.println("[ARRAYLIST 1]" + listaEmpleadosLectura1.toString());
+
+        //System.out.println("[ARRAYLIST 2]" + listaEmpleadosLectura2.toString());
+
+        
+
+        
+
+        
+
+    }
 
 
 
