@@ -1,7 +1,7 @@
 package ejercicios_adicionales_t5;
 import java.util.Scanner;
 
-public class Ejercicio6 {
+public class NumerosPrimos {
     
     static double F_Primos(double numX){
         

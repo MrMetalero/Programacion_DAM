@@ -1,0 +1,4 @@
+
+
+
+SELECT pg_sequence_last_value(id) FROM usuarios;
