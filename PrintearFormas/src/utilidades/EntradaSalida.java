@@ -98,7 +98,7 @@ public abstract class EntradaSalida {
             // Lanzo una excepción custom, la manejo aquí y lanzo una general hacia arriba
             System.err.println(e.getMessage());
             throw new Exception(" ERROR"); 
-        }null, A, null, null, null, null, null, nu
+        }
     }
 
 
