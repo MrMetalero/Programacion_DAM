@@ -1,4 +1,3 @@
-package ejercicios_adicionales_t5;
 import java.util.Scanner;
 
 
